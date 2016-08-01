@@ -20,8 +20,13 @@ namespace BAChallengeWebServices.Controllers
 
         public IHttpActionResult Get()
         {
-            //Activity act = new Activity { ActivityId = 1, Name = "Begimas", Date = DateTime.Now, RegistrationDate = DateTime.Now, Branch = ActivityBranch.Brain, Status = ActivityStatus.Open, Description = "Blank" };
-            var act = _dbContext.Activities.Where(x => x.Status == ActivityStatus.Open);
+            var act = _dbContext.Activities;
+            return Ok(act);
+        }
+        
+        public IHttpActionResult Get(int id)
+        {
+            var act = _dbContext.Activities.Where(x => x.ActivityId == id);
             return Ok(act);
         }
     }
