@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="EventsApp">
+
+<head> 
+<base href="/" target="_top">
+
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!-- inject:css -->
+<!-- endinject -->
+</head>
+
+<body>
+    <div ui-view></div>
+    
+<script src="libs/angular/angular.min.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+<!-- inject:js -->
+<script src="app/events.module.js"></script>
+<script src="app/event.routes.js"></script>
+<script src="app/header/header.controller.js"></script>
+<script src="app/calendar/calendar.controller.js"></script>
+<script src="app/home/home.controller.js"></script>
+<script src="app/Points/points.controller.js"></script>
+<script src="app/layout/layout.controller.js"></script>
+<!-- endinject -->
+</body>
+
+</html>

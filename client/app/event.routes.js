@@ -1,0 +1,61 @@
+(function () {
+
+	'use strict';
+	angular
+		.module('EventsApp')
+		.config(createStates);
+		
+	createStates.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+		
+	function createStates($stateProvider, $urlRouterProvider, $locationProvider) {
+
+		$locationProvider.html5Mode(true);
+		$urlRouterProvider.otherwise('/');
+
+
+		$stateProvider
+			.state('root', {
+				url: '/',
+				abstract: true,
+				views: {
+					'': {
+                        templateUrl: 'app/layout/layout.view.html',
+						controller: 'LayoutController',
+					    controllerAs: 'vm'
+					},
+					'header@root': {
+						templateUrl: 'app/header/header.view.html',
+						controller: 'HeaderController',
+					    controllerAs: 'vm'
+					}
+				}
+			})
+			// .state('root.home', {
+			// 	url: '',
+			// 	templateUrl: 'app/home/home.view.html',
+			// 	controller: 'HomeController',
+			// 	controllerAs: 'vm'
+			// })
+			.state('root.calendar', {
+				url: '',
+				templateUrl: 'app/calendar/calendar.view.html',
+				controller: 'CalendarController',
+				controllerAs: 'vm'
+			})
+			.state('root.points', {
+				url: 'points',
+				templateUrl: 'app/points/points.view.html',
+				controller: 'PointsController',
+				controllerAs: 'vm'
+			})			
+			.state('root.eventsList', {
+				url: 'eventsList',
+				templateUrl: 'app/eventsList/eventsList.view.html',
+				controller: 'EventsListController',
+				controllerAs: 'vm'
+			});
+
+
+	};
+
+})();
