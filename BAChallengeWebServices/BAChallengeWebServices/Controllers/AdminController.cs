@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Text.RegularExpressions;
 
 namespace BAChallengeWebServices.Controllers
 {
@@ -17,24 +18,13 @@ namespace BAChallengeWebServices.Controllers
         {
             _dbContext = new ApplicationDBContext();
         }
-        public IHttpActionResult Get()
-        {
-            var act = _dbContext.Admins;
-            return Ok(act);
-        }
-        public IHttpActionResult Post([FromBody] Admin admin)
-        {
-            _dbContext.Admins.Add(admin);
-            _dbContext.SaveChanges();
-            return Ok();
-        }
         public IHttpActionResult Put(int id, [FromBody]Admin admin)
         {
             var selectedRow = _dbContext.Admins.FirstOrDefault(u => u.AdminId == id);
             if (selectedRow != null)
             {
                 selectedRow.Username = admin.Username;
-                selectedRow.Password = admin.Password;
+                selectedRow.PasswordHash = admin.PasswordHash;
                 _dbContext.SaveChanges();
                 return Ok();
             }

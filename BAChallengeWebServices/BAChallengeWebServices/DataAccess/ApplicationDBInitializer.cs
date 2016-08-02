@@ -38,7 +38,7 @@ namespace BAChallengeWebServices.DataAccess
             context.Activities.Add(new Activity { ActivityId = 19, Name = "Krepšinio/futbolo turnyras", Date = DateTime.ParseExact("2016-07-25 14:10", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), RegistrationDate = DateTime.ParseExact("2016-07-20 10:50", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), Branch = ActivityBranch.Team, Status = ActivityStatus.Open, Description = "Blank" , Location = "Vilnius"});
 
             //Admins Database
-            context.Admins.Add(new Admin { AdminId = 1, Username = "Indre", Password = "baAdmin" });
+            context.Admins.Add(new Admin { AdminId = 1, Username = "Indre", PasswordHash = "13254742f632f75aa738f03dbdc60ef2daf5543de6d1a184256c48a075eace38" });
             base.Seed(context);
         }
     }
