@@ -2,3 +2,37 @@
 <a ui-sref="root.calendar">kalendorius</a>
 <a ui-sref="root.points">taskai</a>
 <a ui-sref="root.eventsList">renginius sarasas</a>
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+    </head>   
+        <body>
+            <header>
+                <nav id="header" class="navbar navbar-fixed-top menu">
+                    <div id="header-container" class="container-fluid navbar-container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only ">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a id="brand" class="navbar-brand" href="#home"><img src="images/LOGO.png" class="logo"/></a>
+                        </div>
+                        <div id="navbar" class="collapse navbar-collapse pull-right ">
+                        <ul class="nav navbar-nav">
+                            <li><a ui-sref="root.calendar">Renginių kalendorius</a></li>
+                            <li><a ui-sref="root.points">Taškai</a></li>
+                            <li><a ui-sref="root.eventsList">Visi renginiai</a></li>
+                        </ul>
+                        </div><!-- /.nav-collapse -->
+                    </div><!-- /.container -->
+                </nav><!-- /.navbar -->
+            </header>
+            <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </body>
+</html>
