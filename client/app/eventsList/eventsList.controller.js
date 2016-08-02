@@ -4,13 +4,23 @@
 
 	angular
 		.module('EventsApp')
-		.controller('EventsListController', EventsListController);
+		.controller('EventListController', EventListController);
 
-	EventsListController.$inject = ['$scope'];
+	EventListController.$inject = ['$scope', 'dataFactory'];
 
-	function EventsListController ($scope) {
+	function EventListController ($scope, dataFactory) {
 
 		var vm = this;
+
+        vm.activities = [];
+
+        dataFactory.getCustomers()
+            .then(function (activities) {
+                vm.activities = activities.data;
+                console.log("activities.data")
+            }, function (error) {
+                vm.status = 'Unable to load customer data: ' + error.message;
+            });
 
 	};
 })();

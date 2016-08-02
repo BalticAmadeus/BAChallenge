@@ -51,7 +51,7 @@
 			.state('root.eventsList', {
 				url: 'eventsList',
 				templateUrl: 'app/eventsList/eventsList.view.html',
-				controller: 'EventsListController',
+				controller: 'EventListController',
 				controllerAs: 'vm'
 			});
 

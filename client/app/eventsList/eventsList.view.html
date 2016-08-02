@@ -1,1 +1,16 @@
 <h3>eventsList</h3>
+<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter : {'Branch':  'Sports'} : true ">
+      <span>{{activity.Name}} {{activity.Date}} {{activity.Branch}}</span> <button class="btn btn-default">registracija</button>
+</div>
+<br>
+<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Games'}:true">
+      <span>{{activity.Name}} {{activity.Date}} {{activity.Branch}}</span> <button class="btn btn-default">registracija</button>
+</div>
+<br>
+<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Brain'}:true">
+      <span>{{activity.Name}} {{activity.Date}} {{activity.Branch}}</span> <button class="btn btn-default">registracija</button>
+</div>
+<br>
+<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Team'}:true">
+      <span>{{activity.Name}} {{activity.Date}} {{activity.Branch}}</span> <button class="btn btn-default">registracija</button>
+</div>
