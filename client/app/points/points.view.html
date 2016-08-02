@@ -59,53 +59,43 @@
                 </div>
             </form>
         </div>
-		<div class="col-md-9">
-    	 <table class="table table-list-search">
-                    <thead>
-                        <tr>
-                            <th>Bendra įskaita</th>
-                            <th>Pavardė</th>
-                            <th>Vardas</th>
-                            <th>Sport</th>
-                            <th>Brain</th>
-                            <th>Games</th>
-                            <th>Team</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Jonaitis</td>
-                            <td>Jonas</td>
-                            <td>2</td>
-                            <td>4</td>
-                            <td>4</td>
-                            <td>4</td>
-                            <td>14</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Petraitis</td>
-                            <td>Petras</td>
-                            <td>2</td>
-                            <td>2</td>
-                            <td>2</td>
-                            <td>2</td>
-                            <td>8</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Onaitienė</td>
-                            <td>Ona</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>4</td>
-                        </tr>
-                    </tbody>
-                </table>   
+		<div class="col-md-9" ng-controller="PointsController as controller">
+            <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+        <input type="text" class="form-control" placeholder="Filter..." ng-model="searchPerson">
+
+      </div>      
+    </div>
+  </form>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Bendra įskaita</th>
+                        <th>Pavardė</th>
+                        <th>Vardas</th>
+                        <th>Sport</th>
+                        <th>Brain</th>
+                        <th>Games</th>
+                        <th>Team</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="person in controller.people | filter:searchPerson">
+                        <td>{{person.Vieta}}</td>
+                        <td>{{person.Pavarde}}</td>
+                        <td>{{person.Vardas}}</td>
+                        <td>{{person.Sport}}</td>
+                        <td>{{person.Brain}}</td>
+                        <td>{{person.Games}}</td>
+                        <td>{{person.Team}}</td>
+                        <td>{{person.Total}}</td>
+                    </tr>
+                </tbody>
+            </table>
 		</div>
 	</div>
 </div>
