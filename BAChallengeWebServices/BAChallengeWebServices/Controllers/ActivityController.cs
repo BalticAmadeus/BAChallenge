@@ -25,7 +25,7 @@ namespace BAChallengeWebServices.Controllers
         
         public IHttpActionResult Get(int id)
         {
-            var act = _dbContext.Activities.Where(x => x.ActivityId == id);
+            var act = _dbContext.Activities.Where(x => x.ActivityId == id).Single();
             return Ok(act);
         }
         public IHttpActionResult Get(DateTime date)
