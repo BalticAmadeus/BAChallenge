@@ -1,5 +1,6 @@
 ﻿using BAChallengeWebServices.DataAccess;
 using BAChallengeWebServices.Models;
+using BAChallengeWebServices.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Http;
 
 namespace BAChallengeWebServices.Controllers
 {
+    [AllowCrossSiteJson]
     public class ActivityController : ApiController
     {
         private ApplicationDBContext _dbContext;
