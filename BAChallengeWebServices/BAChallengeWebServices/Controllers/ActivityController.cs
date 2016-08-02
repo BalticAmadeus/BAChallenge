@@ -30,13 +30,31 @@ namespace BAChallengeWebServices.Controllers
         }
         public IHttpActionResult Get(DateTime date)
         {
-            var act = _dbContext.Activities.Where(x => x.Date == date);
+            var act = _dbContext.Activities.Where(
+                x => x.Date.Year == date.Year && 
+                x.Date.Month == date.Month && 
+                x.Date.Day == date.Day
+            );
             return Ok(act);
+        }
+        public IHttpActionResult Get(string location)
+        {
+            var act = _dbContext.Activities.Where(x => x.Location == location);
+            return Ok(act);
+        }
+        public IHttpActionResult Get(ActivityBranch branch)
+        {
+            var act = _dbContext.Activities.Where(x => x.Branch == branch);
+            return Ok(act);
+        }
+        public IHttpActionResult Post([FromBody] Activity activity)
+        {
+            _dbContext.Activities.Add(activity);
+            _dbContext.SaveChanges();
+            return Ok();
         }
         public IHttpActionResult Delete(int id)
         {
-            //return Ok();
-            //int id = Int32.Parse(activityId);
             var activity = _dbContext.Activities.FirstOrDefault(u => u.ActivityId == id);
             if(activity != null)
             {
@@ -57,6 +75,7 @@ namespace BAChallengeWebServices.Controllers
                 selectedRow.Branch = activity.Branch;
                 selectedRow.Status = activity.Status;
                 selectedRow.Description = activity.Description;
+                selectedRow.Location = activity.Location;
                 _dbContext.SaveChanges();
                 return Ok();
             }
