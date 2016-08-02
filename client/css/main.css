@@ -117,7 +117,7 @@ html { height: 100%;}
 
 }
 
-.navbar .sidebar-nav li a {
+.sidebar-nav li a {
     display: block;
     font-size: 28px;
     height: 70px;
@@ -126,23 +126,21 @@ html { height: 100%;}
     padding: 10px 15px 10px 30px;    
 }
 
-.navbar .sidebar-nav{
-    margin-top: 25%;
-}
-
-.navbar .sidebar-nav li a:hover,
-.navbar .sidebar-nav li a:active,
-.navbar .sidebar-nav li a:focus,
-.navbar .sidebar-nav li.open a:hover,
-.navbar .sidebar-nav li.open a:active,
-.navbar .sidebar-nav li.open a:focus{
+.sidebar-nav li a:hover,
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus,
+.sidebar-nav li.open a:hover,
+.sidebar-nav li.open a:active,
+.sidebar-nav li.open a:focus{
     color: #fff;
     text-decoration: none;
     background-color: transparent;
 }
 
 .sidebar-nav > .sidebar-brand {
-    background-color: #330033;
+    height: 65px;
+    font-size: 20px;
+    line-height: 44px;
 }
 .sidebar-nav .dropdown-menu {
     position: relative;
