@@ -14,7 +14,6 @@ namespace BAChallengeWebServices.Models
         public ActivityStatus Status { get; set; }
         public string Description { get; set; }
         public ActivityBranch Branch { get; set; }
-
     }
 
 }
