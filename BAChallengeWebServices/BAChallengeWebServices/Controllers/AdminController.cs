@@ -18,6 +18,14 @@ namespace BAChallengeWebServices.Controllers
         {
             _dbContext = new ApplicationDBContext();
         }
+
+        public IHttpActionResult Post([FromBody] Admin admin)
+        {
+            _dbContext.Admins.Add(admin);
+            _dbContext.SaveChanges();
+            return Ok();
+        }
+
         public IHttpActionResult Put(int id, [FromBody]Admin admin)
         {
             var selectedRow = _dbContext.Admins.FirstOrDefault(u => u.AdminId == id);
