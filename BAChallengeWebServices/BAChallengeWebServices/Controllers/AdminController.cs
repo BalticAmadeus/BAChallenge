@@ -21,6 +21,9 @@ namespace BAChallengeWebServices.Controllers
 
         public IHttpActionResult Post([FromBody] Admin admin)
         {
+            if (_dbContext.Admins.Where(x => x.AdminId == admin.AdminId).Count() > 0)
+                return BadRequest();
+
             _dbContext.Admins.Add(admin);
             _dbContext.SaveChanges();
             return Ok();
@@ -36,7 +39,7 @@ namespace BAChallengeWebServices.Controllers
                 _dbContext.SaveChanges();
                 return Ok();
             }
-            return NotFound();
+            return BadRequest();
         }
     }
 }

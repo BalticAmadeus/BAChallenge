@@ -22,37 +22,63 @@ namespace BAChallengeWebServices.Controllers
         public IHttpActionResult Get()
         {
             var act = _dbContext.Activities;
+
             return Ok(act);
         }
         
         public IHttpActionResult Get(int id)
         {
             var act = _dbContext.Activities.Where(x => x.ActivityId == id).Single();
+
+            if (act == null)
+            {
+                return NotFound();
+            }
+
             return Ok(act);
         }
         public IHttpActionResult Get(DateTime date)
         {
             var act = _dbContext.Activities.Where(
-                x => x.Date.Year == date.Year && 
-                x.Date.Month == date.Month && 
+                x => x.Date.Year == date.Year &&
+                x.Date.Month == date.Month &&
                 x.Date.Day == date.Day
             );
+
+            if (act.Count() == 0)
+            {
+                return NotFound();
+            }
             return Ok(act);
         }
         public IHttpActionResult Get(string location)
         {
             var act = _dbContext.Activities.Where(x => x.Location == location);
+
+            if (act.Count() == 0)
+            {
+                return NotFound();
+            }
             return Ok(act);
         }
         public IHttpActionResult Get(ActivityBranch branch)
         {
             var act = _dbContext.Activities.Where(x => x.Branch == branch);
+
+            if (act.Count() == 0)
+                return NotFound();
+
             return Ok(act);
         }
         public IHttpActionResult Post([FromBody] Activity activity)
         {
+
+            if (_dbContext.Activities.Where(x => x.ActivityId == activity.ActivityId).Count() > 0)
+                return BadRequest();
+
             _dbContext.Activities.Add(activity);
             _dbContext.SaveChanges();
+
             return Ok();
         }
         public IHttpActionResult Delete(int id)
@@ -62,8 +88,10 @@ namespace BAChallengeWebServices.Controllers
             {
                 _dbContext.Activities.Remove(activity);
                 _dbContext.SaveChanges();
+
                 return Ok();
             }
+
             return NotFound();
         }
         public IHttpActionResult Put(int id,[FromBody]Activity activity)
@@ -81,7 +109,7 @@ namespace BAChallengeWebServices.Controllers
                 _dbContext.SaveChanges();
                 return Ok();
             }
-            return NotFound();
+            return BadRequest();
         }
     }
 }

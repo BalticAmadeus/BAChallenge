@@ -32,7 +32,6 @@ namespace BAChallengeWebServices.Controllers
             {
                 if (!regex.IsMatch(admin.Username))
                 {
-                    //Exception wrong value
                     return false;
                 }
                 
@@ -40,6 +39,7 @@ namespace BAChallengeWebServices.Controllers
                     x => x.PasswordHash == admin.PasswordHash &&
                          x.Username == admin.Username
                 ).SingleOrDefault();
+
                 if(ad == null)
                 {
                     return false;
