@@ -28,6 +28,11 @@ namespace BAChallengeWebServices.Controllers
             var act = _dbContext.Activities.Where(x => x.ActivityId == id);
             return Ok(act);
         }
+        public IHttpActionResult Get(DateTime date)
+        {
+            var act = _dbContext.Activities.Where(x => x.Date == date);
+            return Ok(act);
+        }
         public IHttpActionResult Delete(int id)
         {
             //return Ok();
