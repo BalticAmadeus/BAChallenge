@@ -13,6 +13,6 @@ namespace BAChallengeWebServices.Models
         public int ParticipantId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public virtual ICollection<Result> Results { get; set; }
+        public virtual IList<Result> Results { get; set; }
     }
 }

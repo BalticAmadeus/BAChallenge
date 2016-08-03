@@ -40,7 +40,7 @@ namespace BAChallengeWebServices.DataAccess
             //Admins Database
             context.Admins.Add(new Admin { AdminId = 1, Username = "Indre", PasswordHash = "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2" });
 
-
+            context.SaveChanges();
             //Participant Database table
             context.Participants.Add(new Participant
             {
@@ -64,7 +64,6 @@ namespace BAChallengeWebServices.DataAccess
                 new Result { ResultId = 4, Activity = context.Activities.FirstOrDefault(x=>x.ActivityId == 2), Points = 2, Description = "Silpnai" },
             }
             });
-
             base.Seed(context);
         }
 
