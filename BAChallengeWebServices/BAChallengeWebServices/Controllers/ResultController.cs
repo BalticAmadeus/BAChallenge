@@ -34,15 +34,18 @@ namespace BAChallengeWebServices.Controllers
 
         public IHttpActionResult Post([FromBody] Result result)
         {
-
-            if (_dbContext.Results.Where(x => x.ResultId == result.ResultId).Count() > 0 && result.Results >= 0)
+            if (result != null)
             {
-                return BadRequest();
-            }
-            _dbContext.Results.Add(result);
-            _dbContext.SaveChanges();
+                if (_dbContext.Results.Where(x => x.ResultId == result.ResultId).Count() > 0 && result.Results >= 0)
+                {
+                    return BadRequest();
+                }
+                _dbContext.Results.Add(result);
+                _dbContext.SaveChanges();
 
-            return Ok();
+                return Ok();
+            }
+            return BadRequest();
         }
 
         //[Authorize]
