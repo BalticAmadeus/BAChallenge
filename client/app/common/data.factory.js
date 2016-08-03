@@ -7,15 +7,11 @@
 	dataFactory.$inject = ['$http'];
 
 	 function dataFactory($http)  {
-	//var urlBase = '/api/activity';
     var dataFactory = {};
 
     dataFactory.getCustomers = function () {
  
-        return $http.get('http://mokymainet.azurewebsites.net/api/activity');
-        			// .then(function(response){
-        			// 	return response.data;
-        			// });
+        return $http.get('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity');
     };
     return dataFactory;
 	}

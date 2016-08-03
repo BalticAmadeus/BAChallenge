@@ -1,18 +1,21 @@
 /*header*/
-.header{
+/*.header{
 	height: 75px;
 	font-size: 1.8em;
 	border-radius:0;
 	margin-bottom: 0;
-}
+	width: 100%;
+}*/
 
-.header-menu{
+/*.header-menu{
 	margin-top: 10px;
-}
+}*/
 
 .header-brand > img{
 	height: 50px;
     width: 120px;
+    margin-top:-5px;
+    margin-left:40px;
 }
 /**/
 
@@ -22,13 +25,14 @@
 }
 .events-list-container{
 	margin-top: 20px;
+	padding-bottom: 50px;
 	margin: 0 auto;
     width: 80%;
     text-align: center;
 }
 .events-list-container span{
 	font-size: 1.2em;
-		cursor: pointer;
+	cursor: pointer;
 }
 
 /*@media only screen and (min-width : 768px) {
@@ -61,3 +65,58 @@
   vertical-align: middle;
 }
 /**/
+
+
+
+
+
+.navbar {
+    width: 100%;
+    margin: 0;
+    /*padding: 25px;*/
+    border-radius: 0;
+    position: absolute;
+    z-index: 99;
+    opacity: 1;
+    background-color: #000;
+    color: #fff;
+    height: 80px;
+}
+
+.nav > li {
+    margin: 0 20px 0 20px;
+}
+
+.nav > li > a {
+    transition: color 0.5s ease;
+}
+
+header {
+    font-size: 1.5em;
+}
+
+
+
+.header-left {
+    margin: 8px 0 0 -30px;
+}
+
+.header-left li a h3 {
+    font-family: great_vibes;
+    font-size: 1.5em;
+    margin: -16px;
+    padding: 0;
+}
+
+.navbar-menu{
+	margin-top:8px;
+	padding: 0;
+}
+
+.navbar button{
+	margin-top:22px;
+}
+
+.navbar-collapse{
+	background-color:black;
+}

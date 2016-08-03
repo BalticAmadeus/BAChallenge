@@ -30,12 +30,6 @@
 					}
 				}
 			})
-			// .state('root.home', {
-			// 	url: '',
-			// 	templateUrl: 'app/home/home.view.html',
-			// 	controller: 'HomeController',
-			// 	controllerAs: 'vm'
-			// })
 			.state('root.eventsList', {
 				url: '',
 				templateUrl: 'app/eventsList/eventsList.view.html',
