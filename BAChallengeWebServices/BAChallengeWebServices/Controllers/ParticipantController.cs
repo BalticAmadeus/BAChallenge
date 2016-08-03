@@ -31,6 +31,16 @@ namespace BAChallengeWebServices.Controllers
             }
         }
 
+        public IHttpActionResult Get(int id)
+        {
+            if (_dbContext.Participants.Where(x => x.ParticipantId == id).Count() > 0)
+            {
+                return Ok(_dbContext.Participants.FirstOrDefault(x => x.ParticipantId == id));
+            }
+
+            return NotFound();
+        }
+
         //[Authorize]
         public IHttpActionResult Post([FromBody] Participant participant)
         {

@@ -32,11 +32,20 @@ namespace BAChallengeWebServices.Controllers
             }
         }
 
+        public IHttpActionResult Get(int id)
+        {
+            if(_dbContext.Results.Where(x=>x.ResultId == id).Count() > 0)
+            {
+                return Ok(_dbContext.Results.FirstOrDefault(x => x.ResultId == id));
+            }
+            return NotFound();
+        }
+
         public IHttpActionResult Post([FromBody] Result result)
         {
             if (result != null)
             {
-                if (_dbContext.Results.Where(x => x.ResultId == result.ResultId).Count() > 0 && result.Results >= 0)
+                if (_dbContext.Results.Where(x => x.ResultId == result.ResultId).Count() > 0)
                 {
                     return BadRequest();
                 }
