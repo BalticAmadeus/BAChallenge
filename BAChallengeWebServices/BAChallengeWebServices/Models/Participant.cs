@@ -8,9 +8,9 @@ using System.Web;
 
 namespace BAChallengeWebServices.Models
 {
-    public class Participants
+    public class Participant
     {
-        public int ParticipantsId { get; set; }
+        public int ParticipantId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
     }
