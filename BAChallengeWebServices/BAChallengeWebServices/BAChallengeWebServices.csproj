@@ -127,6 +127,7 @@
     <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ParticipantController.cs" />
+    <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="DataAccess\ApplicationDBContext.cs" />
     <Compile Include="DataAccess\ApplicationDBInitializer.cs" />
