@@ -126,6 +126,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ParticipantController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="DataAccess\ApplicationDBContext.cs" />
     <Compile Include="DataAccess\ApplicationDBInitializer.cs" />
