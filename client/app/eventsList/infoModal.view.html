@@ -1,0 +1,18 @@
+<div>
+        <div class="modal-header">
+            <h3 class="modal-title">Informacija apie renginį</h3>
+        </div>
+        <div class="modal-body">
+        <ul>
+        	<li>Renginio pavadinimas: <b>{{vm.activity.Name}}</b></li>
+        	<li>Kategorija: <b>{{vm.activity.Branch}}</b></li>
+        	<li>Data: <b>{{vm.activity.Date}}</b></li>
+        	<li>Aprašymas: <b>{{vm.activity.Description}}</b></li>
+        	<li>Registracijos data: <b>{{vm.activity.RegistrationDate}}</b></li>
+			<li>Statusas: <b>{{vm.activity.Status}}</b></li>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" type="button" ng-click="vm.ok()">OK</button>
+            <!-- <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button> -->
+
+</div>

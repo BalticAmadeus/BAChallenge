@@ -3,6 +3,7 @@
 	'use strict';
 
 	angular
-		.module('EventsApp', [ 'ui.router' ]);
+		.module('EventsApp', [ 'ui.router',
+								'ui.bootstrap' ]);
 		
 })();

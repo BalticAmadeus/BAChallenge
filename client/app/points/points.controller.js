@@ -6,9 +6,9 @@
 		.module('EventsApp')
 		.controller('PointsController', PointsController);
 
-	//PointsController.$inject = ['$scope'];
+	PointsController.$inject = ['$scope'];
 
-	function PointsController (/*$scope*/) {
+	function PointsController () {
 
 		var vm = this;
         // Pakeist i skaityma is duombazes

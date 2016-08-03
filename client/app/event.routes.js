@@ -36,8 +36,14 @@
 			// 	controller: 'HomeController',
 			// 	controllerAs: 'vm'
 			// })
-			.state('root.calendar', {
+			.state('root.eventsList', {
 				url: '',
+				templateUrl: 'app/eventsList/eventsList.view.html',
+				controller: 'EventListController',
+				controllerAs: 'vm'
+			})
+			.state('root.calendar', {
+				url: 'calendar',
 				templateUrl: 'app/calendar/calendar.view.html',
 				controller: 'CalendarController',
 				controllerAs: 'vm'
@@ -47,15 +53,7 @@
 				templateUrl: 'app/points/points.view.html',
 				controller: 'PointsController',
 				controllerAs: 'vm'
-			})			
-			.state('root.eventsList', {
-				url: 'eventsList',
-				templateUrl: 'app/eventsList/eventsList.view.html',
-				controller: 'EventListController',
-				controllerAs: 'vm'
 			});
-
-
 	};
 
 })();

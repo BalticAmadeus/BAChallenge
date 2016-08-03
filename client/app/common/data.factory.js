@@ -11,7 +11,7 @@
     var dataFactory = {};
 
     dataFactory.getCustomers = function () {
-    	console.log("activities.data")
+ 
         return $http.get('http://mokymainet.azurewebsites.net/api/activity');
         			// .then(function(response){
         			// 	return response.data;
