@@ -37,6 +37,7 @@ namespace BAChallengeWebServices.Controllers
 
             return Ok(act);
         }
+
         public IHttpActionResult Get(DateTime date)
         {
             var act = _dbContext.Activities.Where(
@@ -72,6 +73,7 @@ namespace BAChallengeWebServices.Controllers
 
             return Ok(act);
         }
+        [Authorize]
         public IHttpActionResult Post([FromBody] Activity activity)
         {
 
@@ -84,6 +86,7 @@ namespace BAChallengeWebServices.Controllers
 
             return Ok();
         }
+        [Authorize]
         public IHttpActionResult Delete(int id)
         {
             var activity = _dbContext.Activities.FirstOrDefault(u => u.ActivityId == id);
@@ -97,6 +100,7 @@ namespace BAChallengeWebServices.Controllers
 
             return NotFound();
         }
+        [Authorize]
         public IHttpActionResult Put(int id,[FromBody]Activity activity)
         {
             var selectedRow = _dbContext.Activities.FirstOrDefault(u => u.ActivityId == id);

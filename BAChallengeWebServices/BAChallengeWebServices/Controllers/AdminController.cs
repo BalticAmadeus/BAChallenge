@@ -7,39 +7,73 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Text.RegularExpressions;
+using BAChallengeWebServices.Authentication;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace BAChallengeWebServices.Controllers
 {
     public class AdminController : ApiController
     {
-        private ApplicationDBContext _dbContext;
+        private AuthRepository _authRepo;
 
         public AdminController()
         {
-            _dbContext = new ApplicationDBContext();
+            _authRepo = new AuthRepository();
         }
-
-        public IHttpActionResult Post([FromBody] Admin admin)
+        [Authorize]
+        public async Task<IHttpActionResult> Post([FromBody] AdminModel admin)
         {
-            if (_dbContext.Admins.Where(x => x.AdminId == admin.AdminId).Count() > 0)
+            if (!ModelState.IsValid)
+            {
                 return BadRequest();
+            }
 
-            _dbContext.Admins.Add(admin);
-            _dbContext.SaveChanges();
+            IdentityResult result = await _authRepo.RegisterUser(admin);
+            IHttpActionResult errorResult = ResolveErrorMessage(result);
+
+            if (errorResult != null)
+            {
+                return errorResult;
+            }
+
             return Ok();
         }
-
-        public IHttpActionResult Put(int id, [FromBody]Admin admin)
+        [Authorize]
+        public async Task<IHttpActionResult> Put([FromBody] AdminPasswordChangeModel apcm)
         {
-            var selectedRow = _dbContext.Admins.FirstOrDefault(u => u.AdminId == id);
-            if (selectedRow != null)
+            if (apcm.Password == apcm.ConfirmPassword)
             {
-                selectedRow.Username = admin.Username;
-                selectedRow.PasswordHash = admin.PasswordHash;
-                _dbContext.SaveChanges();
-                return Ok();
+                if (await _authRepo.ChangeUserPassword(apcm.Username, apcm.Password, apcm.NewPassword))
+                {
+                    return Ok("Password change is successful");
+                }
             }
-            return BadRequest();
+            return BadRequest("Passwords do not match");  
+        }
+
+        private IHttpActionResult ResolveErrorMessage(IdentityResult result)
+        {
+            if (result == null)
+            {
+                return InternalServerError();
+            }
+            if (!result.Succeeded)
+            {
+                if (result.Errors != null)
+                {
+                    foreach (string error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error);
+                    }
+                }
+                if (ModelState.IsValid)
+                {
+                    return BadRequest();
+                }
+                return BadRequest(ModelState);
+            }
+            return null;
         }
     }
 }
