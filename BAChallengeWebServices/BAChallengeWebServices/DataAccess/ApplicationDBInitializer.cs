@@ -40,6 +40,12 @@ namespace BAChallengeWebServices.DataAccess
             //Admins Database
             context.Admins.Add(new Admin { AdminId = 1, Username = "Indre", PasswordHash = "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2" });
             base.Seed(context);
+
+            //Participant Database table
+            context.Participants.Add(new Participant { ParticipantId = 1, Name = "Anikejev", Surname = "Nikolaj" });
+
+            //Result Database table
+            context.Results.Add(new Result { ResultId = 1, ParticipantId = 1, ActivityId = 1, Results = 8, Description = "Toli nubego"});
         }
     }
 }
