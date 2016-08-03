@@ -22,6 +22,7 @@ namespace BAChallengeWebServices.Models
         [JsonConverter(typeof(StringEnumConverter))]
         public ActivityBranch Branch { get; set; }
         public string Location { get; set; }
+        public string RegistrationUrl { get; set; }
     }
 
 }

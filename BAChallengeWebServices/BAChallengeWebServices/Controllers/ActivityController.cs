@@ -66,7 +66,9 @@ namespace BAChallengeWebServices.Controllers
             var act = _dbContext.Activities.Where(x => x.Branch == branch);
 
             if (act.Count() == 0)
+            {
                 return NotFound();
+            }
 
             return Ok(act);
         }
@@ -74,8 +76,9 @@ namespace BAChallengeWebServices.Controllers
         {
 
             if (_dbContext.Activities.Where(x => x.ActivityId == activity.ActivityId).Count() > 0)
+            {
                 return BadRequest();
-
+            }
             _dbContext.Activities.Add(activity);
             _dbContext.SaveChanges();
 
