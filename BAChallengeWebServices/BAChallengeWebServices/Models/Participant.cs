@@ -9,7 +9,7 @@ using System.Web;
 namespace BAChallengeWebServices.Models
 {
     public class Participant
-    {
+    { //participant
         public int ParticipantId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

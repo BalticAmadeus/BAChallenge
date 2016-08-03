@@ -11,7 +11,6 @@ namespace BAChallengeWebServices.Models
     public class Result
     {
         public int ResultId { get; set; }
-        public virtual Participant Participant { get; set; }
         public virtual Activity Activity { get; set; }
         public int Points { get; set; }
         public string Description { get; set; }
