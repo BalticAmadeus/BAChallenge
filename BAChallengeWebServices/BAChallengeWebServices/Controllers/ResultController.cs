@@ -51,26 +51,6 @@ namespace BAChallengeWebServices.Controllers
             return NotFound();
         }
         /// <summary>
-        /// Function creates one result and all information about that result via .../result (POST)
-        /// </summary>
-        /// <param name="result">Result object, gotten from http request body</param>
-        /// <returns>IHttpActionResult</returns>
-        public IHttpActionResult Post([FromBody] Result result)
-        {
-            if (result != null)
-            {
-                if (_dbContext.Results.Where(x => x.ResultId == result.ResultId).Count() > 0)
-                {
-                    return BadRequest();
-                }
-                _dbContext.Results.Add(result);
-                _dbContext.SaveChanges();
-
-                return Ok();
-            }
-            return BadRequest();
-        }
-        /// <summary>
         ///  Function deletes selected result via .../result/1 (DELETE)
         /// </summary>
         /// <param name="id">int, gotten from http integer request</param>
@@ -87,6 +67,24 @@ namespace BAChallengeWebServices.Controllers
             }
 
             return NotFound();
+        }
+        /// <summary>
+        /// Function modify selected result via .../result/1 (PUT)
+        /// </summary>
+        /// <param name="id">int, gotten from http requested integer</param>
+        /// <param name="result">Result object, gotten from http requested body</param>
+        /// <returns>IHttpActionResult</returns>
+        public IHttpActionResult Put(int id,[FromBody]Result result)
+        {
+            var selectedResult = _dbContext.Results.FirstOrDefault(u => u.ResultId == id);
+            if (selectedResult != null)
+            {
+                selectedResult.Points = result.Points;
+                selectedResult.Description = result.Description;
+                _dbContext.SaveChanges();
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }

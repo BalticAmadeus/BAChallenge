@@ -114,12 +114,11 @@ namespace BAChallengeWebServices.Controllers
             var selectedParticipant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
             if (selectedParticipant != null)
             {
-                selectedParticipant.Name = participant.Name;
-                selectedParticipant.Surname = participant.Surname;
-                selectedParticipant.Results = participant.Results;
+                selectedParticipant.Firstname = participant.Firstname;
+                selectedParticipant.Lastname = participant.Lastname;
                 _dbContext.SaveChanges();
                 return Ok();
-            }
+            }             
             return BadRequest();
         }
     }

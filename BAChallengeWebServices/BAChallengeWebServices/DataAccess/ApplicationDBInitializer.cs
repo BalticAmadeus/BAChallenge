@@ -49,21 +49,42 @@ namespace BAChallengeWebServices.DataAccess
             context.Activities.Add(new Activity { ActivityId = 18, Name = "Dažasvydis", Date = DateTime.ParseExact("2016-07-11 15:20", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), RegistrationDate = DateTime.ParseExact("2016-07-08 10:20", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), Branch = ActivityBranch.Team, Status = ActivityStatus.Open, Description = "Blank", Location = "Vilnius", RegistrationUrl = @"https://docs.google.com/spreadsheets/d/1fb_OWYg_X-JGkTogEQe78qoakBh-H2UpFDr1OOjwlwM/edit?usp=sharing" });
             context.Activities.Add(new Activity { ActivityId = 19, Name = "Krepšinio/futbolo turnyras", Date = DateTime.ParseExact("2016-07-25 14:10", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), RegistrationDate = DateTime.ParseExact("2016-07-20 10:50", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), Branch = ActivityBranch.Team, Status = ActivityStatus.Open, Description = "Blank", Location = "Vilnius", RegistrationUrl = @"https://docs.google.com/spreadsheets/d/1fb_OWYg_X-JGkTogEQe78qoakBh-H2UpFDr1OOjwlwM/edit?usp=sharing" });
 
-
+            context.SaveChanges();
             //Participant Database table
             context.Participants.Add(new Participant
             {
                 ParticipantId = 1,
-                Name = "Nikolaj",
-                Surname = "Anikejev",
-                Results = new List<Result>()
+                Firstname = "Nikolaj",
+                Lastname = "Anikejev",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 1, ActivityId = 1, ParticipantId = 1, Activity = context.Activities.FirstOrDefault(x => x.ActivityId ==1), Points = 6, Description = "Gerai padirbejai"},
+                    new Result { ResultId = 2, ActivityId = 12, ParticipantId = 1, Activity = context.Activities.FirstOrDefault(x => x.ActivityId ==12), Points = 2, Description = "Galėjai ir geriau"}
+                }
             });
             context.Participants.Add(new Participant
             {
                 ParticipantId = 2,
-                Name = "Rimvydas",
-                Surname = "Aniulis",
-                Results = new List<Result>()
+                Firstname = "Rimvydas",
+                Lastname = "Aniulis",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 3, ActivityId = 5, ParticipantId = 2, Activity = context.Activities.FirstOrDefault(x => x.ActivityId ==5), Points = 6, Description = "Visai neblogai"},
+                    new Result { ResultId = 4, ActivityId = 6, ParticipantId = 2, Activity = context.Activities.FirstOrDefault(x => x.ActivityId ==6), Points = 8, Description = "Nustebinai mane"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 3,
+                Firstname = "Mindaugas",
+                Lastname = "Ardaravičius",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 5, ActivityId = 16, ParticipantId = 3, Activity = context.Activities.FirstOrDefault(x => x.ActivityId ==16), Points = 0, Description = "Kodel nedalyvavai?!"},
+                    new Result { ResultId = 6, ActivityId = 17, ParticipantId = 3, Activity = context.Activities.FirstOrDefault(x => x.ActivityId ==17), Points = 8, Description = "Už dalyvavima"}
+
+                }
             });
             base.Seed(context);
         }
