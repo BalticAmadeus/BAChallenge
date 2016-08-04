@@ -4,9 +4,9 @@
 		.module('EventsApp')
 		.controller('AdminInfoModalController', AdminInfoModalController);
 
-	AdminInfoModalController.$inject = ['$scope', '$uibModalInstance', 'ActivityManager'];
+	AdminInfoModalController.$inject = ['$scope', '$state', '$uibModalInstance', 'ActivityManager'];
 
-	function AdminInfoModalController($scope, $uibModalInstance, ActivityManager) {
+	function AdminInfoModalController($scope, $state, $uibModalInstance, ActivityManager) {
 
 		var vm = this;
 		vm.ok = ok;
@@ -32,6 +32,7 @@
 			 vm.newActivityRegistrationDate, vm.newActivityStatus)
 			.then(function (response) {
 				$uibModalInstance.dismiss();
+				$state.reload();
 				//EventDispatcher.triggerEvent('user:accessedEditorView');
 				///////console.log(response.data);
 				//$state.go('main.container.editor.layout', {id: response.data.id});

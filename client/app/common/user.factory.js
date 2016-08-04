@@ -39,7 +39,7 @@
                 password: password
             }
 
-            $http({
+            return $http({
                 method: "POST",
                 url: 'http://mokymainet.azurewebsites.net/token',
                 data: formData,
@@ -53,29 +53,15 @@
                     return str.join("&");
                 },
             })
-
-
             .success(function(response) {
-            	alert("response");
-                // if (response.status == success) {
-                   // alert('all okay'); 
-                   //AuthTokenFactory.setToken(response.data.access_token);
-        		   // return response;
-                   console.log(response.access_token);
-                   alert('ok');
-                // } else {
-                //    // alert(data.msg)
-                // }
-
-             	console.log(response.access_token)
                 AuthTokenFactory.setToken(response.access_token);
-        	    return response;
+            	return response;
             });
         }
 
         function logout() {
             AuthTokenFactory.setToken();
-            vm.user = null;
+           // vm.user = null;
         }
 
         function getUser() {

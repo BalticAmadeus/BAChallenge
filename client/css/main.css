@@ -67,21 +67,47 @@
 .admin-list-container{
   width: 45%;
   margin:0 auto;
+  text-align: left;
 
 }
-.admin-list-container button{
-  font-size: 1.3em;
+.admin-list-container div{
+  font-size: 19px;;
   border:1px solid #fff;
+  margin-bottom: 10px;
   
 }
-.admin-list-container button span{
-  font-size: 0.8em;
-  display: none;
+
+.admin-add-button{
+  margin-bottom: 10px;
 }
-.admin-list-container button:hover > span{
+
+.admin-list-container div span{
+  font-size: 0.8em;
+
+   
+}
+/*.admin-list-container button:hover > span{
   display: block;
 }
+*/
+.activity-delete{
+  padding-left: 10px;
+  position: relative;
+ top: 6px;
+}
 
+.activity-edit{
+  position: relative;
+  top:2px;
+}
 
+.activity-delete:hover{
+  cursor: pointer;
+}
+
+.activity-edit:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
 
 /**/

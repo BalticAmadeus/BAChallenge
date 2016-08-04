@@ -48,6 +48,12 @@
 				controller: 'PointsController',
 				controllerAs: 'vm'
 			})
+			.state('root.login', {
+				url: 'login',
+				templateUrl: 'app/admin/admin.login.view.html',
+				controller: 'AdminLoginController',
+				controllerAs: 'vm'
+			})
 			.state('root.admin', {
 				url: 'admin',
 				templateUrl: 'app/admin/admin.view.html',
