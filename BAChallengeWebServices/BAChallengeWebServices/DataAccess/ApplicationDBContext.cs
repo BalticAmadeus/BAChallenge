@@ -19,6 +19,10 @@ namespace BAChallengeWebServices.DataAccess
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Participant> Participants { get; set; }
         public DbSet<Result> Results { get; set; }
+
+
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

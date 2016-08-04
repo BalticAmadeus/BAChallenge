@@ -40,29 +40,24 @@ namespace BAChallengeWebServices.DataAccess
             //Admins Database
             context.Admins.Add(new Admin { AdminId = 1, Username = "Indre", PasswordHash = "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2" });
 
-
+            context.SaveChanges();
             //Participant Database table
             context.Participants.Add(new Participant
             {
                 ParticipantId = 1,
-                Name = "Nikolaj",
-                Surname = "Anikejev",
-                Results = new List<Result>
-            {
-                    new Result { ResultId = 1, Activity = context.Activities.FirstOrDefault(x=>x.ActivityId == 1),  Points = 4, Description = "booo" },
-                    new Result { ResultId = 2, Activity = context.Activities.FirstOrDefault(x=>x.ActivityId == 2), Points = 3, Description = "beee" },
-            }
+                Firstname = "Nikolaj",
+                Lastname = "Anikejev",
+                Results = new List<Result> 
+                {
+                    new Result { ResultId = 1, Activity = context.Activities.FirstOrDefault(x=>x.ActivityId == 1),Points = 4, Description ="hmm"}
+                }
             });
             context.Participants.Add(new Participant
             {
                 ParticipantId = 2,
-                Name = "Rimvydas",
-                Surname = "Aniulis",
-                Results = new List<Result>
-            {
-                new Result { ResultId = 3, Activity = context.Activities.FirstOrDefault(x=>x.ActivityId == 1),  Points = 5, Description = "Gerai padirbejai" },
-                new Result { ResultId = 4, Activity = context.Activities.FirstOrDefault(x=>x.ActivityId == 2), Points = 2, Description = "Silpnai" },
-            }
+                Firstname = "Rimvydas",
+                Lastname = "Aniulis",
+                Results = new List<Result>()
             });
 
             base.Seed(context);
