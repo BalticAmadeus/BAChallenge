@@ -36,7 +36,7 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(int id)
         {
-            var act = _dbContext.Activities.Where(x => x.ActivityId == id).Single();
+            var act = _dbContext.Activities.Single(x => x.ActivityId == id);
 
             if (act == null)
             {
@@ -52,6 +52,11 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(DateTime date)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             var act = _dbContext.Activities.Where(
                 x => x.Date.Year == date.Year &&
                 x.Date.Month == date.Month &&
@@ -62,6 +67,7 @@ namespace BAChallengeWebServices.Controllers
             {
                 return NotFound();
             }
+
             return Ok(act);
         }
         /// <summary>
@@ -71,6 +77,11 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(string location)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             var act = _dbContext.Activities.Where(x => x.Location == location);
 
             if (act.Count() == 0)
@@ -86,6 +97,11 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(ActivityBranch branch)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             var act = _dbContext.Activities.Where(x => x.Branch == branch);
 
             if (act.Count() == 0)
@@ -103,6 +119,10 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Post([FromBody] Activity activity)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
 
             if (_dbContext.Activities.Where(x => x.ActivityId == activity.ActivityId).Count() > 0)
             {
@@ -141,6 +161,11 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Put(int id,[FromBody]Activity activity)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             var selectedRow = _dbContext.Activities.FirstOrDefault(u => u.ActivityId == id);
             if (selectedRow != null)
             {
@@ -156,6 +181,5 @@ namespace BAChallengeWebServices.Controllers
             }
             return BadRequest();
         }
-        
     }
 }

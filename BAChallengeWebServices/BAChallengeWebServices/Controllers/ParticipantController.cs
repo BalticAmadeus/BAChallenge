@@ -56,6 +56,11 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Post([FromBody] Participant participant)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             if (participant != null)
             {
                 if (_dbContext.Participants.Where(x => x.ParticipantId == participant.ParticipantId).Count() > 0)
@@ -75,6 +80,11 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Delete(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             var participant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
             if (participant != null)
             {
@@ -94,6 +104,11 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Put(int id, [FromBody]Participant participant)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             var selectedParticipant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
             if (selectedParticipant != null)
             {
