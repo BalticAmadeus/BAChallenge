@@ -78,6 +78,7 @@ namespace BAChallengeWebServices.Controllers
             var selectedParticipant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
             if (selectedParticipant != null)
             {
+                //test
                 selectedParticipant.Name = participant.Name;
                 selectedParticipant.Surname = participant.Surname;
                 selectedParticipant.Results = participant.Results;
