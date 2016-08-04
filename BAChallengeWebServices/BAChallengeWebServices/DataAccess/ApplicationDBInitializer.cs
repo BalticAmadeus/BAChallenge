@@ -56,22 +56,14 @@ namespace BAChallengeWebServices.DataAccess
                 ParticipantId = 1,
                 Name = "Nikolaj",
                 Surname = "Anikejev",
-                Results = new List<Result>
-            {
-                    new Result { ResultId = 1, Activity = context.Activities.FirstOrDefault(x=>x.ActivityId == 1),  Points = 4, Description = "booo" },
-                    new Result { ResultId = 2, Activity = context.Activities.FirstOrDefault(x=>x.ActivityId == 2), Points = 3, Description = "beee" },
-            }
+                Results = new List<Result>()
             });
             context.Participants.Add(new Participant
             {
                 ParticipantId = 2,
                 Name = "Rimvydas",
                 Surname = "Aniulis",
-                Results = new List<Result>
-            {
-                new Result { ResultId = 3, Activity = context.Activities.FirstOrDefault(x=>x.ActivityId == 1),  Points = 5, Description = "Gerai padirbejai" },
-                new Result { ResultId = 4, Activity = context.Activities.FirstOrDefault(x=>x.ActivityId == 2), Points = 2, Description = "Silpnai" },
-            }
+                Results = new List<Result>()
             });
             base.Seed(context);
         }
