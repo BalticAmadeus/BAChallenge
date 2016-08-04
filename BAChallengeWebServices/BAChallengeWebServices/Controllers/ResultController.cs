@@ -19,19 +19,22 @@ namespace BAChallengeWebServices.Controllers
         {
             _dbContext = new ApplicationDBContext();
         }
-
+        //Get function retrieves all results and all information about them.
+        //You can access this function using Url: http://localhost:5721/api/result/
         public IHttpActionResult Get()
         {
             if (_dbContext.Results.Count() != 0)
             {
-                return Ok(_dbContext.Results);
+                var result = new List<Result> (_dbContext.Results);
+                return Ok(result);
             }
             else
             {
                 return NotFound();
             }
         }
-
+        //Get function retrieves one result and all information about that result specified by id.
+        //You can access this function using Url: http://localhost:5721/api/result/1
         public IHttpActionResult Get(int id)
         {
             if(_dbContext.Results.Where(x=>x.ResultId == id).Count() > 0)
@@ -40,7 +43,8 @@ namespace BAChallengeWebServices.Controllers
             }
             return NotFound();
         }
-
+        //Post function creates one result and all information about that result.
+        //You can access this function using Url: http://localhost:5721/api/result/1 as a Post.
         public IHttpActionResult Post([FromBody] Result result)
         {
             if (result != null)
@@ -57,7 +61,8 @@ namespace BAChallengeWebServices.Controllers
             return BadRequest();
         }
 
-        //[Authorize]
+        //Delete function deletes one result.
+        //You can access this function using Url: http://localhost:5721/api/result/1 as a Delete.
         public IHttpActionResult Delete(int id)
         {
             var result = _dbContext.Results.FirstOrDefault(u => u.ResultId == id);
