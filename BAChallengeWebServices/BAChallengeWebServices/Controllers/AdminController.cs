@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Text.RegularExpressions;
 using BAChallengeWebServices.Authentication;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -55,6 +54,11 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Put([FromBody] AdminPasswordChangeModel apcm)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
 
             if (await _authRepo.ChangeUserPassword(apcm.Username, apcm.OldPassword, apcm.NewPassword))
             {
@@ -65,9 +69,16 @@ namespace BAChallengeWebServices.Controllers
         }
         
         [Authorize]
-        public IHttpActionResult Delete(string username)
+        public async Task<IHttpActionResult> Delete([FromBody] string username)
         {
-            return Ok(username);
+            IHttpActionResult errorResult = ResolveErrorMessage(await _authRepo.DeleteUser(username));
+
+            if (errorResult != null)
+            {
+                return errorResult;
+            }
+
+            return Ok();
         }
 
         /// <summary>
