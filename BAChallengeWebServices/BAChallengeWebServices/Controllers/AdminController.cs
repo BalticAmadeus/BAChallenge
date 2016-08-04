@@ -59,7 +59,6 @@ namespace BAChallengeWebServices.Controllers
                 return BadRequest();
             }
 
-
             if (await _authRepo.ChangeUserPassword(apcm.Username, apcm.OldPassword, apcm.NewPassword))
             {
                 return Ok("Password change is successful");
@@ -67,7 +66,11 @@ namespace BAChallengeWebServices.Controllers
 
             return BadRequest("Information does not match");  
         }
-        
+        /// <summary>
+        /// Delete request for removing admin account by username.
+        /// </summary>
+        /// <param name="username">Username, of the account to delete</param>
+        /// <returns>IHttpActionResult of OK (200) or error</returns>
         [Authorize]
         public async Task<IHttpActionResult> Delete([FromBody] string username)
         {
