@@ -12,6 +12,7 @@ namespace BAChallengeWebServices.Models
     {
         public int ResultId { get; set; }
         public virtual Activity Activity { get; set; }
+        public int ActivityId { get; set; }
         public int Points { get; set; }
         public string Description { get; set; }
     }
