@@ -23,7 +23,8 @@ namespace BAChallengeWebServices.Controllers
         {
             if (_dbContext.Participants.Count() != 0)
             {
-                return Ok(_dbContext.Participants);
+                var participants = new List<Participant>(_dbContext.Participants);
+                return Ok(participants);
             }
             else
             {
@@ -77,12 +78,23 @@ namespace BAChallengeWebServices.Controllers
             var selectedParticipant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
             if (selectedParticipant != null)
             {
-                selectedParticipant.Firstname = participant.Firstname;
-                selectedParticipant.Lastname = participant.Lastname;
+                selectedParticipant.Name = participant.Name;
+                selectedParticipant.Surname = participant.Surname;
+                selectedParticipant.Results = participant.Results;
                 _dbContext.SaveChanges();
                 return Ok();
             }
             return BadRequest();
         }
+
+        //public IHttpActionResult Put(int id, [FromBody]Result result)
+        //{
+        //    if(_dbContext.Participants.Where(u => u.ParticipantId == id).Count() > 0)
+        //    {
+        //        _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id).Results.Add(result);
+        //        return Ok();
+        //    }
+        //    return BadRequest();
+        //}
     }
 }
