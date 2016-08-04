@@ -32,7 +32,7 @@ namespace BAChallengeWebServices
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/Token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider()
+                Provider = new CustomAuthorizationServerProvider()
             };
 
             app.UseOAuthAuthorizationServer(serverOptions);

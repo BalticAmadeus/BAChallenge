@@ -9,6 +9,9 @@ using System.Web;
 
 namespace BAChallengeWebServices.Models
 {
+    /// <summary>
+    /// Model used, for Admin post request.
+    /// </summary>
     public class AdminRegistrationModel
     { 
         [Required]
