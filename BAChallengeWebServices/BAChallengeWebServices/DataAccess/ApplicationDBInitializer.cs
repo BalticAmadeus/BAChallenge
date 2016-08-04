@@ -17,7 +17,7 @@ namespace BAChallengeWebServices.DataAccess
 
             var repository = new AuthRepository();
 
-            repository.RegisterUser(new AdminModel()
+            repository.RegisterUser(new AdminRegistrationModel()
             {
                 Username = "test",
                 Password = "testPassword",

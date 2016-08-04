@@ -9,7 +9,7 @@ using System.Web;
 
 namespace BAChallengeWebServices.Models
 {
-    public class AdminModel
+    public class AdminRegistrationModel
     { 
         [Required]
         public string Username { get; set; }

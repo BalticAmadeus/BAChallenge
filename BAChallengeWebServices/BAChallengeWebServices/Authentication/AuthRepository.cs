@@ -22,7 +22,7 @@ namespace BAChallengeWebServices.Authentication
             _userStore = new UserStore<IdentityUser>(_authContext);
             _userManager = new UserManager<IdentityUser>(_userStore);
         }
-        public async Task<IdentityResult> RegisterUser(AdminModel admin)
+        public async Task<IdentityResult> RegisterUser(AdminRegistrationModel admin)
         {
             IdentityUser user = new IdentityUser()
             {

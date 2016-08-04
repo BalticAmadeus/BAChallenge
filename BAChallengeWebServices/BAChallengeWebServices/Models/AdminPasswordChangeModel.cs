@@ -15,9 +15,6 @@ namespace BAChallengeWebServices.Models
         public string Password { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        public string ConfirmPassword { get; set; }
-        [Required]
-        [DataType(DataType.Password)]
         public string NewPassword { get; set; }
     }
 }

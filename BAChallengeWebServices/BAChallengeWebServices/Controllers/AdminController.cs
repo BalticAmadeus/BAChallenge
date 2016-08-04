@@ -22,7 +22,7 @@ namespace BAChallengeWebServices.Controllers
             _authRepo = new AuthRepository();
         }
         [Authorize]
-        public async Task<IHttpActionResult> Post([FromBody] AdminModel admin)
+        public async Task<IHttpActionResult> Post([FromBody] AdminRegistrationModel admin)
         {
             if (!ModelState.IsValid)
             {
@@ -42,13 +42,12 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Put([FromBody] AdminPasswordChangeModel apcm)
         {
-            if (apcm.Password == apcm.ConfirmPassword)
+
+            if (await _authRepo.ChangeUserPassword(apcm.Username, apcm.Password, apcm.NewPassword))
             {
-                if (await _authRepo.ChangeUserPassword(apcm.Username, apcm.Password, apcm.NewPassword))
-                {
-                    return Ok("Password change is successful");
-                }
+                return Ok("Password change is successful");
             }
+
             return BadRequest("Passwords do not match");  
         }
 
