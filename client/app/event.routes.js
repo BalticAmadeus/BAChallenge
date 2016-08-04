@@ -47,6 +47,12 @@
 				templateUrl: 'app/points/points.view.html',
 				controller: 'PointsController',
 				controllerAs: 'vm'
+			})
+			.state('root.admin', {
+				url: 'admin',
+				templateUrl: 'app/admin/admin.view.html',
+				controller: 'AdminController',
+				controllerAs: 'vm'
 			});
 	};
 

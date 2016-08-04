@@ -1,10 +1,12 @@
 <!-- <h3>eventsList</h3> -->
+<div class="content-container">
 <div class="events-image">
 	<img src="images/image1.jpg">
 </div>
 <div class="container events-list-container">
 	<div class="row">
 	<h2>Artimiausi renginiai</h2>
+	<hr>
 		<div class="col-lg-3 col-md-3 col-sm-6">
 		<h3>Sport</h3>
 			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter : {'Branch':  'Sports'} : true ">
@@ -21,7 +23,8 @@
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-6">
 		<h3>Games</h3>
-			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Games'}:true" >
+		<span>{{activity.Name}}</span> 
+			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Team'}:true" >
 				  <br>
 			      <a ng-click="vm.openInfoModal(activity)">
 			      <span>{{activity.Name}}</span> 
@@ -33,9 +36,10 @@
 			      <br>
 			</div>
 		</div>
+		<div class="clearfix visible-sm"></div>
 		<div class="col-lg-3 col-md-3 col-sm-6">
 		<h3>Brain</h3>
-			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Brain'}:true" >
+			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Sports'}:true" >
 				  <br>
 				  <a ng-click="vm.openInfoModal(activity)">
 			      <span>{{activity.Name}}</span> 
@@ -49,7 +53,7 @@
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-6">
 		<h3>Team</h3>
-			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Team'}:true" >
+			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Sports'}:true" >
 				  <br>
 			      <a href="https://www.google.lt/">
 			      <span>{{activity.Name}}</span> 
@@ -61,4 +65,5 @@
 
 			</div>
 	</div>
+</div>
 </div>
