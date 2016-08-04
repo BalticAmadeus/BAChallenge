@@ -10,6 +10,9 @@ using System.Web;
 
 namespace BAChallengeWebServices.Authentication
 {
+    /// <summary>
+    /// Class, responsible for accessing data, inside the database, setup in identity framework. 
+    /// </summary>
     public class AuthRepository : IDisposable
     {
         private AuthContext _authContext;
@@ -22,8 +25,16 @@ namespace BAChallengeWebServices.Authentication
             _userStore = new UserStore<IdentityUser>(_authContext);
             _userManager = new UserManager<IdentityUser>(_userStore);
         }
+        /// <summary>
+        /// Register user, according to the set AdminRegistrationModel.
+        /// </summary>
+        /// <param name="admin">AdminRegistrationModel, which has to have username, password and confirmed passaword</param>
+        /// <returns>Task of type IdentityResult</returns>
         public async Task<IdentityResult> RegisterUser(AdminRegistrationModel admin)
         {
+            if (admin.Password != admin.ConfirmPassword)
+                return null;
+
             IdentityUser user = new IdentityUser()
             {
                 UserName = admin.Username
@@ -33,19 +44,30 @@ namespace BAChallengeWebServices.Authentication
 
             return result;
         }
-
+        /// <summary>
+        /// Find an registered user, with given username and password
+        /// </summary>
+        /// <param name="username">Users name</param>
+        /// <param name="password">Users password</param>
+        /// <returns>Identity user, that matches username and password</returns>
         public async Task<IdentityUser> FindUser(string username, string password )
         {
             IdentityUser user = await _userManager.FindAsync(username, password);
 
             return user;
         }
-
-        public async Task<bool> ChangeUserPassword(string Username, string oldPassword, string newPassword)
+        /// <summary>
+        /// Finds an registered user by it's old password and username, then changes it's password.
+        /// </summary>
+        /// <param name="username">Users name</param>
+        /// <param name="oldPassword">Users old password</param>
+        /// <param name="newPassword">Users new password</param>
+        /// <returns>True if it succeeded</returns>
+        public async Task<bool> ChangeUserPassword(string username, string oldPassword, string newPassword)
         {
             try
             {
-                IdentityUser user = _userManager.Find(Username, oldPassword);
+                IdentityUser user = await FindUser(username, oldPassword);
                 user.PasswordHash = _userManager.PasswordHasher.HashPassword(newPassword);
 
                 await _userManager.UpdateAsync(user);

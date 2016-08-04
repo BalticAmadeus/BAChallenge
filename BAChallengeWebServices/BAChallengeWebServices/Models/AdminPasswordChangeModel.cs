@@ -6,13 +6,16 @@ using System.Web;
 
 namespace BAChallengeWebServices.Models
 {
+    /// <summary>
+    /// Model, used for Admin put request
+    /// </summary>
     public class AdminPasswordChangeModel
     {
         [Required]
         public string Username { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string OldPassword { get; set; }
         [Required]
         [DataType(DataType.Password)]
         public string NewPassword { get; set; }

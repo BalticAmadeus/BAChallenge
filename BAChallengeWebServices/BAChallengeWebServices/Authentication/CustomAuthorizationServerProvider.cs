@@ -9,7 +9,10 @@ using System.Security.Claims;
 
 namespace BAChallengeWebServices.Authentication
 {
-    public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
+    /// <summary>
+    /// Custom ServerProvider, which changes some parts to work with identity framweork.
+    /// </summary>
+    public class CustomAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {

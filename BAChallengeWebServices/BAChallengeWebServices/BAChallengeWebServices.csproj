@@ -208,7 +208,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Authentication\AuthRepository.cs" />
-    <Compile Include="Authentication\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Authentication\CustomAuthorizationServerProvider.cs" />
     <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ParticipantController.cs" />
