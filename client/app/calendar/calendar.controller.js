@@ -22,11 +22,12 @@
 
 
 		function login(username, password){
-			UserFactory.login(username, password)
-						.then(function success(response){
-							vm.user = response.data;
-							alert(response.data.token);
-						}, handleError);
+			console.log(username, password);
+			UserFactory.login(username, password);
+						// .then(function success(response){
+						// 	vm.user = response.data;
+						// 	alert(response.data.token);
+						// }, handleError);
 		}
 
 		function logout() { 
