@@ -8,6 +8,9 @@ using System.Web;
 
 namespace BAChallengeWebServices.Models
 {
+    /// <summary>
+    /// Model used to create Activity objects used for GET,POST, PUT, DELETE function
+    /// </summary>
     public class Activity
     {
         public int ActivityId { get; set; }

@@ -19,13 +19,21 @@ namespace BAChallengeWebServices.Controllers
         {
             _dbContext = new ApplicationDBContext();
         }
+        /// <summary>
+        /// Function retrieves all Activities and all information about them via .../activity (GET)
+        /// </summary>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get()
         {
             var act = _dbContext.Activities;
 
             return Ok(act);
         }
-        
+        /// <summary>
+        /// Function retrieves One Activity selected by id and all information about the activity. via .../activity/1 (GET)
+        /// </summary>
+        /// <param name="id">int, gotten from http integer request</param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(int id)
         {
             var act = _dbContext.Activities.Where(x => x.ActivityId == id).Single();
@@ -37,7 +45,11 @@ namespace BAChallengeWebServices.Controllers
 
             return Ok(act);
         }
-
+        /// <summary>
+        /// Function retrieves all activities selected by datetime via .../activity/?date=2016-04-22 11:30 (GET)
+        /// </summary>
+        /// <param name="date">DateTime, gotten from http date request </param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(DateTime date)
         {
             var act = _dbContext.Activities.Where(
@@ -52,6 +64,11 @@ namespace BAChallengeWebServices.Controllers
             }
             return Ok(act);
         }
+        /// <summary>
+        /// Function retrieves all activities selected by location via .../activity/?location=Vilnius (GET)
+        /// </summary>
+        /// <param name="location">string, gotten from http string request</param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(string location)
         {
             var act = _dbContext.Activities.Where(x => x.Location == location);
@@ -62,6 +79,11 @@ namespace BAChallengeWebServices.Controllers
             }
             return Ok(act);
         }
+        /// <summary>
+        /// Function retrieves all activities selected by branch via .../activity/?branch=Sports (GET)
+        /// </summary>
+        /// <param name="branch">ActivityBrach object, gotten from http request</param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(ActivityBranch branch)
         {
             var act = _dbContext.Activities.Where(x => x.Branch == branch);
@@ -73,6 +95,11 @@ namespace BAChallengeWebServices.Controllers
 
             return Ok(act);
         }
+        /// <summary>
+        /// Function creates one activity via .../activity (POST)
+        /// </summary>
+        /// <param name="activity">Activity object, gotten from http request body</param>
+        /// <returns>IHttpActionResult</returns>
         [Authorize]
         public IHttpActionResult Post([FromBody] Activity activity)
         {
@@ -86,6 +113,11 @@ namespace BAChallengeWebServices.Controllers
 
             return Ok();
         }
+        /// <summary>
+        /// Function deletes one activity via .../activity/1 (DELETE)
+        /// </summary>
+        /// <param name="id">int, gotten from http integer request</param>
+        /// <returns>IHttpActionResult</returns>
         [Authorize]
         public IHttpActionResult Delete(int id)
         {
@@ -100,6 +132,12 @@ namespace BAChallengeWebServices.Controllers
 
             return NotFound();
         }
+        /// <summary>
+        /// Function modify one activity via .../activity/1 (PUT)
+        /// </summary>
+        /// <param name="id">int, gotten from http integer request</param>
+        /// <param name="activity">Activity object, gotten from http request body</param>
+        /// <returns>IHttpActionResult</returns>
         [Authorize]
         public IHttpActionResult Put(int id,[FromBody]Activity activity)
         {
