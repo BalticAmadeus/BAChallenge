@@ -8,6 +8,9 @@ using System.Web;
 
 namespace BAChallengeWebServices.DataAccess
 {
+    /// <summary>
+    /// Primary entity framework class, for accessing data objects.
+    /// </summary>
     public class ApplicationDBContext : DbContext
     {
         public ApplicationDBContext() : base("ApplicationContext")

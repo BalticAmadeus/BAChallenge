@@ -10,7 +10,7 @@ using BAChallengeWebServices.DataAccess;
 
 namespace BAChallengeWebServices.Controllers
 {
-        [AllowCrossSiteJson]
+    [AllowCrossSiteJson]
     public class ResultController : ApiController
     {
         private ApplicationDBContext _dbContext;
@@ -40,8 +40,6 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="id">int, gotten from http integer request</param>
         /// <returns>IHttpActionResult</returns>
-        //Get function retrieves one result and all information about that result specified by id.
-        //You can access this function using Url: http://localhost:5721/api/result/1
         public IHttpActionResult Get(int id)
         {
             if(_dbContext.Results.Where(x=>x.ResultId == id).Count() > 0)
@@ -67,24 +65,6 @@ namespace BAChallengeWebServices.Controllers
             }
 
             return NotFound();
-        }
-        /// <summary>
-        /// Function modify selected result via .../result/1 (PUT)
-        /// </summary>
-        /// <param name="id">int, gotten from http requested integer</param>
-        /// <param name="result">Result object, gotten from http requested body</param>
-        /// <returns>IHttpActionResult</returns>
-        public IHttpActionResult Put(int id,[FromBody]Result result)
-        {
-            var selectedResult = _dbContext.Results.FirstOrDefault(u => u.ResultId == id);
-            if (selectedResult != null)
-            {
-                selectedResult.Points = result.Points;
-                selectedResult.Description = result.Description;
-                _dbContext.SaveChanges();
-                return Ok();
-            }
-            return BadRequest();
         }
     }
 }

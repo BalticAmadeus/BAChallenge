@@ -44,6 +44,28 @@ namespace BAChallengeWebServices.Authentication
 
             return result;
         }
+
+        public async Task<IdentityResult> DeleteUser(string username)
+        {
+            IdentityUser user = await FindUser(username);
+
+            IdentityResult result = await _userManager.DeleteAsync(user);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Find an registered user, with given username
+        /// </summary>
+        /// <param name="username">Users name</param>
+        /// <returns>Identity user, that matches username</returns>
+        public async Task<IdentityUser> FindUser(string username)
+        {
+            IdentityUser user = await _userManager.FindByNameAsync(username);
+
+            return user;
+        }
+
         /// <summary>
         /// Find an registered user, with given username and password
         /// </summary>
