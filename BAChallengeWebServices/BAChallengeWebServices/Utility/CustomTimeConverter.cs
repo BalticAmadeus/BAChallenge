@@ -6,6 +6,9 @@ using System.Web;
 
 namespace BAChallengeWebServices.Utility
 {
+    /// <summary>
+    /// DateTime Property converter, for simpler DateTimeformat.
+    /// </summary>
     public class CustomTimeConverter : IsoDateTimeConverter
     {
         public CustomTimeConverter()

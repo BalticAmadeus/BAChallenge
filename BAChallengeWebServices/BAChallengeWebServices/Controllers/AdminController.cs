@@ -67,7 +67,7 @@ namespace BAChallengeWebServices.Controllers
             return BadRequest("Information does not match");  
         }
         /// <summary>
-        /// Delete request for removing admin account by username.
+        /// Delete request for removing admin account by username. Accessed via .../admin (DELETE)
         /// </summary>
         /// <param name="username">Username, of the account to delete</param>
         /// <returns>IHttpActionResult of OK (200) or error</returns>
