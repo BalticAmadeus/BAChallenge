@@ -19,8 +19,10 @@ namespace BAChallengeWebServices.Controllers
         {
             _dbContext = new ApplicationDBContext();
         }
-        //Get function retrieves all Participants and all information about them.
-        //You can access this function using Url: http://localhost:5721/api/participant/
+        /// <summary>
+        /// Function retrieves all Participants and all information about them via .../participant (GET)
+        /// </summary>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get()
         {
             if (_dbContext.Participants.Count() != 0)
@@ -33,8 +35,11 @@ namespace BAChallengeWebServices.Controllers
                 return NotFound();
             }
         }
-        //Get function retrieves One Participant selected by id and all information about the participant.
-        //You can access this function using Url: http://localhost:5721/api/participant/1
+        /// <summary>
+        /// Function retrieves One Participant selected by id and all information about the participant. via .../participant/1 (GET)
+        /// </summary>
+        /// <param name="id">int gotten from http request as a integer</param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(int id)
         {
             if (_dbContext.Participants.Where(x => x.ParticipantId == id).Count() > 0)
@@ -44,9 +49,11 @@ namespace BAChallengeWebServices.Controllers
 
             return NotFound();
         }
-
-        //Post function creates one participant using Json.
-        //You can access this function using Url: http://localhost:5721/api/participant/ as a Post
+        /// <summary>
+        /// Function creates one participant via .../participant (POST)
+        /// </summary>
+        /// <param name="participant">Participant object, gotten from http request body</param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Post([FromBody] Participant participant)
         {
             if (participant != null)
@@ -61,8 +68,12 @@ namespace BAChallengeWebServices.Controllers
             }
             return BadRequest();
         }
-        //Post function creates Result and adds the result to participant using selected id .
-        //You can access this function using Url: http://localhost:5721/api/participant/1 as a Post
+        /// <summary>
+        /// Function creates Result and adds the result to participant using selected id via .../participant/1 (POST)
+        /// </summary>
+        /// <param name="id"> int, gotten from http request as a integer</param>
+        /// <param name="result">Result object, gotten from http request body</param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Post(int id, [FromBody] Result result)
         {
             var selectedParticipant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
@@ -74,9 +85,11 @@ namespace BAChallengeWebServices.Controllers
             _dbContext.SaveChanges();
             return Ok();
         }
-
-        //Delete function deletes one Participants using selected Id.
-        //You can access this function using Url: http://localhost:5721/api/participant/1 as a Delete.
+        /// <summary>
+        /// Function deletes one Participants using selected Id via .../participant/1 (DELETE)
+        /// </summary>
+        /// <param name="id">int, gotten from http request int</param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Delete(int id)
         {
             var participant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
@@ -90,8 +103,12 @@ namespace BAChallengeWebServices.Controllers
 
             return NotFound();
         }
-        //Put function modify one Participant and all information about him using selected Id.
-        //You can access this function using Url: http://localhost:5721/api/participant/1 as a Put.
+        /// <summary>
+        /// Function modify one Participant and all information about him using selected Id via .../participant/1 (PUT)
+        /// </summary>
+        /// <param name="id">int, gotten from http integer request</param>
+        /// <param name="participant">Participant object, gotten from http request body</param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Put(int id, [FromBody]Participant participant)
         {
             var selectedParticipant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
@@ -105,15 +122,5 @@ namespace BAChallengeWebServices.Controllers
             }
             return BadRequest();
         }
-
-        //public IHttpActionResult Put(int id, [FromBody]Result result)
-        //{
-        //    if(_dbContext.Participants.Where(u => u.ParticipantId == id).Count() > 0)
-        //    {
-        //        _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id).Results.Add(result);
-        //        return Ok();
-        //    }
-        //    return BadRequest();
-        //}
     }
 }

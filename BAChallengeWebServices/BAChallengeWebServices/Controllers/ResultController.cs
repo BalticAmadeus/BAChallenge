@@ -19,8 +19,10 @@ namespace BAChallengeWebServices.Controllers
         {
             _dbContext = new ApplicationDBContext();
         }
-        //Get function retrieves all results and all information about them.
-        //You can access this function using Url: http://localhost:5721/api/result/
+        /// <summary>
+        /// Function retrieves all results and all information about them via .../result (GET)
+        /// </summary>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get()
         {
             if (_dbContext.Results.Count() != 0)
@@ -33,6 +35,11 @@ namespace BAChallengeWebServices.Controllers
                 return NotFound();
             }
         }
+        /// <summary>
+        /// Function retrieves one result and all information about that result specified by id via .../result/1 (GET)
+        /// </summary>
+        /// <param name="id">int, gotten from http integer request</param>
+        /// <returns>IHttpActionResult</returns>
         //Get function retrieves one result and all information about that result specified by id.
         //You can access this function using Url: http://localhost:5721/api/result/1
         public IHttpActionResult Get(int id)
@@ -43,8 +50,11 @@ namespace BAChallengeWebServices.Controllers
             }
             return NotFound();
         }
-        //Post function creates one result and all information about that result.
-        //You can access this function using Url: http://localhost:5721/api/result/1 as a Post.
+        /// <summary>
+        /// Function creates one result and all information about that result via .../result (POST)
+        /// </summary>
+        /// <param name="result">Result object, gotten from http request body</param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Post([FromBody] Result result)
         {
             if (result != null)
@@ -60,9 +70,11 @@ namespace BAChallengeWebServices.Controllers
             }
             return BadRequest();
         }
-
-        //Delete function deletes one result.
-        //You can access this function using Url: http://localhost:5721/api/result/1 as a Delete.
+        /// <summary>
+        ///  Function deletes selected result via .../result/1 (DELETE)
+        /// </summary>
+        /// <param name="id">int, gotten from http integer request</param>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Delete(int id)
         {
             var result = _dbContext.Results.FirstOrDefault(u => u.ResultId == id);

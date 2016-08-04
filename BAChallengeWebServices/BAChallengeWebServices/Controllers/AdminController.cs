@@ -85,7 +85,7 @@ namespace BAChallengeWebServices.Controllers
         /// Method to resolve error messages from IdentityResult
         /// </summary>
         /// <param name="result">IdentityResult object</param>
-        /// <returnsIHttpActionResult></returns>
+        /// <returns>IHttpActionResult</returns>
         private IHttpActionResult ResolveErrorMessage(IdentityResult result)
         {
             if (result == null)
