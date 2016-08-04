@@ -49,6 +49,38 @@ namespace BAChallengeWebServices.Controllers
             return NotFound();
         }
         /// <summary>
+        /// Function creates one result via .../result  (POST)
+        /// </summary>
+        /// <param name="result">Result object, gotten from http request body</param>
+        /// <returns>IHttpActionResult</returns>
+        public IHttpActionResult Post([FromBody] Result result)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            if (result != null)
+            {
+                if (_dbContext.Results.FirstOrDefault(x => x.ResultId == result.ResultId) != null)
+                {
+                    return BadRequest();
+                }
+                if (_dbContext.Activities.FirstOrDefault(x => x.ActivityId == result.ActivityId) == null &&
+                    _dbContext.Activities.FirstOrDefault(x => x.ActivityId == result.Activity.ActivityId) == null)
+                {
+                    return BadRequest();
+                }
+                if(result.Activity != null)
+                {
+                    return BadRequest();
+                }
+                _dbContext.Results.Add(result);
+                _dbContext.SaveChanges();
+                return Ok();
+            }
+            return BadRequest();
+        }
+        /// <summary>
         ///  Function deletes selected result via .../result/1 (DELETE)
         /// </summary>
         /// <param name="id">int, gotten from http integer request</param>

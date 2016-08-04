@@ -69,23 +69,6 @@ namespace BAChallengeWebServices.Controllers
             return BadRequest();
         }
         /// <summary>
-        /// Function creates Result and adds the result to participant using selected id via .../participant/1 (POST)
-        /// </summary>
-        /// <param name="id"> int, gotten from http request as a integer</param>
-        /// <param name="result">Result object, gotten from http request body</param>
-        /// <returns>IHttpActionResult</returns>
-        public IHttpActionResult Post(int id, [FromBody] Result result)
-        {
-            var selectedParticipant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
-            if(selectedParticipant != null || result == null)
-            {
-                return BadRequest();
-            }
-            selectedParticipant.Results.Add(result);
-            _dbContext.SaveChanges();
-            return Ok();
-        }
-        /// <summary>
         /// Function deletes one Participants using selected Id via .../participant/1 (DELETE)
         /// </summary>
         /// <param name="id">int, gotten from http request int</param>
