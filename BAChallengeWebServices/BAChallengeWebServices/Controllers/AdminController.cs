@@ -63,6 +63,13 @@ namespace BAChallengeWebServices.Controllers
 
             return BadRequest("Information does not match");  
         }
+        
+        [Authorize]
+        public IHttpActionResult Delete(string username)
+        {
+            return Ok(username);
+        }
+
         /// <summary>
         /// Method to resolve error messages from IdentityResult
         /// </summary>

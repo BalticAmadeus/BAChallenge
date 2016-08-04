@@ -32,7 +32,7 @@ namespace BAChallengeWebServices.Authentication
         /// <returns>Task of type IdentityResult</returns>
         public async Task<IdentityResult> RegisterUser(AdminRegistrationModel admin)
         {
-            if (admin.Password == admin.ConfirmPassword)
+            if (admin.Password != admin.ConfirmPassword)
                 return null;
 
             IdentityUser user = new IdentityUser()
