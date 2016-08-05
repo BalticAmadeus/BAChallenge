@@ -53,6 +53,7 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="result">Result object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
+        [Authorize]
         public IHttpActionResult Post([FromBody] Result result)
         {
             if (!ModelState.IsValid)
@@ -73,6 +74,7 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="id">int, gotten from http integer request</param>
         /// <returns>IHttpActionResult</returns>
+        [Authorize]
         public IHttpActionResult Delete(int id)
         {
             var result = _dbContext.Results.Find(id);
@@ -92,6 +94,7 @@ namespace BAChallengeWebServices.Controllers
         /// <param name="id">int, gotten from http integer request</param>
         /// <param name="result">Result object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
+        [Authorize]
         public IHttpActionResult Put(int id,[FromBody] Result result)
         {
             if (!ModelState.IsValid)
