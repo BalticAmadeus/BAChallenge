@@ -50,23 +50,21 @@ namespace BAChallengeWebServices.Controllers
             return NotFound();
         }
         /// <summary>
-        /// Function creates one participant via .../participant (POST)
+        /// Function creates one according to parameters set in ParticipantPostModel via .../participant (POST)
         /// </summary>
         /// <param name="participant">Participant object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
-        public IHttpActionResult Post([FromBody] Participant participant)
+        public IHttpActionResult Post([FromBody] ParticipantPostModel ppm)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            if (participant != null)
+            if (ppm != null)
             {
-                if (_dbContext.Participants.Where(x => x.ParticipantId == participant.ParticipantId).Count() > 0)
-                {
-                    return BadRequest();
-                }
+                Participant participant = BindPostModelToModel(ppm);
+
                 _dbContext.Participants.Add(participant);
                 _dbContext.SaveChanges();
                 return Ok();
@@ -97,12 +95,12 @@ namespace BAChallengeWebServices.Controllers
             return NotFound();
         }
         /// <summary>
-        /// Function modify one Participant and all information about him using selected Id via .../participant/1 (PUT)
+        /// Function modify participants firstname and lastname. via .../participant/1 (PUT)
         /// </summary>
         /// <param name="id">int, gotten from http integer request</param>
         /// <param name="participant">Participant object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
-        public IHttpActionResult Put(int id, [FromBody]Participant participant)
+        public IHttpActionResult Put(int id, [FromBody]ParticipantPostModel ppm)
         {
             if (!ModelState.IsValid)
             {
@@ -112,12 +110,22 @@ namespace BAChallengeWebServices.Controllers
             var selectedParticipant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
             if (selectedParticipant != null)
             {
-                selectedParticipant.Firstname = participant.Firstname;
-                selectedParticipant.Lastname = participant.Lastname;
+                Participant participant = BindPostModelToModel(ppm);
+                selectedParticipant.FirstName = participant.FirstName;
+                selectedParticipant.LastName = participant.LastName;
                 _dbContext.SaveChanges();
                 return Ok();
             }             
             return BadRequest();
+        }
+
+        private Participant BindPostModelToModel(ParticipantPostModel ppm)
+        {
+            return new Participant()
+            {
+                FirstName = ppm.FirstName,
+                LastName = ppm.LastName
+            };
         }
     }
 }
