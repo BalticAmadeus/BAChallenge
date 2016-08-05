@@ -61,13 +61,8 @@ namespace BAChallengeWebServices.Controllers
             }
             if (result != null)
             {
-                Result results = new Result();
-                results.ActivityId = result.ActivityId;
-                results.ParticipantId = result.ParticipantId;
-                results.Points = result.Points;
-                results.Description = result.Description;
-            
-                _dbContext.Results.Add(results);
+                Result results = new Result();            
+                _dbContext.Results.Add(BindResult(results,result));
                 _dbContext.SaveChanges();
                 return Ok();
             }
@@ -106,14 +101,25 @@ namespace BAChallengeWebServices.Controllers
             var selectedResult = _dbContext.Results.Find(id);
             if (selectedResult != null)
             {
-                selectedResult.ParticipantId = result.ParticipantId;
-                selectedResult.Points = result.Points;
-                selectedResult.Description = result.Description;
-                selectedResult.ActivityId = result.ActivityId;
+                selectedResult = BindResult(selectedResult, result);
                 _dbContext.SaveChanges();
                 return Ok();
             }
             return BadRequest();
+        }
+        /// <summary>
+        /// Function used to refactor a code
+        /// </summary>
+        /// <param name="resultTo">Result object, used save changed or created information</param>
+        /// <param name="resultFrom">Result object, used to send changes to other object</param>
+        /// <returns>resultTo object</returns>
+        private Result BindResult (Result resultTo, Result resultFrom)
+        {
+            resultTo.ParticipantId = resultFrom.ParticipantId;
+            resultTo.Points = resultFrom.Points;
+            resultTo.Description = resultFrom.Description;
+            resultTo.ActivityId = resultFrom.ActivityId;
+            return resultTo;
         }
     }
 }
