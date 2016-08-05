@@ -26,12 +26,15 @@
             };
 
             return $http.post('http://mokymainet.azurewebsites.net/activity', requestData);
+            // return $http.post('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity', requestData);
         };
 
         function deleteProject(activityID) {
-        	console.log(activityID);
-        	console.log('http://mokymainet.azurewebsites.net/activity/' + activityID);
+        	//console.log(activityID);
+        	//console.log('http://mokymainet.azurewebsites.net/activity/' + activityID);
+            
             return $http.delete('http://mokymainet.azurewebsites.net/activity/' + activityID);
+            // return $http.delete('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity/' + activityID);
         };
     };
 })();

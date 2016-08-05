@@ -14,6 +14,11 @@
   padding-top: 50px;
 }
 
+.content-container > .logout-button {
+  margin-top:20px;
+      width: 100%;
+    height: 20px;
+}
 
 /*events*/
 .events-image > img{
@@ -108,6 +113,11 @@
 .activity-edit:hover{
   cursor: pointer;
   text-decoration: underline;
+}
+
+.login-container{
+  margin-top: 80px;
+  width: 30%;
 }
 
 /**/

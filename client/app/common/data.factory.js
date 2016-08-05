@@ -11,7 +11,8 @@
 
     dataFactory.getCustomers = function () {
  
-        return $http.get('http://mokymainet.azurewebsites.net/activity');
+       return $http.get('http://mokymainet.azurewebsites.net/activity');
+        // return $http.get('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity');
     };
     return dataFactory;
 	}

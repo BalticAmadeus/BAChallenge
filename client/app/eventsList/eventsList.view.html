@@ -24,7 +24,7 @@
 		<div class="col-lg-3 col-md-3 col-sm-6">
 		<h3>Games</h3>
 		<span>{{activity.Name}}</span> 
-			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Team'}:true" >
+			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Games'}:true" >
 				  <br>
 			      <a ng-click="vm.openInfoModal(activity)">
 			      <span>{{activity.Name}}</span> 
@@ -39,7 +39,7 @@
 		<div class="clearfix visible-sm"></div>
 		<div class="col-lg-3 col-md-3 col-sm-6">
 		<h3>Brain</h3>
-			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Games'}:true" >
+			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Brain'}:true" >
 				  <br>
 				  <a ng-click="vm.openInfoModal(activity)">
 			      <span>{{activity.Name}}</span> 
@@ -53,7 +53,7 @@
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-6">
 		<h3>Team</h3>
-			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Brain'}:true" >
+			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Team'}:true" >
 				  <br>
 			      <a ng-click="vm.openInfoModal(activity)">
 			      <span>{{activity.Name}}</span> 

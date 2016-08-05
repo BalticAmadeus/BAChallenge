@@ -13,6 +13,7 @@
         var vm = this;
         vm.login = login;
         vm.logout = logout;
+        vm.error = false;
 
         // inicialization
 
@@ -35,7 +36,7 @@
         }
 
         function handleError(response) {
-            //alert('Error: ' + response.data);
+            vm.error = true;
         }
 
 
