@@ -54,16 +54,17 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="participant">Participant object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
-        public IHttpActionResult Post([FromBody] ParticipantPostModel ppm)
+        public IHttpActionResult Post([FromBody] Participant participant)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            if (ppm != null)
+            if (participant != null)
             {
-                Participant participant = BindPostModelToModel(ppm);
+                participant.ParticipantId = 0;
+                participant.Results = new List<Result>();
 
                 _dbContext.Participants.Add(participant);
                 _dbContext.SaveChanges();
@@ -100,7 +101,7 @@ namespace BAChallengeWebServices.Controllers
         /// <param name="id">int, gotten from http integer request</param>
         /// <param name="participant">Participant object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
-        public IHttpActionResult Put(int id, [FromBody]ParticipantPostModel ppm)
+        public IHttpActionResult Put(int id, [FromBody]Participant participant)
         {
             if (!ModelState.IsValid)
             {
@@ -110,22 +111,12 @@ namespace BAChallengeWebServices.Controllers
             var selectedParticipant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
             if (selectedParticipant != null)
             {
-                Participant participant = BindPostModelToModel(ppm);
                 selectedParticipant.FirstName = participant.FirstName;
                 selectedParticipant.LastName = participant.LastName;
                 _dbContext.SaveChanges();
                 return Ok();
             }             
             return BadRequest();
-        }
-
-        private Participant BindPostModelToModel(ParticipantPostModel ppm)
-        {
-            return new Participant()
-            {
-                FirstName = ppm.FirstName,
-                LastName = ppm.LastName
-            };
         }
     }
 }
