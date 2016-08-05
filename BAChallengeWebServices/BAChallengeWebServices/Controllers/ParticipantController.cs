@@ -44,7 +44,7 @@ namespace BAChallengeWebServices.Controllers
         {
             if (_dbContext.Participants.Where(x => x.ParticipantId == id).Count() > 0)
             {
-                return Ok(_dbContext.Participants.FirstOrDefault(x => x.ParticipantId == id));
+                return Ok(_dbContext.Participants.Find(id));
             }
 
             return NotFound();
@@ -85,7 +85,7 @@ namespace BAChallengeWebServices.Controllers
                 return BadRequest();
             }
 
-            var participant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
+            var participant = _dbContext.Participants.Find(id);
             if (participant != null)
             {
                 _dbContext.Participants.Remove(participant);
@@ -109,7 +109,7 @@ namespace BAChallengeWebServices.Controllers
                 return BadRequest();
             }
 
-            var selectedParticipant = _dbContext.Participants.FirstOrDefault(u => u.ParticipantId == id);
+            var selectedParticipant = _dbContext.Participants.Find(id);
             if (selectedParticipant != null)
             {
                 selectedParticipant.Firstname = participant.Firstname;

@@ -36,7 +36,7 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(int id)
         {
-            var act = _dbContext.Activities.Single(x => x.ActivityId == id);
+            var act = _dbContext.Activities.Find(id);
 
             if (act == null)
             {
@@ -141,7 +141,7 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Delete(int id)
         {
-            var activity = _dbContext.Activities.FirstOrDefault(u => u.ActivityId == id);
+            var activity = _dbContext.Activities.Find(id);
             if(activity != null)
             {
                 _dbContext.Activities.Remove(activity);
@@ -166,7 +166,7 @@ namespace BAChallengeWebServices.Controllers
                 return BadRequest();
             }
 
-            var selectedRow = _dbContext.Activities.FirstOrDefault(u => u.ActivityId == id);
+            var selectedRow = _dbContext.Activities.Find(id);
             if (selectedRow != null)
             {
                 selectedRow.Name = activity.Name;
