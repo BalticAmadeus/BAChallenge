@@ -44,7 +44,7 @@ namespace BAChallengeWebServices.Controllers
         {
             if(_dbContext.Results.Where(x=>x.ResultId == id).Count() > 0)
             {
-                return Ok(_dbContext.Results.FirstOrDefault(x => x.ResultId == id));
+                return Ok(_dbContext.Results.Find(id));
             }
             return NotFound();
         }
@@ -80,7 +80,7 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Delete(int id)
         {
-            var result = _dbContext.Results.FirstOrDefault(u => u.ResultId == id);
+            var result = _dbContext.Results.Find(id);
             if (result != null)
             {
                 _dbContext.Results.Remove(result);
@@ -103,7 +103,7 @@ namespace BAChallengeWebServices.Controllers
             {
                 return BadRequest();
             }
-            var selectedResult = _dbContext.Results.FirstOrDefault(u => u.ResultId == id);
+            var selectedResult = _dbContext.Results.Find(id);
             if (selectedResult != null)
             {
                 selectedResult.ParticipantId = result.ParticipantId;
