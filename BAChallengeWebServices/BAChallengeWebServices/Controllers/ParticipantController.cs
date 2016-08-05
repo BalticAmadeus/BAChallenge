@@ -54,6 +54,7 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="participant">Participant object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
+        [Authorize]
         public IHttpActionResult Post([FromBody] Participant participant)
         {
             if (!ModelState.IsValid)
@@ -77,6 +78,7 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="id">int, gotten from http request int</param>
         /// <returns>IHttpActionResult</returns>
+        [Authorize]
         public IHttpActionResult Delete(int id)
         {
             if (!ModelState.IsValid)
@@ -101,6 +103,7 @@ namespace BAChallengeWebServices.Controllers
         /// <param name="id">int, gotten from http integer request</param>
         /// <param name="participant">Participant object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
+        [Authorize]
         public IHttpActionResult Put(int id, [FromBody]Participant participant)
         {
             if (!ModelState.IsValid)
