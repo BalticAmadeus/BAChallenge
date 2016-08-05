@@ -210,6 +210,7 @@
     <Compile Include="Authentication\AuthRepository.cs" />
     <Compile Include="Authentication\CustomAuthorizationServerProvider.cs" />
     <Compile Include="Controllers\ActivityController.cs" />
+    <Compile Include="Controllers\ActivityParticipantController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ParticipantController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
@@ -218,11 +219,14 @@
     <Compile Include="DataAccess\AuthContext.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\ActivityBranch.cs" />
+    <Compile Include="Models\ActivityParticipant.cs" />
     <Compile Include="Models\ActivityStatus.cs" />
     <Compile Include="Models\AdminRegistrationModel.cs" />
     <Compile Include="Models\AdminPasswordChangeModel.cs" />
     <Compile Include="Models\Participant.cs" />
+    <Compile Include="Models\ParticipantModel.cs" />
     <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\ResultParticipant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\AllowCrossSiteJson.cs" />
