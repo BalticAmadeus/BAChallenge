@@ -54,8 +54,8 @@ namespace BAChallengeWebServices.DataAccess
             context.Participants.Add(new Participant
             {
                 ParticipantId = 1,
-                Firstname = "Nikolaj",
-                Lastname = "Anikejev",
+                FirstName = "Nikolaj",
+                LastName = "Anikejev",
                 Results = new List<Result>
                 {
                     new Result { ResultId = 1, ActivityId = 1, ParticipantId = 1, Activity = context.Activities.FirstOrDefault(x => x.ActivityId ==1), Points = 6, Description = "Gerai padirbejai"},
@@ -65,8 +65,8 @@ namespace BAChallengeWebServices.DataAccess
             context.Participants.Add(new Participant
             {
                 ParticipantId = 2,
-                Firstname = "Rimvydas",
-                Lastname = "Aniulis",
+                FirstName = "Rimvydas",
+                LastName = "Aniulis",
                 Results = new List<Result>
                 {
                     new Result { ResultId = 3, ActivityId = 5, ParticipantId = 2, Activity = context.Activities.FirstOrDefault(x => x.ActivityId ==5), Points = 6, Description = "Visai neblogai"},
@@ -77,8 +77,8 @@ namespace BAChallengeWebServices.DataAccess
             context.Participants.Add(new Participant
             {
                 ParticipantId = 3,
-                Firstname = "Mindaugas",
-                Lastname = "Ardaravičius",
+                FirstName = "Mindaugas",
+                LastName = "Ardaravičius",
                 Results = new List<Result>
                 {
                     new Result { ResultId = 5, ActivityId = 16, ParticipantId = 3, Activity = context.Activities.FirstOrDefault(x => x.ActivityId ==16), Points = 0, Description = "Kodel nedalyvavai?!"},
