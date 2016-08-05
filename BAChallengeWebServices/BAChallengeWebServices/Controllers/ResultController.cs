@@ -61,20 +61,13 @@ namespace BAChallengeWebServices.Controllers
             }
             if (result != null)
             {
-                if (_dbContext.Results.FirstOrDefault(x => x.ResultId == result.ResultId) != null)
-                {
-                    return BadRequest();
-                }
-                if (_dbContext.Activities.FirstOrDefault(x => x.ActivityId == result.ActivityId) == null &&
-                    _dbContext.Activities.FirstOrDefault(x => x.ActivityId == result.Activity.ActivityId) == null)
-                {
-                    return BadRequest();
-                }
-                if(result.Activity != null)
-                {
-                    return BadRequest();
-                }
-                _dbContext.Results.Add(result);
+                Result results = new Result();
+                results.ActivityId = result.ActivityId;
+                results.ParticipantId = result.ParticipantId;
+                results.Points = result.Points;
+                results.Description = result.Description;
+            
+                _dbContext.Results.Add(results);
                 _dbContext.SaveChanges();
                 return Ok();
             }
@@ -97,6 +90,30 @@ namespace BAChallengeWebServices.Controllers
             }
 
             return NotFound();
+        }
+        /// <summary>
+        /// Function modify one result and all information about him using selected Id via .../result/1 (PUT)
+        /// </summary>
+        /// <param name="id">int, gotten from http integer request</param>
+        /// <param name="result">Result object, gotten from http request body</param>
+        /// <returns>IHttpActionResult</returns>
+        public IHttpActionResult Put(int id,[FromBody] Result result)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var selectedResult = _dbContext.Results.FirstOrDefault(u => u.ResultId == id);
+            if (selectedResult != null)
+            {
+                selectedResult.ParticipantId = result.ParticipantId;
+                selectedResult.Points = result.Points;
+                selectedResult.Description = result.Description;
+                selectedResult.ActivityId = result.ActivityId;
+                _dbContext.SaveChanges();
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }
