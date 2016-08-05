@@ -34,11 +34,11 @@ namespace BAChallengeWebServices.Controllers
 
         public IHttpActionResult Get(int id)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            if(_dbContext.Activities.Where(x => x.ActivityId == id).Count() != 0)
+            if (_dbContext.Activities.Where(x => x.ActivityId == id).Count() != 0)
             {
                 return Ok(GetActivityById(id));
             }
@@ -68,8 +68,8 @@ namespace BAChallengeWebServices.Controllers
                 participantModel.Add(
                     new ParticipantModel
                     {
-                        Firstname = x.Firstname,
-                        Lastname = x.Lastname,
+                        Firstname = x.FirstName,
+                        Lastname = x.LastName,
                         ParticipantId = x.ParticipantId,
                         Results = results
                     });
