@@ -1,14 +1,14 @@
-<!-- <h3>eventsList</h3> -->
+<!-- <h2>eventsList</h2> -->
 <div class="content-container">
 <div class="events-image">
 	<img src="images/image1.jpg">
 </div>
 <div class="container events-list-container">
 	<div class="row">
-	<h2>Artimiausi renginiai</h2>
+	<h1>Artimiausi renginiai</h1>
 	<hr>
 		<div class="col-lg-3 col-md-3 col-sm-6">
-		<h3>Sport</h3>
+		<h2>Sport</h2>
 			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter : {'Branch':  'Sports'} : true ">
 			      <br>
 			      <a ng-click="vm.openInfoModal(activity)">
@@ -17,12 +17,12 @@
 			      <br>
 			      <span>{{activity.Date | limitTo: 10}}</span>
 			      <br>
-			      <a href="https://www.google.lt/" class="btn btn-info">registracija</a>
+			      <a href="{{activity.RegistrationUrl}}" class="btn btn-primary">registracija</a>
 			      <br>
 			</div>
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-6">
-		<h3>Games</h3>
+		<h2>Games</h2>
 		<span>{{activity.Name}}</span> 
 			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Games'}:true" >
 				  <br>
@@ -32,13 +32,13 @@
 			      <br>
 			      <span>{{activity.Date | limitTo: 10}}</span>
 			      <br>
-			      <a href="https://www.google.lt/" class="btn btn-info">registracija</a>
+			      <a href="{{activity.RegistrationUrl}}" class="btn btn-primary">registracija</a>
 			      <br>
 			</div>
 		</div>
 		<div class="clearfix visible-sm"></div>
 		<div class="col-lg-3 col-md-3 col-sm-6">
-		<h3>Brain</h3>
+		<h2>Brain</h2>
 			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Brain'}:true" >
 				  <br>
 				  <a ng-click="vm.openInfoModal(activity)">
@@ -47,12 +47,12 @@
 			      <br>
 			      <span>{{activity.Date | limitTo: 10}}</span>
 			      <br>
-			      <a href="https://www.google.lt/" class="btn btn-info">registracija</a>
+			      <a href="{{activity.RegistrationUrl}}" class="btn btn-primary">registracija</a>
 			      <br>
 			</div>
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-6">
-		<h3>Team</h3>
+		<h2>Team</h2>
 			<div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Team'}:true" >
 				  <br>
 			      <a ng-click="vm.openInfoModal(activity)">
@@ -61,7 +61,7 @@
 			      <br>
 			      <span>{{activity.Date | limitTo: 10}}</span>
 			      <br>
-			      <a href="https://www.google.lt/" class="btn btn-info">registracija</a>
+			      <a href="{{activity.RegistrationUrl}}" class="btn btn-primary">registracija</a>
 
 			</div>
 	</div>

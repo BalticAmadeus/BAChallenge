@@ -16,7 +16,7 @@
 		vm.newActivitytDate = '';
 		vm.newActivityDescription = '';
 		vm.newActivityRegistrationDate = '';
-		vm.newActivityStatus = '';
+		vm.newActivityLocation = '';
 
 		vm.activity = $scope.$resolve.activity;
 		
@@ -29,7 +29,7 @@
 			//console.log('onSubmit');
 			ActivityManager.createProject(vm.newActivityName,
 			 vm.newActivityBranch, vm.newActivitytDate, vm.newActivityDescription,
-			 vm.newActivityRegistrationDate, vm.newActivityStatus)
+			 vm.newActivityRegistrationDate, vm.newActivityLocation)
 			.then(function (response) {
 				$uibModalInstance.dismiss();
 				$state.reload();

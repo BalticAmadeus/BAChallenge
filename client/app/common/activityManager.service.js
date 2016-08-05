@@ -14,15 +14,15 @@
         };
 
         function createProject(name, branch, date, description,
-            registrationDate, status) {
+            registrationDate, location) {
             var requestData = {
                 Name: name,
                 Branch: branch,
                 Date: date,
                 Description: description,
-                Location: "location",
+                Location: location,
                 RegistrationDate: registrationDate,
-                RegistrationUrl: 'veik pls'
+                RegistrationUrl: 'url'
             };
 
             return $http.post('http://mokymainet.azurewebsites.net/activity', requestData);

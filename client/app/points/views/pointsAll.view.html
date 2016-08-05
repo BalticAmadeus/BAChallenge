@@ -1,0 +1,18 @@
+<h3>visi</h3>
+<div class="bs-example">
+    <table class="table table-hover results-table-all">
+        <thead>
+            <tr>
+                <th>Darbuotojas</th>
+                <th>Taškai</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="participant in vm.participant">
+                <td>{{participant.FirstName}}</td>
+                <td>{{participant.Results[0].Points}}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
