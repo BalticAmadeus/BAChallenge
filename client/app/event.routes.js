@@ -44,6 +44,7 @@
             })
             .state('root.points', {
                 url: 'points',
+                abstract: true,
                 templateUrl: 'app/points/points.view.html',
                 controller: 'PointsController',
                 controllerAs: 'vm'
