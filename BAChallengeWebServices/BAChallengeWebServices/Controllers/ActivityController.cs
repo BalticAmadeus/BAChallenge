@@ -172,7 +172,6 @@ namespace BAChallengeWebServices.Controllers
             selectedRow.Date = activity.Date;
             selectedRow.RegistrationDate = activity.RegistrationDate;
             selectedRow.Branch = activity.Branch;
-            selectedRow.Status = activity.Status;
             selectedRow.Description = activity.Description;
             selectedRow.Location = activity.Location;
             _dbContext.SaveChanges();
