@@ -4,8 +4,6 @@ using BAChallengeWebServices.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace BAChallengeWebServices.Controllers
@@ -13,11 +11,11 @@ namespace BAChallengeWebServices.Controllers
     [AllowCrossSiteJson]
     public class ActivityController : ApiController
     {
-        private ApplicationDBContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
         public ActivityController()
         {
-            _dbContext = new ApplicationDBContext();
+            _dbContext = new ApplicationDbContext();
         }
         /// <summary>
         /// Function retrieves all Activities and all information about them via .../activity (GET)
@@ -57,18 +55,16 @@ namespace BAChallengeWebServices.Controllers
                 return BadRequest();
             }
 
-            var act = _dbContext.Activities.Where(
-                x => x.Date.Year == date.Year &&
-                x.Date.Month == date.Month &&
-                x.Date.Day == date.Day
-            );
+            var activities = new List<Activity>(_dbContext.Activities.Where(
+                x => x.Date.Date == date.Date
+            ));
 
-            if (act.Count() == 0)
+            if (!activities.Any())
             {
                 return NotFound();
             }
 
-            return Ok(act);
+            return Ok(activities);
         }
         /// <summary>
         /// Function retrieves all activities selected by location via .../activity/?location=Vilnius (GET)
@@ -82,13 +78,13 @@ namespace BAChallengeWebServices.Controllers
                 return BadRequest();
             }
 
-            var act = _dbContext.Activities.Where(x => x.Location == location);
+            var activities = new List<Activity>(_dbContext.Activities.Where(x => x.Location == location));
 
-            if (act.Count() == 0)
+            if (!activities.Any())
             {
                 return NotFound();
             }
-            return Ok(act);
+            return Ok(activities);
         }
         /// <summary>
         /// Function retrieves all activities selected by branch via .../activity/?branch=Sports (GET)
@@ -102,14 +98,14 @@ namespace BAChallengeWebServices.Controllers
                 return BadRequest();
             }
 
-            var act = _dbContext.Activities.Where(x => x.Branch == branch);
+            var activity = new List<Activity>(_dbContext.Activities.Where(x => x.Branch == branch));
 
-            if (act.Count() == 0)
+            if (!activity.Any())
             {
                 return NotFound();
             }
 
-            return Ok(act);
+            return Ok(activity);
         }
         /// <summary>
         /// Function creates one activity via .../activity (POST)
@@ -124,7 +120,7 @@ namespace BAChallengeWebServices.Controllers
                 return BadRequest();
             }
 
-            if (_dbContext.Activities.Where(x => x.ActivityId == activity.ActivityId).Count() > 0)
+            if (_dbContext.Activities.Any(x => x.ActivityId == activity.ActivityId))
             {
                 return BadRequest();
             }
@@ -133,6 +129,7 @@ namespace BAChallengeWebServices.Controllers
 
             return Ok();
         }
+
         /// <summary>
         /// Function deletes one activity via .../activity/1 (DELETE)
         /// </summary>
@@ -142,16 +139,16 @@ namespace BAChallengeWebServices.Controllers
         public IHttpActionResult Delete(int id)
         {
             var activity = _dbContext.Activities.Find(id);
-            if(activity != null)
+            if (activity == null)
             {
-                _dbContext.Activities.Remove(activity);
-                _dbContext.SaveChanges();
-
-                return Ok();
+                return NotFound();
             }
+            _dbContext.Activities.Remove(activity);
+            _dbContext.SaveChanges();
 
-            return NotFound();
+            return Ok();
         }
+
         /// <summary>
         /// Function modify one activity via .../activity/1 (PUT)
         /// </summary>
@@ -159,7 +156,7 @@ namespace BAChallengeWebServices.Controllers
         /// <param name="activity">Activity object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
         [Authorize]
-        public IHttpActionResult Put(int id,[FromBody]Activity activity)
+        public IHttpActionResult Put(int id, [FromBody] Activity activity)
         {
             if (!ModelState.IsValid)
             {
@@ -167,19 +164,19 @@ namespace BAChallengeWebServices.Controllers
             }
 
             var selectedRow = _dbContext.Activities.Find(id);
-            if (selectedRow != null)
+            if (selectedRow == null)
             {
-                selectedRow.Name = activity.Name;
-                selectedRow.Date = activity.Date;
-                selectedRow.RegistrationDate = activity.RegistrationDate;
-                selectedRow.Branch = activity.Branch;
-                selectedRow.Status = activity.Status;
-                selectedRow.Description = activity.Description;
-                selectedRow.Location = activity.Location;
-                _dbContext.SaveChanges();
-                return Ok();
+                return BadRequest();
             }
-            return BadRequest();
+            selectedRow.Name = activity.Name;
+            selectedRow.Date = activity.Date;
+            selectedRow.RegistrationDate = activity.RegistrationDate;
+            selectedRow.Branch = activity.Branch;
+            selectedRow.Status = activity.Status;
+            selectedRow.Description = activity.Description;
+            selectedRow.Location = activity.Location;
+            _dbContext.SaveChanges();
+            return Ok();
         }
     }
 }

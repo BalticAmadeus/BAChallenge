@@ -1,21 +1,18 @@
 ﻿using BAChallengeWebServices.DataAccess;
 using BAChallengeWebServices.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace BAChallengeWebServices.Controllers
 {
     public class ActivityParticipantController : ApiController
     {
-        private ApplicationDBContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
         public ActivityParticipantController()
         {
-            _dbContext = new ApplicationDBContext();
+            _dbContext = new ApplicationDbContext();
         }
 
         public IHttpActionResult Get()
@@ -24,11 +21,8 @@ namespace BAChallengeWebServices.Controllers
             {
                 return BadRequest();
             }
-            var activityParticipants = new List<ActivityParticipantModel>();
-            foreach (var item in _dbContext.Activities.ToList())
-            {
-                activityParticipants.Add(GetActivityById(item.ActivityId));
-            }
+            var activityParticipants = _dbContext.Activities.ToList().Select(item => 
+            GetActivityById(item.ActivityId)).ToList();
             return Ok(activityParticipants);
         }
 
@@ -38,7 +32,7 @@ namespace BAChallengeWebServices.Controllers
             {
                 return BadRequest();
             }
-            if (_dbContext.Activities.Where(x => x.ActivityId == id).Count() != 0)
+            if (_dbContext.Activities.Any(x => x.ActivityId == id))
             {
                 return Ok(GetActivityById(id));
             }
@@ -50,7 +44,7 @@ namespace BAChallengeWebServices.Controllers
             var activity = _dbContext.Activities.Find(id);
 
             var participants = _dbContext.Participants.Where(x =>
-            x.Results.Where(y => y.ActivityId == id).Count() != 0).ToList();
+            x.Results.Count(y => y.ActivityId == id) != 0).ToList();
 
             var participantModel = new List<ParticipantModel>();
 

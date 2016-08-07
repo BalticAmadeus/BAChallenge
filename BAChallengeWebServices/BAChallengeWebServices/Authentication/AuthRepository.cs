@@ -35,7 +35,7 @@ namespace BAChallengeWebServices.Authentication
             if (admin.Password != admin.ConfirmPassword)
                 return null;
 
-            IdentityUser user = new IdentityUser()
+            var user = new IdentityUser()
             {
                 UserName = admin.Username
             };
@@ -61,7 +61,7 @@ namespace BAChallengeWebServices.Authentication
         /// <returns>Identity user, that matches username</returns>
         public async Task<IdentityUser> FindUser(string username)
         {
-            IdentityUser user = await _userManager.FindByNameAsync(username);
+            var user = await _userManager.FindByNameAsync(username);
 
             return user;
         }
@@ -74,7 +74,7 @@ namespace BAChallengeWebServices.Authentication
         /// <returns>Identity user, that matches username and password</returns>
         public async Task<IdentityUser> FindUser(string username, string password )
         {
-            IdentityUser user = await _userManager.FindAsync(username, password);
+            var user = await _userManager.FindAsync(username, password);
 
             return user;
         }
@@ -89,7 +89,7 @@ namespace BAChallengeWebServices.Authentication
         {
             try
             {
-                IdentityUser user = await FindUser(username, oldPassword);
+                var user = await FindUser(username, oldPassword);
                 user.PasswordHash = _userManager.PasswordHasher.HashPassword(newPassword);
 
                 await _userManager.UpdateAsync(user);

@@ -1,11 +1,8 @@
 ﻿using BAChallengeWebServices.DataAccess;
 using BAChallengeWebServices.Utility;
 using BAChallengeWebServices.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace BAChallengeWebServices.Controllers
@@ -13,11 +10,11 @@ namespace BAChallengeWebServices.Controllers
     [AllowCrossSiteJson]
     public class ParticipantController : ApiController
     {
-        private ApplicationDBContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
         public ParticipantController()
         {
-            _dbContext = new ApplicationDBContext();
+            _dbContext = new ApplicationDbContext();
         }
         /// <summary>
         /// Function retrieves all Participants and all information about them via .../participant (GET)
@@ -42,13 +39,14 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get(int id)
         {
-            if (_dbContext.Participants.Where(x => x.ParticipantId == id).Count() > 0)
+            if (_dbContext.Participants.Any(x => x.ParticipantId == id))
             {
                 return Ok(_dbContext.Participants.Find(id));
             }
 
             return NotFound();
         }
+
         /// <summary>
         /// Function creates one according to parameters set in ParticipantPostModel via .../participant (POST)
         /// </summary>
@@ -62,17 +60,18 @@ namespace BAChallengeWebServices.Controllers
                 return BadRequest();
             }
 
-            if (participant != null)
+            if (participant == null)
             {
-                participant.ParticipantId = 0;
-                participant.Results = new List<Result>();
-
-                _dbContext.Participants.Add(participant);
-                _dbContext.SaveChanges();
-                return Ok();
+                return BadRequest();
             }
-            return BadRequest();
+            participant.ParticipantId = 0;
+            participant.Results = new List<Result>();
+
+            _dbContext.Participants.Add(participant);
+            _dbContext.SaveChanges();
+            return Ok();
         }
+
         /// <summary>
         /// Function deletes one Participants using selected Id via .../participant/1 (DELETE)
         /// </summary>
@@ -87,16 +86,17 @@ namespace BAChallengeWebServices.Controllers
             }
 
             var participant = _dbContext.Participants.Find(id);
-            if (participant != null)
+            if (participant == null)
             {
-                _dbContext.Participants.Remove(participant);
-                _dbContext.SaveChanges();
-
-                return Ok();
+                return NotFound();
             }
+            _dbContext.Participants.Remove(participant);
+            _dbContext.SaveChanges();
 
-            return NotFound();
+            return Ok();
+
         }
+
         /// <summary>
         /// Function modify participants firstname and lastname. via .../participant/1 (PUT)
         /// </summary>
@@ -104,7 +104,7 @@ namespace BAChallengeWebServices.Controllers
         /// <param name="participant">Participant object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
         [Authorize]
-        public IHttpActionResult Put(int id, [FromBody]Participant participant)
+        public IHttpActionResult Put(int id, [FromBody] Participant participant)
         {
             if (!ModelState.IsValid)
             {
@@ -112,14 +112,14 @@ namespace BAChallengeWebServices.Controllers
             }
 
             var selectedParticipant = _dbContext.Participants.Find(id);
-            if (selectedParticipant != null)
+            if (selectedParticipant == null)
             {
-                selectedParticipant.FirstName = participant.FirstName;
-                selectedParticipant.LastName = participant.LastName;
-                _dbContext.SaveChanges();
-                return Ok();
-            }             
-            return BadRequest();
+                return BadRequest();
+            }
+            selectedParticipant.FirstName = participant.FirstName;
+            selectedParticipant.LastName = participant.LastName;
+            _dbContext.SaveChanges();
+            return Ok();
         }
     }
 }

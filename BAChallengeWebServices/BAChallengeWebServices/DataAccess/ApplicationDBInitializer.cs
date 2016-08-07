@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using BAChallengeWebServices.Models;
 using System.Globalization;
 using BAChallengeWebServices.Authentication;
 
 namespace BAChallengeWebServices.DataAccess
 {
-    public class ApplicationDBInitializer : CreateDatabaseIfNotExists<ApplicationDBContext>
+    public class ApplicationDbInitializer : CreateDatabaseIfNotExists<ApplicationDbContext>
     {
-        protected override void Seed(ApplicationDBContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             //Creating Identity seed
 
