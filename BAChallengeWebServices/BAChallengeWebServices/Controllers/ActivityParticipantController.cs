@@ -62,8 +62,8 @@ namespace BAChallengeWebServices.Controllers
                 participantModel.Add(
                     new ParticipantModel
                     {
-                        Firstname = x.FirstName,
-                        Lastname = x.LastName,
+                        FirstName = x.FirstName,
+                        LastName = x.LastName,
                         ParticipantId = x.ParticipantId,
                         Results = results
                     });
