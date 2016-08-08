@@ -90,7 +90,20 @@
             })
             .state('root.admin', {
                 url: 'admin',
+                abstract: true,
                 templateUrl: 'app/admin/admin.view.html',
+                controller: 'AdminController',
+                controllerAs: 'vm'
+            })
+            .state('root.admin.events', {
+                url: '/events',
+                templateUrl: 'app/admin/adminEvents.view.html',
+                controller: 'AdminController',
+                controllerAs: 'vm'
+            })
+            .state('root.admin.points', {
+                url: '/points',
+                templateUrl: 'app/admin/adminPoints/adminPoints.view.html',
                 controller: 'AdminController',
                 controllerAs: 'vm'
             });

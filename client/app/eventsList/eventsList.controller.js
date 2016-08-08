@@ -18,7 +18,6 @@
         dataFactory.getActivities()
             .then(function (activities) {
                 vm.activities = activities.data;
-                console.log(activities.data);
             }, function (error) {
                 vm.status = 'Unable to load customer data: ' + error.message;
             });

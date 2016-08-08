@@ -17,6 +17,7 @@
         vm.participants = [];
         vm.activitiesParticipants = [];
 
+
         dataFactory.getParticipants()
             .then(function(participants) {
                 vm.participants = participants.data;
@@ -40,7 +41,6 @@
 
         function total(participant) {
             var total = 0;
-            console.log(participant.Results.length);
             for (var i = 0; i < participant.Results.length; i++) {
                 //console.log(participants.Results[i].Points);
                 total += parseInt(participant.Results[i].Points);

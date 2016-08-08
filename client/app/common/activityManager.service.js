@@ -4,14 +4,16 @@
         .module('EventsApp')
         .service('ActivityManager', ActivityManager);
 
-    ActivityManager.$inject = ['$http'];
+    ActivityManager.$inject = ['$http', 'constant'];
 
-    function ActivityManager($http) {
+    function ActivityManager($http, constant) {
 
         return {
             createProject: createProject,
             deleteProject: deleteProject,
-            updateProject : updateProject
+            updateProject : updateProject,
+            setPoints : setPoints,
+            deletePoints : deletePoints
         };
 
         function createProject(name, branch, date, description,
@@ -26,7 +28,7 @@
                 RegistrationUrl: registrationUrl
             };
 
-            return $http.post('http://mokymainet.azurewebsites.net/activity', requestData);
+            return $http.post(constant.urlBase + '/activity', requestData);
             // return $http.post('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity', requestData);
         };
 
@@ -34,7 +36,7 @@
             //console.log(activityID);
             //console.log('http://mokymainet.azurewebsites.net/activity/' + activityID);
 
-            return $http.delete('http://mokymainet.azurewebsites.net/activity/' + activityID);
+            return $http.delete(constant.urlBase + '/activity/' + activityID);
             // return $http.delete('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity/' + activityID);
         };
 
@@ -50,11 +52,28 @@
                 Description: description,
                 Location: location,
                 RegistrationDate: registrationDate,
-                RegistrationUrl: registrationUrl
+                RegistrationUrl: registrationUrl,
+                _method : 'PUT'
             };
 
-            return $http.put('http://mokymainet.azurewebsites.net/activity/' + activityID, data);
+            return $http.post(constant.urlBase + '/activity/' + activityID, data);
             // return $http.delete('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity/' + activityID);
+        };
+
+        function setPoints (activityId, participantId, points){
+            var data = {
+                ActivityId : activityId,
+                ParticipantId : participantId,
+                Points : points
+            };
+            return $http.post(constant.urlBase + '/result', data);
+        };
+
+        function deletePoints(resultId){
+            var data = {
+                ResultId : resultId
+            };
+            return $http.delete(constant.urlBase + '/result/' + resultId);
         };
     };
 })();

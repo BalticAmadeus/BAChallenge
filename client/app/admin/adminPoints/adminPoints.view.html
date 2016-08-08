@@ -1,0 +1,33 @@
+<div class="container-fluid admin-points-container">
+    <div class="row">
+        <div class="col-xs-12 admin-points-wrapper" ng-repeat="activity in vm.activitiesParticipants">
+            <div class="activity-container">
+                <div class="activity-heading"> {{ activity.Activity.Name }}</div>
+                <div class="activity-participants-container">
+                    <div class="activity-participant" ng-repeat="participant in activity.Participants">
+                        <span>                        
+                        {{ participant.FirstName }}
+                        {{ participant.LastName }}:
+                        </span>
+                        <span>{{participant.Results[0].Points}} tašk.</span>
+                        <!-- <span>description : {{ participant.Results[0].Description}}</span> -->
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="vm.deletePoints(participant.Results[0].ResultId)">
+                    </div>
+                    <form class="form-inline points-form">
+                        <div class="form-group">
+                            <label>Dalyvis</label>
+                            <select name="repeatSelect" id="repeatSelect" ng-model="participantId" class="form-control">
+                                <option ng-repeat="participant in vm.participants" value="{{participant.ParticipantId}}">{{participant.FirstName}} {{participant.LastName}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Taškai</label>
+                            <input type="text" class="form-control" placeholder="Taškai" ng-model="points">
+                        </div>
+                        <button type="button" class="btn btn-primary" ng-click="vm.onSubmit(activity.Activity.ActivityId, participantId, points)">ok</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

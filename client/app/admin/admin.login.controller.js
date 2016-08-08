@@ -27,7 +27,7 @@
             UserFactory.login(username, password)
                 .then(function (response) {
                     vm.user = response.data;
-                    $state.go('root.admin');
+                    $state.go('root.admin.events');
                 }, handleError);
         }
 
