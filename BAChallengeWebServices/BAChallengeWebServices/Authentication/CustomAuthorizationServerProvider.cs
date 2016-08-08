@@ -17,7 +17,7 @@ namespace BAChallengeWebServices.Authentication
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (var authorization = new AuthRepository())
+            using (var authorization = new AuthorisationRepository())
             {
                 var user = await authorization.FindUser(context.UserName, context.Password);
 
