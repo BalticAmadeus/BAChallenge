@@ -36,12 +36,6 @@
                 controller: 'EventListController',
                 controllerAs: 'vm'
             })
-            .state('root.calendar', {
-                url: 'calendar',
-                templateUrl: 'app/calendar/calendar.view.html',
-                controller: 'CalendarController',
-                controllerAs: 'vm'
-            })
             .state('root.points', {
                 url: 'points',
                 abstract: true,
@@ -104,6 +98,12 @@
             .state('root.admin.points', {
                 url: '/points',
                 templateUrl: 'app/admin/adminPoints/adminPoints.view.html',
+                controller: 'AdminController',
+                controllerAs: 'vm'
+            })
+            .state('root.admin.participants', {
+                url: '/participants',
+                templateUrl: 'app/admin/adminParticipants/adminParticipants.view.html',
                 controller: 'AdminController',
                 controllerAs: 'vm'
             });

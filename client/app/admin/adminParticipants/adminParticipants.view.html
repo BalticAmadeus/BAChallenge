@@ -1,0 +1,29 @@
+<div class="container-fluid text-center content-container">
+    <h1>Dalyviai</h1>
+    <div class="admin-list-container">
+        <div class="list-group">
+            <!-- <button ng-click="vm.openCreateModal(activity)" type="button" class="list-group-item list-group-item-info admin-add-button">&plus;</button> -->
+            <h3>Pridėti dalyvį</h3>
+            <form class="form-inline">
+                <div class="form-group add-participant-input-group">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control add-participant-input" placeholder="Vardas" ng-model="vm.newParticipantFirstName">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control add-participant-input" placeholder="Pavardė" ng-model="vm.newParticipantLastName">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary add-participant-button" ng-click="vm.addNewParticipant()">Pridėti
+                </button>
+            </form>
+            <div ng-repeat="participant in vm.participants">
+                <div class="list-group-item list-group-item-info ">
+                    {{participant.FirstName}} {{participant.LastName}}
+                    <!-- {{participant.ParticipantId}} -->
+                    <span class=" pull-right glyphicon glyphicon-remove activity-delete" ng-click="vm.deleteParticipant(participant.ParticipantId)" aria-hidden="true"></span>
+                    <!-- <span class=" pull-right activity-edit" ng-click="vm.openUpdateModal(activity)">Peržiūrėti/Redaguoti</span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

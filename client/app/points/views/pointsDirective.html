@@ -6,8 +6,7 @@
                 <div class="activity-participants-container">
                     <div class="activity-participant" ng-repeat="participant in activity.Participants">
                         <span>                        
-                        {{ participant.FirstName }}
-                        {{ participant.LastName }}:
+                        {{ participant.FirstName }} {{ participant.LastName }}:
                         </span>
                         <span>{{participant.Results[0].Points}} taškai</span>
                         <!-- <span>description : {{ participant.Results[0].Description}}</span> -->

@@ -15,15 +15,19 @@
         vm.openDeleteModal = openDeleteModal;
         vm.openUpdateModal = openUpdateModal;
         vm.logout = logout;
-        vm.onSubmit = onSubmit;
+        vm.addPoints = addPoints;
         vm.deletePoints = deletePoints;
+        vm.addNewParticipant = addNewParticipant;
+        vm.deleteParticipant = deleteParticipant;
 
         vm.activities = [];
         vm.participants = [];
         vm.activitiesParticipants = [];
 
-       // vm.points = '';
-       // vm.participant.id = '';
+        vm.newParticipantFirstName = '';
+        vm.newParticipantLastName = '';
+        // vm.points = '';
+        // vm.participant.id = '';
 
         dataFactory.getActivities()
             .then(function(activities) {
@@ -39,13 +43,16 @@
                 vm.status = 'Unable to load customer data: ' + error.message;
             });
 
-        dataFactory.getActivitiesParticipants()
-            .then(function(activitiesParticipants) {
-                vm.activitiesParticipants = activitiesParticipants.data;
-            }, function(error) {
-                vm.status = 'Unable to load customer data: ' + error.message;
-            });
-
+        function getData() {
+            dataFactory.getActivitiesParticipants()
+                .then(function(activitiesParticipants) {
+                    vm.activitiesParticipants = activitiesParticipants.data;
+                }, function(error) {
+                    vm.status = 'Unable to load customer data: ' + error.message;
+                });
+        }
+        
+        getData();
 
         function openCreateModal(activity) {
             var templateUrl = 'app/admin/adminCreateModal.view.html';
@@ -67,23 +74,36 @@
             $state.go('root.login');
         };
 
-        function onSubmit(activityId, participantId, points){
-            console.log(activityId, participantId, points);
+        function addPoints(activityId, participantId, points) {
             ActivityManager.setPoints(activityId, participantId, points)
                 .then(function(response) {
-                    // $uibModalInstance.dismiss();
-                    $state.reload();
+                    getData();
+
                 });
         };
-         function deletePoints(resultId){
+
+        function deletePoints(resultId) {
             console.log(resultId);
             ActivityManager.deletePoints(resultId)
                 .then(function(response) {
-                    // $uibModalInstance.dismiss();
+                    getData();
+                });
+        }
+
+        function addNewParticipant() {
+            // console.log(vm.newParticipantFirstName, vm.newParticipantLastName);
+
+            ActivityManager.addParticipant(vm.newParticipantFirstName, vm.newParticipantLastName)
+                .then(function(response) {
                     $state.reload();
                 });
-         }
+        };
 
-
+        function deleteParticipant(participantId) {
+            ActivityManager.deleteParticipant(participantId)
+                .then(function(response) {
+                    $state.reload();
+                });
+        };
     };
 })();

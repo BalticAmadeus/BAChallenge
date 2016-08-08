@@ -264,5 +264,20 @@ th:not(:first-child) {
 }
 
 .admin-points-container{
-    margin-top: 30px;
+    padding-top: 50px;
+}
+
+.add-participant-button{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.add-participant-input-group{
+    width: 100%;
+}
+
+
+.add-participant-input-group .add-participant-input{
+    width: 100%;
 }

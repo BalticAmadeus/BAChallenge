@@ -1,0 +1,18 @@
+<div class="container-fluid text-center content-container">
+
+    <h1>Dalyviai</h1>
+    <div class="admin-list-container">
+        <div class="list-group">
+            <button ng-click="vm.openCreateModal(activity)" type="button" class="list-group-item list-group-item-info admin-add-button">&plus;</button>
+            <div ng-repeat="participant in vm.participants">
+                <div class="list-group-item list-group-item-info">
+                    {{participant.FirstName}} 
+                    {{participant.LastName}}
+                    <!-- <span class=" pull-right glyphicon glyphicon-remove activity-delete" ng-click="vm.openDeleteModal(activity)" aria-hidden="true"></span> -->
+                    <!-- <span class=" pull-right activity-edit" ng-click="vm.openUpdateModal(activity)">Peržiūrėti/Redaguoti</span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

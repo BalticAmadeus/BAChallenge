@@ -1,1 +1,21 @@
- <points-dir activity-array="vm.activitiesParticipants" activity-type="Team"></points-dir>
+<h3>team</h3>
+<div class="bs-example">
+    <table class="table table-hover results-table">
+        <thead>
+            <tr>
+                <th>Darbuotojas</th>
+                <th ng-repeat="activity in vm.activitiesParticipants | filter:{Activity:{Branch: 'Sports'}}:true | orderBy : 'Activity.Name' : false">
+                    {{activity.Activity.Name}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="participant in vm.participants">
+                <td>{{participant.FirstName}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<div ui-view class="tab-content"></div>
+<points-dir activity-array="vm.activitiesParticipants" activity-type="Team"></points-dir>

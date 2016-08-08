@@ -13,7 +13,9 @@
             deleteProject: deleteProject,
             updateProject : updateProject,
             setPoints : setPoints,
-            deletePoints : deletePoints
+            deletePoints : deletePoints,
+            addParticipant : addParticipant,
+            deleteParticipant : deleteParticipant
         };
 
         function createProject(name, branch, date, description,
@@ -74,6 +76,21 @@
                 ResultId : resultId
             };
             return $http.delete(constant.urlBase + '/result/' + resultId);
+        };
+
+        function addParticipant(newParticipantFirstName, newParticipantLastName){
+            var data = {
+                FirstName : newParticipantFirstName,
+                LastName : newParticipantLastName
+            };
+            return $http.post(constant.urlBase + '/participant', data)
+        };
+
+        function deleteParticipant(participantId){
+            var data = {
+                ParticipantId : participantId
+            };
+            return $http.delete(constant.urlBase + '/participant/' + participantId);
         };
     };
 })();

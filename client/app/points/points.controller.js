@@ -42,11 +42,9 @@
         function total(participant) {
             var total = 0;
             for (var i = 0; i < participant.Results.length; i++) {
-                //console.log(participants.Results[i].Points);
                 total += parseInt(participant.Results[i].Points);
             }
             return total;
-            // // console.log(participants.data);
         }
 
     };
