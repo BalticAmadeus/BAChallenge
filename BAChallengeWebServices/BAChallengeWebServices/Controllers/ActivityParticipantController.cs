@@ -5,7 +5,6 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using BAChallengeWebServices.DataTransferModels;
 using BAChallengeWebServices.Utility;
-using System.Web.Http.Description;
 
 namespace BAChallengeWebServices.Controllers
 {

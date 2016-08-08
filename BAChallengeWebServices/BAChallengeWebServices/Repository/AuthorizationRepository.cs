@@ -9,18 +9,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace BAChallengeWebServices.Authentication
+namespace BAChallengeWebServices.Repository
 {
     /// <summary>
     /// Class, responsible for accessing data, inside the database, setup in identity framework. 
     /// </summary>
-    public class AuthorisationRepository : IDisposable
+    public class AuthorizationRepository : IDisposable
     {
         private readonly AuthContext _authContext;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly UserStore<IdentityUser> _userStore;
 
-        public AuthorisationRepository()
+        public AuthorizationRepository()
         {
             _authContext = new AuthContext();
             _userStore = new UserStore<IdentityUser>(_authContext);

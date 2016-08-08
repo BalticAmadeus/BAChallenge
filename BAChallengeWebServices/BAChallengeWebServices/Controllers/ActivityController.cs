@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Description;
+using BAChallengeWebServices.Repository;
 
 namespace BAChallengeWebServices.Controllers
 {
@@ -13,7 +14,7 @@ namespace BAChallengeWebServices.Controllers
     [ValidateModel]
     public class ActivityController : ApiController
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly IRepository<Activity> _dbContext;
 
         public ActivityController(ApplicationDbContext dbContext)
         {

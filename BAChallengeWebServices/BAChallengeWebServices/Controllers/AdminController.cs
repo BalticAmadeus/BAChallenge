@@ -1,6 +1,6 @@
 ﻿using BAChallengeWebServices.DataTransferModels;
 using System.Web.Http;
-using BAChallengeWebServices.Authentication;
+using BAChallengeWebServices.Repository;
 using System.Threading.Tasks;
 using System.Web.Http.Description;
 using BAChallengeWebServices.Utility;
@@ -14,9 +14,9 @@ namespace BAChallengeWebServices.Controllers
     [ValidateModel]
     public class AdminController : ApiController
     {
-        private readonly AuthorisationRepository _authRepo;
+        private readonly AuthorizationRepository _authRepo;
 
-        public AdminController(AuthRepository authRepository)
+        public AdminController(AuthorizationRepository authRepository)
         {
             _authRepo = authRepository;
         }

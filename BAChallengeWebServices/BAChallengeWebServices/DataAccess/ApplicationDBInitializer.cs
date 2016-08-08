@@ -5,7 +5,7 @@ using System.Linq;
 using BAChallengeWebServices.Models;
 using System.Globalization;
 using System.Threading.Tasks;
-using BAChallengeWebServices.Authentication;
+using BAChallengeWebServices.Repository;
 using BAChallengeWebServices.DataTransferModels;
 
 namespace BAChallengeWebServices.DataAccess
@@ -16,7 +16,7 @@ namespace BAChallengeWebServices.DataAccess
         {
             //Creating Identity seed
 
-            var repository = new AuthorisationRepository();
+            var repository = new AuthorizationRepository();
 
             var task = Task.Run(async () =>
             {
