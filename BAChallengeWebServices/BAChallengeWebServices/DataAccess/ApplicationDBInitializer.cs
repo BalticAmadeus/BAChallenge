@@ -86,6 +86,222 @@ namespace BAChallengeWebServices.DataAccess
 
                 }
             });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 4,
+                FirstName = "Sandra",
+                LastName = "Auzacalitaitė",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 7, ActivityId = 2, ParticipantId = 4, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 2), Points = 2, Description = "Kodel dalyvavai?!"},
+                    new Result { ResultId = 8, ActivityId = 3, ParticipantId = 4, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 3), Points = 6, Description = "Už nedalyvavima"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 5,
+                FirstName = "Ignas",
+                LastName = "Bagdonas",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 9, ActivityId = 2, ParticipantId = 5, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 2), Points = 6, Description = "Sveikinu pirma vieta!"},
+                    new Result { ResultId = 10, ActivityId = 3, ParticipantId = 5, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 3), Points = 5, Description = "Už nedalyvavima"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 6,
+                FirstName = "Vitalij",
+                LastName = "Bakula",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 11, ActivityId = 4, ParticipantId = 6, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 4), Points = 8, Description = "Čia pavariai"},
+                    new Result { ResultId = 12, ActivityId = 5, ParticipantId = 6, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 5), Points = 0, Description = "Kodel nedalyvavai?!"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 7,
+                FirstName = "Laura",
+                LastName = "Balkiūtė",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 13, ActivityId = 4, ParticipantId = 7, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 4), Points = 6, Description = "Visai neblogai pavariai"},
+                    new Result { ResultId = 14, ActivityId = 5, ParticipantId = 7, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 5), Points = 4, Description = "Galėjai ir geriau"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 8,
+                FirstName = "Irmantas",
+                LastName = "Bankauskas",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 15, ActivityId = 6, ParticipantId = 8, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 6), Points = 6, Description = "Greitai bėgai"},
+                    new Result { ResultId = 16, ActivityId = 7, ParticipantId = 8, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 7), Points = 12, Description = "Beast!"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 9,
+                FirstName = "Edvinas",
+                LastName = "Baranauskas",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 17, ActivityId = 6, ParticipantId = 9, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 6), Points = 6, Description = "Visai toli nubėgai"},
+                    new Result { ResultId = 18, ActivityId = 7, ParticipantId = 9, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 7), Points = 4, Description = "Net nesistengei"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 10,
+                FirstName = "Vaidotas",
+                LastName = "Baužys",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 19, ActivityId = 8, ParticipantId = 10, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 8), Points = 2, Description = "Už nelabai gražias akis"},
+                    new Result { ResultId = 20, ActivityId = 9, ParticipantId = 10, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 9), Points = 4, Description = "Nuostabų rezultatą pasiekei"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 11,
+                FirstName = "Jaunius",
+                LastName = "Belickas",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 21, ActivityId = 8, ParticipantId = 11, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 8), Points = 5, Description = "Lygiasios su pirma vieta!"},
+                    new Result { ResultId = 22, ActivityId = 9, ParticipantId = 11, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 9), Points = 1, Description = "Už tai, kad nusileidai vaidotui"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 12,
+                FirstName = "Audrius",
+                LastName = "Beniušis",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 23, ActivityId = 10, ParticipantId = 12, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 10), Points = 1, Description = "Už nedalyvavimą"},
+                    new Result { ResultId = 24, ActivityId = 11, ParticipantId = 12, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 11), Points = 40, Description = "Už dalyvavima"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 13,
+                FirstName = "Nijolė",
+                LastName = "Beriozovaitė-Sengupta",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 25, ActivityId = 10, ParticipantId = 13, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 10), Points = 6, Description = "Visai neblogai pavariai"},
+                    new Result { ResultId = 26, ActivityId = 11, ParticipantId = 13, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 11), Points = 4, Description = "Galėjai ir geriau"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 14,
+                FirstName = "Viktorija",
+                LastName = "Bikulčiūtė",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 27, ActivityId = 12, ParticipantId = 14, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 12), Points = 6, Description = "Buvo gražu žiūrėti"},
+                    new Result { ResultId = 28, ActivityId = 13, ParticipantId = 14, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 13), Points = 3, Description = "Už gražias akis"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 15,
+                FirstName = "Mindaugas",
+                LastName = "Bilevičius",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 29, ActivityId = 12, ParticipantId = 15, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 12), Points = 12, Description = "One man army!"},
+                    new Result { ResultId = 30, ActivityId = 13, ParticipantId = 15, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 13), Points = 2, Description = "Antra vieta šešių žmonių komandoje?"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 16,
+                FirstName = "Justinas",
+                LastName = "Bimbiris",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 31, ActivityId = 14, ParticipantId = 16, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 14), Points = 6, Description = "Už dalyvavimą"},
+                    new Result { ResultId = 32, ActivityId = 15, ParticipantId = 16, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 15), Points = 1, Description = "Už pastangas"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 17,
+                FirstName = "Artūras",
+                LastName = "Birbalas",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 33, ActivityId = 14, ParticipantId = 17, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 14), Points = 0, Description = "Tik antra vienta? Nenusipelnei"},
+                    new Result { ResultId = 34, ActivityId = 15, ParticipantId = 17, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 15), Points = 4, Description = "Galėjai ir geriau"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 18,
+                FirstName = "Agnė",
+                LastName = "Buožienė",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 35, ActivityId = 16, ParticipantId = 18, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 16), Points = 6, Description = "Visai neblogai pavariai"},
+                    new Result { ResultId = 36, ActivityId = 17, ParticipantId = 18, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 17), Points = 4, Description = "Galėjai ir geriau"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 19,
+                FirstName = "Dariuš",
+                LastName = "Butkevičius",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 37, ActivityId = 16, ParticipantId = 19, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 16), Points = 5, Description = "Šaunuolis"},
+                    new Result { ResultId = 38, ActivityId = 17, ParticipantId = 19, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 17), Points = 4, Description = "Oho! Neblogai."}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 20,
+                FirstName = "Giedrius",
+                LastName = "Butkus",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 39, ActivityId = 18, ParticipantId = 20, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 18), Points = 7, Description = "Visai neblogai pavariai"},
+                    new Result { ResultId = 40, ActivityId = 19, ParticipantId = 20, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 19), Points = 3, Description = "Galėjai truputį geriau"}
+
+                }
+            });
+            context.Participants.Add(new Participant
+            {
+                ParticipantId = 21,
+                FirstName = "Jurij",
+                LastName = "Čiževskij",
+                Results = new List<Result>
+                {
+                    new Result { ResultId = 41, ActivityId = 18, ParticipantId = 21, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 18), Points = 6, Description = "Visai neblogai pavariai"},
+                    new Result { ResultId = 42, ActivityId = 19, ParticipantId = 21, Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 19), Points = 0, Description = "Nuvyliai mane"}
+
+                }
+            });
             base.Seed(context);
         }
 
