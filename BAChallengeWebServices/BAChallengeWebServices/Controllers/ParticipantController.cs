@@ -14,9 +14,9 @@ namespace BAChallengeWebServices.Controllers
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public ParticipantController()
+        public ParticipantController(ApplicationDbContext dbContext)
         {
-            _dbContext = new ApplicationDbContext();
+            _dbContext = dbContext;
         }
         /// <summary>
         /// Function retrieves all Participants and all information about them via .../participant (GET)

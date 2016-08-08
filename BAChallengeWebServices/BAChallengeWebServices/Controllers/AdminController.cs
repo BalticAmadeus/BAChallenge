@@ -2,6 +2,8 @@
 using System.Web.Http;
 using BAChallengeWebServices.Authentication;
 using System.Threading.Tasks;
+using System.Web.Http.Description;
+using BAChallengeWebServices.Utility;
 using Microsoft.AspNet.Identity;
 
 namespace BAChallengeWebServices.Controllers
@@ -14,9 +16,9 @@ namespace BAChallengeWebServices.Controllers
     {
         private readonly AuthRepository _authRepo;
 
-        public AdminController()
+        public AdminController(AuthRepository authRepository)
         {
-            _authRepo = new AuthRepository();
+            _authRepo = authRepository;
         }
         /// <summary>
         /// Creates a new admin via .../admin (POST)
@@ -66,9 +68,6 @@ namespace BAChallengeWebServices.Controllers
             var errorResult = ResolveErrorMessage(await _authRepo.DeleteUser(username));
 
             return errorResult ?? Ok();
-        }
-
-            return Ok();
         }
 
         /// <summary>

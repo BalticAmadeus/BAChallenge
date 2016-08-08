@@ -14,9 +14,9 @@ namespace BAChallengeWebServices.Controllers
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public ResultController()
+        public ResultController(ApplicationDbContext dbContext)
         {
-            _dbContext = new ApplicationDbContext();
+            _dbContext = dbContext;
         }
 
         /// <summary>
