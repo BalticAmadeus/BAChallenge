@@ -1,4 +1,4 @@
-﻿using BAChallengeWebServices.Models;
+﻿using BAChallengeWebServices.DataTransferModels;
 using System.Web.Http;
 using BAChallengeWebServices.Authentication;
 using System.Threading.Tasks;

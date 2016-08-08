@@ -1,8 +1,8 @@
 ﻿using BAChallengeWebServices.DataAccess;
-using BAChallengeWebServices.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using BAChallengeWebServices.DataTransferModels;
 
 namespace BAChallengeWebServices.Controllers
 {
@@ -62,8 +62,8 @@ namespace BAChallengeWebServices.Controllers
                 participantModel.Add(
                     new ParticipantModel
                     {
-                        Firstname = x.FirstName,
-                        Lastname = x.LastName,
+                        FirstName = x.FirstName,
+                        LastName = x.LastName,
                         ParticipantId = x.ParticipantId,
                         Results = results
                     });

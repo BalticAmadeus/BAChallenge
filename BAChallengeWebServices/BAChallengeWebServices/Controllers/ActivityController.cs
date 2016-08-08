@@ -56,7 +56,7 @@ namespace BAChallengeWebServices.Controllers
             }
 
             var activities = new List<Activity>(_dbContext.Activities.Where(
-                x => x.Date.Date == date.Date
+                x => x.Date == date.Date
             ));
 
             if (!activities.Any())

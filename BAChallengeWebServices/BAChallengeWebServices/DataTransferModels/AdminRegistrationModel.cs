@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BAChallengeWebServices.Models
+namespace BAChallengeWebServices.DataTransferModels
 {
     /// <summary>
     /// Model used, for Admin post request.
