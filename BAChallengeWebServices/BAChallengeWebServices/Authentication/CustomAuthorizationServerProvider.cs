@@ -1,10 +1,5 @@
 ﻿using Microsoft.Owin.Security.OAuth;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System.Security.Claims;
 
 namespace BAChallengeWebServices.Authentication
@@ -22,9 +17,9 @@ namespace BAChallengeWebServices.Authentication
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (AuthRepository _auth = new AuthRepository())
+            using (var authorization = new AuthRepository())
             {
-                IdentityUser user = await _auth.FindUser(context.UserName, context.Password);
+                var user = await authorization.FindUser(context.UserName, context.Password);
 
                 if (user == null)
                 {

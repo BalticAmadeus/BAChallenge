@@ -1,10 +1,4 @@
-﻿using BAChallengeWebServices.DataAccess;
-using BAChallengeWebServices.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using BAChallengeWebServices.Models;
 using System.Web.Http;
 using BAChallengeWebServices.Authentication;
 using System.Threading.Tasks;
@@ -17,7 +11,7 @@ namespace BAChallengeWebServices.Controllers
     /// </summary>
     public class AdminController : ApiController
     {
-        private AuthRepository _authRepo;
+        private readonly AuthRepository _authRepo;
 
         public AdminController()
         {
