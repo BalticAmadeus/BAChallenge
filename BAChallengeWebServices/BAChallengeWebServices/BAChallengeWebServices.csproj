@@ -230,6 +230,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\AllowCrossSiteJson.cs" />
     <Compile Include="Utility\CustomTimeConverter.cs" />
+    <Compile Include="Utility\ValidateModelAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

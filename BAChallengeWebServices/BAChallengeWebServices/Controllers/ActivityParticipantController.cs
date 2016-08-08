@@ -3,9 +3,11 @@ using BAChallengeWebServices.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using BAChallengeWebServices.Utility;
 
 namespace BAChallengeWebServices.Controllers
 {
+    [ValidateModel]
     public class ActivityParticipantController : ApiController
     {
         private readonly ApplicationDbContext _dbContext;
@@ -17,26 +19,19 @@ namespace BAChallengeWebServices.Controllers
 
         public IHttpActionResult Get()
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
             var activityParticipants = _dbContext.Activities.ToList().Select(item => 
             GetActivityById(item.ActivityId)).ToList();
+
             return Ok(activityParticipants);
         }
 
         public IHttpActionResult Get(int id)
         {
-            if (!ModelState.IsValid)
+            if (!_dbContext.Activities.Any(x => x.ActivityId == id))
             {
-                return BadRequest();
+                return NotFound();
             }
-            if (_dbContext.Activities.Any(x => x.ActivityId == id))
-            {
-                return Ok(GetActivityById(id));
-            }
-            return NotFound();
+            return Ok(GetActivityById(id));
         }
 
         private ActivityParticipantModel GetActivityById(int id)
@@ -44,7 +39,7 @@ namespace BAChallengeWebServices.Controllers
             var activity = _dbContext.Activities.Find(id);
 
             var participants = _dbContext.Participants.Where(x =>
-            x.Results.Count(y => y.ActivityId == id) != 0).ToList();
+            x.Results.Any(y => y.ActivityId == id)).ToList();
 
             var participantModel = new List<ParticipantModel>();
 
@@ -62,8 +57,8 @@ namespace BAChallengeWebServices.Controllers
                 participantModel.Add(
                     new ParticipantModel
                     {
-                        Firstname = x.FirstName,
-                        Lastname = x.LastName,
+                        FirstName = x.FirstName,
+                        LastName = x.LastName,
                         ParticipantId = x.ParticipantId,
                         Results = results
                     });

@@ -2,6 +2,7 @@
 using System.Web.Http;
 using BAChallengeWebServices.Authentication;
 using System.Threading.Tasks;
+using BAChallengeWebServices.Utility;
 using Microsoft.AspNet.Identity;
 
 namespace BAChallengeWebServices.Controllers
@@ -9,6 +10,7 @@ namespace BAChallengeWebServices.Controllers
     /// <summary>
     /// Controller for working with admin related information.
     /// </summary>
+    [ValidateModel]
     public class AdminController : ApiController
     {
         private readonly AuthRepository _authRepo;
@@ -25,20 +27,10 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Post([FromBody] AdminRegistrationModel admin)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            var result = await _authRepo.RegisterUser(admin);
+            var errorResult = ResolveErrorMessage(result);
 
-            IdentityResult result = await _authRepo.RegisterUser(admin);
-            IHttpActionResult errorResult = ResolveErrorMessage(result);
-
-            if (errorResult != null)
-            {
-                return errorResult;
-            }
-
-            return Ok();
+            return errorResult ?? Ok();
         }
         /// <summary>
         /// Modifies designated admin, which is gotten from Username and oldPassword, and changes the password to newPassword. Accessed via .../admin (PUT)
@@ -48,11 +40,6 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Put([FromBody] AdminPasswordChangeModel apcm)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             if (await _authRepo.ChangeUserPassword(apcm.Username, apcm.OldPassword, apcm.NewPassword))
             {
                 return Ok("Password change is successful");
@@ -68,14 +55,9 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Delete([FromBody] string username)
         {
-            IHttpActionResult errorResult = ResolveErrorMessage(await _authRepo.DeleteUser(username));
+            var errorResult = ResolveErrorMessage(await _authRepo.DeleteUser(username));
 
-            if (errorResult != null)
-            {
-                return errorResult;
-            }
-
-            return Ok();
+            return errorResult ?? Ok();
         }
 
         /// <summary>
@@ -87,24 +69,21 @@ namespace BAChallengeWebServices.Controllers
         {
             if (result == null)
             {
-                return InternalServerError();
+                return BadRequest();
             }
-            if (!result.Succeeded)
+            if (result.Succeeded) return null;
+            if (result.Errors != null)
             {
-                if (result.Errors != null)
+                foreach (var error in result.Errors)
                 {
-                    foreach (string error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error);
-                    }
+                    ModelState.AddModelError("", error);
                 }
-                if (ModelState.IsValid)
-                {
-                    return BadRequest();
-                }
-                return BadRequest(ModelState);
             }
-            return null;
+            if (ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            return BadRequest(ModelState);
         }
     }
 }
