@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace BAChallengeWebServices.Models
 {
     /// <summary>
-    /// Model used to create Result objects, used for GET, PUT, DELETE function
+    /// Model used to create Result objects, used for GET, POST, PUT, DELETE function
     /// </summary>
     public class Result
     {
