@@ -14,7 +14,7 @@ namespace BAChallengeWebServices.Controllers
     [ValidateModel]
     public class ActivityController : ApiController
     {
-        private readonly IRepository<Activity> _dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
         public ActivityController(ApplicationDbContext dbContext)
         {

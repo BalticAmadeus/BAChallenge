@@ -10,8 +10,8 @@ namespace BAChallengeWebServices.Repository
     {
         IList<T> GetAll();
         T GetById(int id);
-        bool Insert(T item);
-        bool Delete(int id);
-        bool Modifiy(int id, T item);
+        void Insert(T item);
+        void Delete(int id);
+        void Modify(int id, T item);
     }
 }
