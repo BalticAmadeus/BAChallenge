@@ -3,6 +3,7 @@ using BAChallengeWebServices.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace BAChallengeWebServices.Controllers
 {
@@ -14,7 +15,9 @@ namespace BAChallengeWebServices.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
-
+        [ResponseType(typeof(ActivityParticipantModel))]
+        [HttpGet]
+        [Route("api/ActivityParticipant")]
         public IHttpActionResult Get()
         {
             if (!ModelState.IsValid)
@@ -25,7 +28,9 @@ namespace BAChallengeWebServices.Controllers
             GetActivityById(item.ActivityId)).ToList();
             return Ok(activityParticipants);
         }
-
+        [ResponseType(typeof(ActivityParticipantModel))]
+        [HttpGet]
+        [Route("api/ActivityParticipant/{id}")]
         public IHttpActionResult Get(int id)
         {
             if (!ModelState.IsValid)
