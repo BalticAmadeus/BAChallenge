@@ -15,9 +15,9 @@ namespace BAChallengeWebServices.Authentication
     /// </summary>
     public class AuthRepository : IDisposable
     {
-        private AuthContext _authContext;
-        private UserManager<IdentityUser> _userManager;
-        private UserStore<IdentityUser> _userStore;
+        private readonly AuthContext _authContext;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserStore<IdentityUser> _userStore;
 
         public AuthRepository()
         {
@@ -47,9 +47,9 @@ namespace BAChallengeWebServices.Authentication
 
         public async Task<IdentityResult> DeleteUser(string username)
         {
-            IdentityUser user = await FindUser(username);
+            var user = await FindUser(username);
 
-            IdentityResult result = await _userManager.DeleteAsync(user);
+            var result = await _userManager.DeleteAsync(user);
 
             return result;
         }
@@ -99,14 +99,16 @@ namespace BAChallengeWebServices.Authentication
                 return true;
             }
             catch
-            {
-                return false;
+            { 
             }
+            return false;
         }
 
         public void Dispose()
         {
             _authContext.Dispose();
+            _userStore.Dispose();
+            _userManager.Dispose();
         }
 
     }
