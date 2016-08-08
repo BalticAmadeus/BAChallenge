@@ -15,9 +15,9 @@ namespace BAChallengeWebServices.Controllers
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public ActivityController()
+        public ActivityController(ApplicationDbContext dbContext)
         {
-            _dbContext = new ApplicationDbContext();
+            _dbContext = dbContext;
         }
         /// <summary>
         /// Function retrieves all Activities and all information about them via .../activity (GET)

@@ -16,9 +16,9 @@ namespace BAChallengeWebServices.Controllers
     {
         private readonly AuthorisationRepository _authRepo;
 
-        public AdminController()
+        public AdminController(AuthRepository authRepository)
         {
-            _authRepo = new AuthorisationRepository();
+            _authRepo = authRepository;
         }
 
         /// <summary>
@@ -74,7 +74,11 @@ namespace BAChallengeWebServices.Controllers
             return errorResult ?? Ok();
         }
 
-
+        /// <summary>
+        /// Method to resolve error messages from IdentityResult
+        /// </summary>
+        /// <param name="result">IdentityResult object</param>
+        /// <returns>IHttpActionResult</returns>
         private IHttpActionResult ResolveErrorMessage(IdentityResult result)
         {
             if (result == null)
