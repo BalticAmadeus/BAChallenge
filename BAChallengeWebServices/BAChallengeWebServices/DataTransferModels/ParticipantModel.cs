@@ -7,6 +7,6 @@ namespace BAChallengeWebServices.DataTransferModels
         public int ParticipantId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public virtual IList<ResultParticipantModel> Results { get; set; }
+        public virtual ResultParticipantModel Result { get; set; }
     }
 }

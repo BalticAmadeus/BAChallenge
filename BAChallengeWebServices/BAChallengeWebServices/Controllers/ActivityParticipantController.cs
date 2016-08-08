@@ -1,8 +1,8 @@
 ﻿using BAChallengeWebServices.DataAccess;
-using BAChallengeWebServices.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using BAChallengeWebServices.DataTransferModels;
 using BAChallengeWebServices.Utility;
 
 namespace BAChallengeWebServices.Controllers
@@ -45,22 +45,23 @@ namespace BAChallengeWebServices.Controllers
 
             participants.ForEach((x) =>
             {
-                var results = new List<ResultParticipantModel>();
-                x.Results.Where(y => y.ActivityId == id).ToList().ForEach(z =>
-                    results.Add(new ResultParticipantModel
-                    {
-                        ResultId = z.ResultId,
-                        Points = z.Points,
-                        Description = z.Description
-                    }
-                ));
+                var result = x.Results.FirstOrDefault(y => y.ActivityId == id);
+
                 participantModel.Add(
                     new ParticipantModel
                     {
                         FirstName = x.FirstName,
                         LastName = x.LastName,
                         ParticipantId = x.ParticipantId,
-                        Results = results
+                        
+                        Result = (result == null) ? 
+                        new ResultParticipantModel() : 
+                        new ResultParticipantModel
+                        {
+                            ResultId = result.ResultId,
+                            Description = result.Description,
+                            Points = result.Points
+                        }
                     });
             });
             return new ActivityParticipantModel
