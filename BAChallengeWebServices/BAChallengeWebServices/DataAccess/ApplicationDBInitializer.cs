@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using BAChallengeWebServices.Models;
 using System.Globalization;
+using System.Threading.Tasks;
 using BAChallengeWebServices.Authentication;
 using BAChallengeWebServices.DataTransferModels;
 
@@ -17,12 +18,18 @@ namespace BAChallengeWebServices.DataAccess
 
             var repository = new AuthRepository();
 
-            repository.RegisterUser(new AdminRegistrationModel()
+            var task = Task.Run(async () =>
             {
-                Username = "test",
-                Password = "testPassword",
-                ConfirmPassword = "testPassword"
+                await repository.RegisterUser(new AdminRegistrationModel()
+                {
+                    Username = "test",
+                    Password = "testPassword",
+                    ConfirmPassword = "testPassword"
+                });
             });
+
+            task.Wait();
+
 
             //Activities Database
             //Sports activities

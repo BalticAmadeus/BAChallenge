@@ -106,5 +106,12 @@ namespace BAChallengeWebServices.Controllers
             }
             return null;
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _authRepo.Dispose();
+
+            base.Dispose(disposing);
+        }
     }
 }
