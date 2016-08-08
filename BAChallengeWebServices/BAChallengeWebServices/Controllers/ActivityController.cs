@@ -124,6 +124,8 @@ namespace BAChallengeWebServices.Controllers
                 return NotFound();
             }
             _dbContext.Activities.Remove(activity);
+            var resultsToDelete = _dbContext.Results.Where(x => x.ActivityId == id);
+            _dbContext.Results.RemoveRange(resultsToDelete);
             _dbContext.SaveChanges();
 
             return Ok();
