@@ -46,11 +46,8 @@ namespace BAChallengeWebServices.Controllers
         [Route("api/Result/{id}")]
         public IHttpActionResult Get(int id)
         {
-            if(_dbContext.Results.Any(x=>x.ResultId == id))
-            {
-                return NotFound();
-            }
-            return Ok(_dbContext.Results.Find(id));
+            var foundResults = _dbContext.Results.Find(id);
+            return (foundResults == null) ? (IHttpActionResult)NotFound() : Ok(foundResults);
         }
 
         /// <summary>
