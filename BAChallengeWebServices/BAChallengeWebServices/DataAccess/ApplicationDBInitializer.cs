@@ -18,7 +18,7 @@ namespace BAChallengeWebServices.DataAccess
         {
             //Creating Identity seed
 
-            var repository = new AuthRepository();
+            var repository = new AuthorisationRepository();
 
             var task = Task.Run(async () =>
             {

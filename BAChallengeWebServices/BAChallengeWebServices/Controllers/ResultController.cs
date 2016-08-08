@@ -3,6 +3,7 @@ using BAChallengeWebServices.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Description;
 using BAChallengeWebServices.DataAccess;
 using System.ComponentModel;
 using System;
@@ -15,15 +16,18 @@ namespace BAChallengeWebServices.Controllers
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public ResultController()
+        public ResultController(ApplicationDbContext dbContext)
         {
-            _dbContext = new ApplicationDbContext();
+            _dbContext = dbContext;
         }
 
         /// <summary>
         /// Function retrieves all results and all information about them via .../result (GET)
         /// </summary>
         /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(Result))]
+        [HttpGet]
+        [Route("api/Result")]
         public IHttpActionResult Get()
         {
             if (!_dbContext.Results.Any())
@@ -39,13 +43,13 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="id">int, gotten from http integer request</param>
         /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(Result))]
+        [HttpGet]
+        [Route("api/Result/{id}")]
         public IHttpActionResult Get(int id)
         {
-            if(_dbContext.Results.Any(x=>x.ResultId == id))
-            {
-                return NotFound();
-            }
-            return Ok(_dbContext.Results.Find(id));
+            var foundResults = _dbContext.Results.Find(id);
+            return (foundResults == null) ? (IHttpActionResult)NotFound() : Ok(foundResults);
         }
 
         /// <summary>
@@ -53,6 +57,9 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="result">Result object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(IHttpActionResult))]
+        [HttpPost]
+        [Route("api/Result")]
         [Authorize]
         public IHttpActionResult Post([FromBody] Result result)
         {
@@ -75,6 +82,9 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="id">int, gotten from http integer request</param>
         /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(IHttpActionResult))]
+        [HttpDelete]
+        [Route("api/Result")]
         [Authorize]
         public IHttpActionResult Delete(int id)
         {
@@ -96,6 +106,9 @@ namespace BAChallengeWebServices.Controllers
         /// <param name="id">int, gotten from http integer request</param>
         /// <param name="result">Result object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(IHttpActionResult))]
+        [HttpPut]
+        [Route("api/Result")]
         [Authorize]
         public IHttpActionResult Put(int id, [FromBody] Result result)
         {

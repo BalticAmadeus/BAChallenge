@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Reflection;
 using Microsoft.Owin;
 using Owin;
 using System.Web.Http;
@@ -20,7 +20,10 @@ namespace BAChallengeWebServices
 
             ConfigureOAuth(app);
 
+            UnityConfig.RegisterComponents(config);
+
             WebApiConfig.Register(config);
+
             app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
         }

@@ -1,10 +1,11 @@
 ﻿using BAChallengeWebServices.DataAccess;
-using BAChallengeWebServices.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using BAChallengeWebServices.Utility;
+using System.Web.Http.Description;
 using BAChallengeWebServices.DataTransferModels;
+using BAChallengeWebServices.Utility;
+using System.Web.Http.Description;
 
 namespace BAChallengeWebServices.Controllers
 {
@@ -13,11 +14,13 @@ namespace BAChallengeWebServices.Controllers
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public ActivityParticipantController()
+        public ActivityParticipantController(ApplicationDbContext dbContext)
         {
-            _dbContext = new ApplicationDbContext();
+            _dbContext = dbContext;
         }
-
+        [ResponseType(typeof(ActivityParticipantModel))]
+        [HttpGet]
+        [Route("api/ActivityParticipant")]
         public IHttpActionResult Get()
         {
             var activityParticipants = _dbContext.Activities.ToList().Select(item => 
@@ -25,7 +28,9 @@ namespace BAChallengeWebServices.Controllers
 
             return Ok(activityParticipants);
         }
-
+        [ResponseType(typeof(ActivityParticipantModel))]
+        [HttpGet]
+        [Route("api/ActivityParticipant/{id}")]
         public IHttpActionResult Get(int id)
         {
             if (!_dbContext.Activities.Any(x => x.ActivityId == id))
@@ -46,22 +51,23 @@ namespace BAChallengeWebServices.Controllers
 
             participants.ForEach((x) =>
             {
-                var results = new List<ResultParticipantModel>();
-                x.Results.Where(y => y.ActivityId == id).ToList().ForEach(z =>
-                    results.Add(new ResultParticipantModel
-                    {
-                        ResultId = z.ResultId,
-                        Points = z.Points,
-                        Description = z.Description
-                    }
-                ));
+                var result = x.Results.FirstOrDefault(y => y.ActivityId == id);
+
                 participantModel.Add(
                     new ParticipantModel
                     {
                         FirstName = x.FirstName,
                         LastName = x.LastName,
                         ParticipantId = x.ParticipantId,
-                        Results = results
+                        
+                        Result = (result == null) ? 
+                        new ResultParticipantModel() : 
+                        new ResultParticipantModel
+                        {
+                            ResultId = result.ResultId,
+                            Description = result.Description,
+                            Points = result.Points
+                        }
                     });
             });
             return new ActivityParticipantModel
