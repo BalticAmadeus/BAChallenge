@@ -212,11 +212,13 @@
     <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\ActivityParticipantController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ExceptionModelController.cs" />
     <Compile Include="Controllers\ParticipantController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="DataAccess\ApplicationDBContext.cs" />
     <Compile Include="DataAccess\ApplicationDBInitializer.cs" />
     <Compile Include="DataAccess\AuthContext.cs" />
+    <Compile Include="Models\ExceptionModel.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\ActivityBranch.cs" />
     <Compile Include="DataTransferModels\ActivityParticipantModel.cs" />
@@ -230,6 +232,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\AllowCrossSiteJson.cs" />
     <Compile Include="Utility\CustomTimeConverter.cs" />
+    <Compile Include="Utility\ExceptionHandling.cs" />
     <Compile Include="Utility\ValidateModelAttribute.cs" />
   </ItemGroup>
   <ItemGroup>

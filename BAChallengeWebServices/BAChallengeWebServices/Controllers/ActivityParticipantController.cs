@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using BAChallengeWebServices.Utility;
+using BAChallengeWebServices.DataTransferModels;
 
 namespace BAChallengeWebServices.Controllers
 {
