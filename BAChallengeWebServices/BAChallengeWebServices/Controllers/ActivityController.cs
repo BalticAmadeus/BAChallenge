@@ -4,7 +4,9 @@ using BAChallengeWebServices.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace BAChallengeWebServices.Controllers
 {
@@ -22,6 +24,9 @@ namespace BAChallengeWebServices.Controllers
         /// Function retrieves all Activities and all information about them via .../activity (GET)
         /// </summary>
         /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(Activity))]
+        [HttpGet]
+        [Route("api/Activity")]
         public IHttpActionResult Get()
         {
             var act = _dbContext.Activities;
@@ -33,6 +38,9 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="id">int, gotten from http integer request</param>
         /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(Activity))]
+        [HttpGet]
+        [Route("api/Activity/{id}")]
         public IHttpActionResult Get(int id)
         {
             var act = _dbContext.Activities.Find(id);
@@ -49,7 +57,10 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="date">DateTime, gotten from http date request </param>
         /// <returns>IHttpActionResult</returns>
-        public IHttpActionResult Get(DateTime date)
+        [ResponseType(typeof(Activity))]
+        [HttpGet]
+        [Route("api/Activity")]
+        public IHttpActionResult Get([FromUri] DateTime date)
         {
             var activities = new List<Activity>(_dbContext.Activities.Where(
                 x => x.Date == date.Date
@@ -60,14 +71,17 @@ namespace BAChallengeWebServices.Controllers
                 return NotFound();
             }
 
-            return Ok(activities);
+            return Ok("yes");
         }
         /// <summary>
         /// Function retrieves all activities selected by location via .../activity/?location=Vilnius (GET)
         /// </summary>
         /// <param name="location">string, gotten from http string request</param>
         /// <returns>IHttpActionResult</returns>
-        public IHttpActionResult Get(string location)
+        [ResponseType(typeof(Activity))]
+        [HttpGet]
+        [Route("api/Activity")]
+        public IHttpActionResult Get([FromUri] string location)
         {
             var activities = new List<Activity>(_dbContext.Activities.Where(x => x.Location == location));
 
@@ -82,7 +96,10 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="branch">ActivityBrach object, gotten from http request</param>
         /// <returns>IHttpActionResult</returns>
-        public IHttpActionResult Get(ActivityBranch branch)
+        [ResponseType(typeof(Activity))]
+        [HttpGet]
+        [Route("api/Activity")]
+        public IHttpActionResult Get([FromUri]ActivityBranch branch)
         {
             var activity = new List<Activity>(_dbContext.Activities.Where(x => x.Branch == branch));
 
@@ -98,6 +115,9 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="activity">Activity object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(IHttpActionResult))]
+        [HttpPost]
+        [Route("api/Activity")]
         [Authorize]
         public IHttpActionResult Post([FromBody] Activity activity)
         {
@@ -115,6 +135,9 @@ namespace BAChallengeWebServices.Controllers
         /// </summary>
         /// <param name="id">int, gotten from http integer request</param>
         /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(IHttpActionResult))]
+        [HttpDelete]
+        [Route("api/Activity/{id}")]
         [Authorize]
         public IHttpActionResult Delete(int id)
         {
@@ -137,6 +160,9 @@ namespace BAChallengeWebServices.Controllers
         /// <param name="id">int, gotten from http integer request</param>
         /// <param name="activity">Activity object, gotten from http request body</param>
         /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(IHttpActionResult))]
+        [HttpPut]
+        [Route("api/Activity/{id}")]
         [Authorize]
         public IHttpActionResult Put(int id, [FromBody] Activity activity)
         {
@@ -156,3 +182,4 @@ namespace BAChallengeWebServices.Controllers
         }
     }
 }
+

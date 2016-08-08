@@ -16,7 +16,9 @@ namespace BAChallengeWebServices.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
-
+        [ResponseType(typeof(ActivityParticipantModel))]
+        [HttpGet]
+        [Route("api/ActivityParticipant")]
         public IHttpActionResult Get()
         {
             var activityParticipants = _dbContext.Activities.ToList().Select(item => 
@@ -24,7 +26,9 @@ namespace BAChallengeWebServices.Controllers
 
             return Ok(activityParticipants);
         }
-
+        [ResponseType(typeof(ActivityParticipantModel))]
+        [HttpGet]
+        [Route("api/ActivityParticipant/{id}")]
         public IHttpActionResult Get(int id)
         {
             if (!_dbContext.Activities.Any(x => x.ActivityId == id))
