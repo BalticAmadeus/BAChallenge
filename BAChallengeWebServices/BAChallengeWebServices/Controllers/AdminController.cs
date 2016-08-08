@@ -1,4 +1,4 @@
-﻿using BAChallengeWebServices.Models;
+﻿using BAChallengeWebServices.DataTransferModels;
 using System.Web.Http;
 using BAChallengeWebServices.Authentication;
 using System.Threading.Tasks;
@@ -84,6 +84,13 @@ namespace BAChallengeWebServices.Controllers
                 return BadRequest();
             }
             return BadRequest(ModelState);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _authRepo.Dispose();
+
+            base.Dispose(disposing);
         }
     }
 }

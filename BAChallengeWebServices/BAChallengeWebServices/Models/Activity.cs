@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BAChallengeWebServices.Models
 {
@@ -11,6 +12,7 @@ namespace BAChallengeWebServices.Models
     public class Activity
     {
         public int ActivityId { get; set; }
+        [Required]
         public string Name { get; set; }
         [JsonConverter(typeof(CustomTimeConverter))]
         public DateTime? Date { get; set; }
