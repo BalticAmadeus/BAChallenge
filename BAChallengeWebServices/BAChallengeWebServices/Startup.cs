@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
 using System.Web.Http;
+using Autofac;
 using Microsoft.Owin.Security.OAuth;
 using Microsoft.Owin.Cors;
 using BAChallengeWebServices.Authentication;
@@ -20,7 +22,9 @@ namespace BAChallengeWebServices
 
             ConfigureOAuth(app);
 
+
             WebApiConfig.Register(config);
+
             app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
         }

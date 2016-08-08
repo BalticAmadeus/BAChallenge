@@ -147,6 +147,7 @@ namespace BAChallengeWebServices.Controllers
                 return NotFound();
             }
             _dbContext.Activities.Remove(activity);
+
             _dbContext.SaveChanges();
 
             return Ok();
