@@ -58,9 +58,9 @@ namespace BAChallengeWebServices.Controllers
             }
 
             var act = _dbContext.Activities.Where(
-                x => x.Date.Year == date.Year &&
-                x.Date.Month == date.Month &&
-                x.Date.Day == date.Day
+                x => x.Date.Value.Year == date.Year &&
+                x.Date.Value.Month == date.Month &&
+                x.Date.Value.Day == date.Day
             );
 
             if (act.Count() == 0)
