@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BAChallengeWebServices.Models
 {
@@ -8,7 +9,9 @@ namespace BAChallengeWebServices.Models
     public class Participant
     { 
         public int ParticipantId { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
         public virtual IList<Result> Results { get; set; }
     }

@@ -1,4 +1,5 @@
 ﻿using BAChallengeWebServices.DataAccess;
+using BAChallengeWebServices.DataTransferModels;
 using BAChallengeWebServices.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;

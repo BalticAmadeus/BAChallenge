@@ -9,6 +9,7 @@ using System.Web.Http.Description;
 namespace BAChallengeWebServices.Controllers
 {
     [AllowCrossSiteJson]
+    [ValidateModel]
     public class ParticipantController : ApiController
     {
         private readonly ApplicationDbContext _dbContext;
@@ -26,16 +27,14 @@ namespace BAChallengeWebServices.Controllers
         [Route("api/Participant")]
         public IHttpActionResult Get()
         {
-            if (_dbContext.Participants.Count() != 0)
-            {
-                var participants = new List<Participant>(_dbContext.Participants);
-                return Ok(participants);
-            }
-            else
+            if (!_dbContext.Participants.Any())
             {
                 return NotFound();
             }
+            var participants = new List<Participant>(_dbContext.Participants);
+            return Ok(participants);
         }
+
         /// <summary>
         /// Function retrieves One Participant selected by id and all information about the participant. via .../participant/1 (GET)
         /// </summary>
@@ -46,12 +45,9 @@ namespace BAChallengeWebServices.Controllers
         [Route("api/Participant/{id}")]
         public IHttpActionResult Get(int id)
         {
-            if (_dbContext.Participants.Any(x => x.ParticipantId == id))
-            {
-                return Ok(_dbContext.Participants.Find(id));
-            }
-
-            return NotFound();
+            return _dbContext.Participants.Any(x => x.ParticipantId == id)
+                ? (IHttpActionResult) Ok(_dbContext.Participants.Find(id))
+                : NotFound();
         }
 
         /// <summary>
@@ -65,14 +61,9 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Post([FromBody] Participant participant)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             if (participant == null)
             {
-                return BadRequest();
+                return NotFound();
             }
             participant.ParticipantId = 0;
             participant.Results = new List<Result>();
@@ -93,11 +84,6 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Delete(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var participant = _dbContext.Participants.Find(id);
             if (participant == null)
             {
@@ -122,15 +108,10 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Put(int id, [FromBody] Participant participant)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var selectedParticipant = _dbContext.Participants.Find(id);
             if (selectedParticipant == null)
             {
-                return BadRequest();
+                return NotFound();
             }
             selectedParticipant.FirstName = participant.FirstName;
             selectedParticipant.LastName = participant.LastName;

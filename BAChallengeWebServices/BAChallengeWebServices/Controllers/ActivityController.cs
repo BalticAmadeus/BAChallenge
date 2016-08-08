@@ -11,6 +11,7 @@ using System.Web.Http.Description;
 namespace BAChallengeWebServices.Controllers
 {
     [AllowCrossSiteJson]
+    [ValidateModel]
     public class ActivityController : ApiController
     {
         private readonly ApplicationDbContext _dbContext;
@@ -61,13 +62,8 @@ namespace BAChallengeWebServices.Controllers
         [Route("api/Activity")]
         public IHttpActionResult Get([FromUri] DateTime date)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var activities = new List<Activity>(_dbContext.Activities.Where(
-                x => x.Date.Value.Date == date.Date
+                x => x.Date == date.Date
             ));
 
             if (!activities.Any())
@@ -87,11 +83,6 @@ namespace BAChallengeWebServices.Controllers
         [Route("api/Activity")]
         public IHttpActionResult Get([FromUri] string location)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var activities = new List<Activity>(_dbContext.Activities.Where(x => x.Location == location));
 
             if (!activities.Any())
@@ -110,11 +101,6 @@ namespace BAChallengeWebServices.Controllers
         [Route("api/Activity")]
         public IHttpActionResult Get([FromUri]ActivityBranch branch)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var activity = new List<Activity>(_dbContext.Activities.Where(x => x.Branch == branch));
 
             if (!activity.Any())
@@ -135,18 +121,12 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Post([FromBody] Activity activity)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             if (_dbContext.Activities.Any(x => x.ActivityId == activity.ActivityId))
             {
-                return BadRequest();
+                return BadRequest("Item already exists");
             }
             _dbContext.Activities.Add(activity);
             _dbContext.SaveChanges();
-
             return Ok();
         }
 
@@ -184,15 +164,10 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Put(int id, [FromBody] Activity activity)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var selectedRow = _dbContext.Activities.Find(id);
             if (selectedRow == null)
             {
-                return BadRequest();
+                return NotFound();
             }
             selectedRow.Name = activity.Name;
             selectedRow.Date = activity.Date;

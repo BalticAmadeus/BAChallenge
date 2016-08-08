@@ -1,4 +1,4 @@
-﻿namespace BAChallengeWebServices.Models
+﻿namespace BAChallengeWebServices.DataTransferModels
 {
     public class ResultParticipantModel
     {

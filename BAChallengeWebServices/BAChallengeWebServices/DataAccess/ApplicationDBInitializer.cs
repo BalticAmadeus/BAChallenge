@@ -6,6 +6,7 @@ using BAChallengeWebServices.Models;
 using System.Globalization;
 using System.Threading.Tasks;
 using BAChallengeWebServices.Authentication;
+using BAChallengeWebServices.DataTransferModels;
 
 namespace BAChallengeWebServices.DataAccess
 {

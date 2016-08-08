@@ -9,6 +9,7 @@ using BAChallengeWebServices.DataAccess;
 namespace BAChallengeWebServices.Controllers
 {
     [AllowCrossSiteJson]
+    [ValidateModel]
     public class ResultController : ApiController
     {
         private readonly ApplicationDbContext _dbContext;
@@ -17,6 +18,7 @@ namespace BAChallengeWebServices.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
+
         /// <summary>
         /// Function retrieves all results and all information about them via .../result (GET)
         /// </summary>
@@ -26,16 +28,14 @@ namespace BAChallengeWebServices.Controllers
         [Route("api/Result")]
         public IHttpActionResult Get()
         {
-            if (_dbContext.Results.Count() != 0)
-            {
-                var result = new List<Result> (_dbContext.Results);
-                return Ok(result);
-            }
-            else
+            if (!_dbContext.Results.Any())
             {
                 return NotFound();
             }
+            var result = new List<Result>(_dbContext.Results);
+            return Ok(result);
         }
+
         /// <summary>
         /// Function retrieves one result and all information about that result specified by id via .../result/1 (GET)
         /// </summary>
@@ -48,9 +48,9 @@ namespace BAChallengeWebServices.Controllers
         {
             if(_dbContext.Results.Any(x=>x.ResultId == id))
             {
-                return Ok(_dbContext.Results.Find(id));
+                return NotFound();
             }
-            return NotFound();
+            return Ok(_dbContext.Results.Find(id));
         }
 
         /// <summary>
@@ -64,10 +64,6 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Post([FromBody] Result result)
         {
-            if (!ModelState.IsValid || result == null)
-            {
-                return BadRequest();
-            }
             var results = new Result()
             {
                 ActivityId = result.ActivityId,
@@ -117,14 +113,10 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Put(int id, [FromBody] Result result)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
             var selectedResult = _dbContext.Results.Find(id);
             if (selectedResult == null)
             {
-                return BadRequest();
+                return NotFound();
             }
             selectedResult.ParticipantId = result.ParticipantId;
             selectedResult.Points = result.Points;
