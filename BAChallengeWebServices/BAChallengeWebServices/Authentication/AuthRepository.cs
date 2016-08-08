@@ -14,13 +14,13 @@ namespace BAChallengeWebServices.Authentication
     /// <summary>
     /// Class, responsible for accessing data, inside the database, setup in identity framework. 
     /// </summary>
-    public class AuthRepository : IDisposable
+    public class AuthorisationRepository : IDisposable
     {
         private readonly AuthContext _authContext;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly UserStore<IdentityUser> _userStore;
 
-        public AuthRepository()
+        public AuthorisationRepository()
         {
             _authContext = new AuthContext();
             _userStore = new UserStore<IdentityUser>(_authContext);

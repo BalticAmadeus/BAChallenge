@@ -2,6 +2,8 @@
 using System.Web.Http;
 using BAChallengeWebServices.Authentication;
 using System.Threading.Tasks;
+using System.Web.Http.Description;
+using BAChallengeWebServices.Utility;
 using Microsoft.AspNet.Identity;
 
 namespace BAChallengeWebServices.Controllers
@@ -12,12 +14,13 @@ namespace BAChallengeWebServices.Controllers
     [ValidateModel]
     public class AdminController : ApiController
     {
-        private readonly AuthRepository _authRepo;
+        private readonly AuthorisationRepository _authRepo;
 
         public AdminController()
         {
-            _authRepo = new AuthRepository();
+            _authRepo = new AuthorisationRepository();
         }
+
         /// <summary>
         /// Creates a new admin via .../admin (POST)
         /// </summary>
@@ -34,24 +37,27 @@ namespace BAChallengeWebServices.Controllers
 
             return errorResult ?? Ok();
         }
+
         /// <summary>
         /// Modifies designated admin, which is gotten from Username and oldPassword, and changes the password to newPassword. Accessed via .../admin (PUT)
         /// </summary>
-        /// <param name="apcm">AdminPasswordChangeModel object, gotten from request body</param>
+        /// <param name="adminPasswordChangeModel">AdminPasswordChangeModel object, gotten from request body</param>
         /// <returns>IHttpActionResult</returns>
         [ResponseType(typeof(IHttpActionResult))]
         [HttpPut]
         [Route("api/Admin")]
         [Authorize]
-        public async Task<IHttpActionResult> Put([FromBody] AdminPasswordChangeModel apcm)
+        public async Task<IHttpActionResult> Put([FromBody] AdminPasswordChangeModel adminPasswordChangeModel)
         {
-            if (await _authRepo.ChangeUserPassword(apcm.Username, apcm.OldPassword, apcm.NewPassword))
+            if (await _authRepo.ChangeUserPassword(adminPasswordChangeModel.Username,
+                adminPasswordChangeModel.OldPassword, adminPasswordChangeModel.NewPassword))
             {
                 return Ok("Password change is successful");
             }
 
-            return BadRequest("Information does not match");  
+            return BadRequest("Information does not match");
         }
+
         /// <summary>
         /// Delete request for removing admin account by username. Accessed via .../admin (DELETE)
         /// </summary>
@@ -68,14 +74,7 @@ namespace BAChallengeWebServices.Controllers
             return errorResult ?? Ok();
         }
 
-            return Ok();
-        }
 
-        /// <summary>
-        /// Method to resolve error messages from IdentityResult
-        /// </summary>
-        /// <param name="result">IdentityResult object</param>
-        /// <returns>IHttpActionResult</returns>
         private IHttpActionResult ResolveErrorMessage(IdentityResult result)
         {
             if (result == null)

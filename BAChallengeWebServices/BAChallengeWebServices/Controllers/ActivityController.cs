@@ -4,7 +4,6 @@ using BAChallengeWebServices.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 
@@ -63,7 +62,9 @@ namespace BAChallengeWebServices.Controllers
         public IHttpActionResult Get([FromUri] DateTime date)
         {
             var activities = new List<Activity>(_dbContext.Activities.Where(
-                x => x.Date == date.Date
+                x => x.Date.Value.Year == date.Year &&
+                x.Date.Value.Month == date.Month &&
+                x.Date.Value.Day == date.Day
             ));
 
             if (!activities.Any())
@@ -71,8 +72,9 @@ namespace BAChallengeWebServices.Controllers
                 return NotFound();
             }
 
-            return Ok("yes");
+            return Ok(activities);
         }
+
         /// <summary>
         /// Function retrieves all activities selected by location via .../activity/?location=Vilnius (GET)
         /// </summary>
