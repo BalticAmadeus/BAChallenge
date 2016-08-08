@@ -9,7 +9,6 @@
                 <input  type="text" 
                         name="name" 
                         class="form-control" 
-                        value="{{vm.activity.Name}}"
                         ng-model="vm.newActivityName">
             </div>
         </div>
@@ -60,6 +59,16 @@
                         class="form-control"
                         value="{{vm.activity.Status}}"
                         ng-model="vm.newActivityLocation">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="status" class="control-label col-xs-2">Registracijos Url</label>
+            <div class="col-xs-10">
+                <input  name="status" 
+                        type="text" 
+                        class="form-control"
+                        value="{{vm.activity.RegistrationUrl}}"
+                        ng-model="vm.newActivityRegistrationUrl">
             </div>
         </div>
     </form>

@@ -1,5 +1,11 @@
-<h3>visi</h3>
-<div class="bs-example">
+<div class="container-fluid">
+    <div class="input-group search-box">
+        <span class="input-group-addon" id="sizing-addon2">
+        <span class="glyphicon glyphicon-search" aria-hidden="true">
+       	</span>
+        </span>
+        <input type="text" class="form-control" placeholder="Vardas Pavardė" aria-describedby="sizing-addon2" ng-model="search">
+    </div>
     <table class="table table-hover results-table-all">
         <thead>
             <tr>
@@ -8,11 +14,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="participant in vm.participant">
-                <td>{{participant.FirstName}}</td>
-                <td>{{participant.Results[0].Points}}</td>
+            <tr ng-repeat="participant in vm.participants | filter: search | orderBy: vm.total : true">
+                <td>{{participant.FirstName}} {{participant.LastName}}</td>
+                <td>{{ vm.total(participant) }}</td>
             </tr>
-            
         </tbody>
     </table>
 </div>

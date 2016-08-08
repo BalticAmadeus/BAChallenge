@@ -29,7 +29,6 @@
                     method: "POST",
                     url: 'http://mokymainet.azurewebsites.net/token',
                     // url: 'http://mokymaijava.northeurope.cloudapp.azure.com/api/token',
-                    // url: 'http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge/activity',
                     data: formData,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'

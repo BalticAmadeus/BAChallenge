@@ -5,12 +5,13 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
             <div class="list-group list-group-horizontal points-list">
-                <a ui-sref=".all" class="list-group-item active">Bendri</a>
-                <a ui-sref=".sports" class="list-group-item">Sports</a>
-                <a ui-sref=".games" class="list-group-item">Games</a>
-                <a ui-sref=".brain" class="list-group-item">Brain</a>
-                <a ui-sref=".team" class="list-group-item">Team</a>
+                <a ui-sref-active="active" ui-sref=".all" class="list-group-item">Bendri</a>
+                <a ui-sref-active="active" ui-sref=".sports" class="list-group-item">Sports</a>
+                <a ui-sref-active="active" ui-sref=".games" class="list-group-item">Games</a>
+                <a ui-sref-active="active" ui-sref=".brain" class="list-group-item">Brain</a>
+                <a ui-sref-active="active" ui-sref=".team" class="list-group-item">Team</a>
             </div>
         </div>
     </div>
-    <div ui-view></div>
+</div>
+<div ui-view></div>

@@ -2,11 +2,11 @@
 	'use strict';
 	angular
 		.module('EventsApp')
-		.controller('AdminInfoModalController', AdminInfoModalController);
+		.controller('AdminCreateModalController', AdminCreateModalController);
 
-	AdminInfoModalController.$inject = ['$scope', '$state', '$uibModalInstance', 'ActivityManager'];
+	AdminCreateModalController.$inject = ['$scope', '$state', '$uibModalInstance', 'ActivityManager'];
 
-	function AdminInfoModalController($scope, $state, $uibModalInstance, ActivityManager) {
+	function AdminCreateModalController($scope, $state, $uibModalInstance, ActivityManager) {
 
 		var vm = this;
 		vm.ok = ok;
@@ -17,9 +17,10 @@
 		vm.newActivityDescription = '';
 		vm.newActivityRegistrationDate = '';
 		vm.newActivityLocation = '';
+		vm.newActivityRegistrationUrl = '';
 
 		vm.activity = $scope.$resolve.activity;
-		
+
 		function ok() {
 			$uibModalInstance.dismiss();
 		};
@@ -29,7 +30,7 @@
 			//console.log('onSubmit');
 			ActivityManager.createProject(vm.newActivityName,
 			 vm.newActivityBranch, vm.newActivitytDate, vm.newActivityDescription,
-			 vm.newActivityRegistrationDate, vm.newActivityLocation)
+			 vm.newActivityRegistrationDate, vm.newActivityLocation, vm.newActivityRegistrationUrl)
 			.then(function (response) {
 				$uibModalInstance.dismiss();
 				$state.reload();

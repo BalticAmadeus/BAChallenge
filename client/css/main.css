@@ -1,6 +1,6 @@
-*{
+/**{
     transition: all 0.3s ease;
-}
+}*/
 
 .header-brand {
     margin-top: -6px
@@ -169,7 +169,7 @@
 }
 
 .points-container {
-    margin-top: 40px;
+    margin: 40px 0 40px 0;
     width: 80%;
 }
 
@@ -201,10 +201,7 @@ th:not(:first-child) {
     text-align: center;
 }
 
-/*.bs-example {
-    margin: 20px;
-}
-*/
+/**/
 
 /***/
 
@@ -212,4 +209,38 @@ th:not(:first-child) {
     background-color: rgba(51, 122, 183, 0.2);
 }
 
+.search-box{
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
 
+
+.activity-container{
+    border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 3px;
+
+}
+.activity-heading{
+    padding: 15px 0 ;
+    background-color: whitesmoke;
+}
+
+.activity-participant{
+    padding: 10px 0;
+}
+
+.activity-wrapper{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+@media (min-width: 1200px){
+    .activity-wrapper:nth-child(5n) {clear: left;}
+    
+}
+@media (max-width : 1199px) and (min-width: 992px){
+    .activity-wrapper:nth-child(4n) {clear: left;}
+}

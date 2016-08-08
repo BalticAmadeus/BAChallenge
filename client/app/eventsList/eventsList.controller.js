@@ -15,7 +15,7 @@
 
         vm.activities = [];
 
-        dataFactory.getCustomers()
+        dataFactory.getActivities()
             .then(function (activities) {
                 vm.activities = activities.data;
                 console.log(activities.data);

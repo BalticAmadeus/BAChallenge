@@ -7,23 +7,29 @@
     dataFactory.$inject = ['$http'];
 
     function dataFactory($http) {
-        var dataFactory = {};
+        // var dataFactory = {};
 
-        dataFactory.getCustomers = function() {
+        return {
+            getActivities: getActivities,
+            getParticipants: getParticipants,
+            getActivitiesParticipants : getActivitiesParticipants
+        };
 
+        function getActivities() {
             return $http.get('http://mokymainet.azurewebsites.net/activity');
             // return $http.get('http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge/activity');
             // return $http.get('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity');
 
         };
 
-        dataFactory.getParticipants = function() {
-
-        	return $http.get('http://projectx.16mb.com/participant');
+        function getParticipants() {
+            // return $http.get('http://projectx.16mb.com/participant');
+            return $http.get('http://mokymainet.azurewebsites.net/participant');
         };
 
-
-        return dataFactory;
+        function getActivitiesParticipants() {
+            return $http.get('http://mokymainet.azurewebsites.net/activityparticipant');
+        };
     }
 })();
 

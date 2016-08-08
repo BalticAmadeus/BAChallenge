@@ -11,13 +11,14 @@
     function AdminController($scope, $state, dataFactory, ModalWindow, UserFactory) {
 
         var vm = this;
-        vm.openInfoModal = openInfoModal;
+        vm.openCreateModal = openCreateModal;
         vm.openDeleteModal = openDeleteModal;
+        vm.openUpdateModal = openUpdateModal;
         vm.logout = logout;
 
         vm.activities = [];
 
-        dataFactory.getCustomers()
+        dataFactory.getActivities()
             .then(function(activities) {
                 vm.activities = activities.data;
                 console.log(activities.data);
@@ -25,20 +26,19 @@
                 vm.status = 'Unable to load customer data: ' + error.message;
             });
 
-        function openInfoModal(activity) {
-            console.log('miau');
-            var templateUrl = 'app/admin/adminInfoModal.view.html';
-            ModalWindow.createWindow(activity, templateUrl, 'AdminInfoModalController');
+        function openCreateModal(activity) {
+            var templateUrl = 'app/admin/adminCreateModal.view.html';
+            ModalWindow.createWindow(activity, templateUrl, 'AdminCreateModalController');
         };
 
         function openDeleteModal(activity) {
             var templateUrl = 'app/admin/deleteModal.view.html';
             ModalWindow.createWindow(activity, templateUrl, 'DeleteModalController');
-            // .then(function(response) {
-            // if (response.doDelete) {
-            //     ProjectManager.deleteProject(activity, vm.user.id);
-            //     $state.go('main.container.user', {}, { reload: true });
-            // }
+        };
+
+        function openUpdateModal(activity) {
+            var templateUrl = 'app/admin/adminUpdateModal.view.html';
+            ModalWindow.createWindow(activity, templateUrl, 'AdminUpdateModalController');
         };
 
         function logout() {
