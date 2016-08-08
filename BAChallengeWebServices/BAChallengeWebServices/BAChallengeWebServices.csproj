@@ -220,7 +220,6 @@
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\ActivityBranch.cs" />
     <Compile Include="Models\ActivityParticipantModel.cs" />
-    <Compile Include="Models\ActivityStatus.cs" />
     <Compile Include="Models\AdminRegistrationModel.cs" />
     <Compile Include="Models\AdminPasswordChangeModel.cs" />
     <Compile Include="Models\Participant.cs" />

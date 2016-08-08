@@ -1,21 +1,17 @@
 ﻿using BAChallengeWebServices.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Web;
 
 namespace BAChallengeWebServices.DataAccess
 {
     /// <summary>
     /// Primary entity framework class, for accessing data objects.
     /// </summary>
-    public class ApplicationDBContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationDBContext() : base("ApplicationContext")
+        public ApplicationDbContext() : base("ApplicationContext")
         {
-            Database.SetInitializer(new ApplicationDBInitializer());
+            Database.SetInitializer(new ApplicationDbInitializer());
         }
 
         public DbSet<Activity> Activities { get; set; }
