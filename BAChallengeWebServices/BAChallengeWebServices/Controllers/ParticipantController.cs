@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Description;
+using BAChallengeWebServices.Repository;
 
 namespace BAChallengeWebServices.Controllers
 {
@@ -12,11 +13,11 @@ namespace BAChallengeWebServices.Controllers
     [ValidateModel]
     public class ParticipantController : ApiController
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly IRepository<Participant> _participantRepository;
 
-        public ParticipantController(ApplicationDbContext dbContext)
+        public ParticipantController(IRepository<Participant> participantRepository)
         {
-            _dbContext = dbContext;
+            _participantRepository = participantRepository;
         }
         /// <summary>
         /// Function retrieves all Participants and all information about them via .../participant (GET)
@@ -27,12 +28,8 @@ namespace BAChallengeWebServices.Controllers
         [Route("api/Participant")]
         public IHttpActionResult Get()
         {
-            if (!_dbContext.Participants.Any())
-            {
-                return NotFound();
-            }
-            var participants = new List<Participant>(_dbContext.Participants);
-            return Ok(participants);
+            var participants = _participantRepository.GetAll();
+            return participants.Any()? (IHttpActionResult) Ok(participants) : NotFound();
         }
 
         /// <summary>
@@ -45,9 +42,8 @@ namespace BAChallengeWebServices.Controllers
         [Route("api/Participant/{id}")]
         public IHttpActionResult Get(int id)
         {
-            return _dbContext.Participants.Any(x => x.ParticipantId == id)
-                ? (IHttpActionResult) Ok(_dbContext.Participants.Find(id))
-                : NotFound();
+            var participants = _participantRepository.GetById(id);
+            return participants != null ? (IHttpActionResult) Ok(participants) : NotFound();
         }
 
         /// <summary>
@@ -61,16 +57,8 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Post([FromBody] Participant participant)
         {
-            if (participant == null)
-            {
-                return NotFound();
-            }
-            participant.ParticipantId = 0;
-            participant.Results = new List<Result>();
-
-            _dbContext.Participants.Add(participant);
-            _dbContext.SaveChanges();
-            return Ok();
+            bool participants = _participantRepository.Insert(participant);
+            return participants ?(IHttpActionResult)Ok() : NotFound();
         }
 
         /// <summary>
@@ -84,15 +72,8 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Delete(int id)
         {
-            var participant = _dbContext.Participants.Find(id);
-            if (participant == null)
-            {
-                return NotFound();
-            }
-            _dbContext.Participants.Remove(participant);
-            _dbContext.SaveChanges();
-
-            return Ok();
+            bool participants = _participantRepository.Delete(id);
+            return participants ? (IHttpActionResult) Ok() : NotFound();
 
         }
 
@@ -108,15 +89,8 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Put(int id, [FromBody] Participant participant)
         {
-            var selectedParticipant = _dbContext.Participants.Find(id);
-            if (selectedParticipant == null)
-            {
-                return NotFound();
-            }
-            selectedParticipant.FirstName = participant.FirstName;
-            selectedParticipant.LastName = participant.LastName;
-            _dbContext.SaveChanges();
-            return Ok();
+            bool participants = _participantRepository.Modify(id, participant);
+            return participants ? (IHttpActionResult) Ok() : NotFound();
         }
     }
 }
