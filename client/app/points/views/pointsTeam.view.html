@@ -4,14 +4,17 @@
         <thead>
             <tr>
                 <th>Darbuotojas</th>
-                <th ng-repeat="activity in vm.activitiesParticipants | filter:{Activity:{Branch: 'Sports'}}:true | orderBy : 'Activity.Name' : false">
-                    {{activity.Activity.Name}}
+                <th ng-repeat="activity in vm.newObject.activities">
+                    {{activity.name}}
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="participant in vm.participants">
-                <td>{{participant.FirstName}}</td>
+            <tr ng-repeat="participant in vm.newObject.participants">
+                <td>{{participant.participantName}}</td>
+                <th ng-repeat="result in participant.result">
+                    {{result.points}}
+                </th>
             </tr>
         </tbody>
     </table>

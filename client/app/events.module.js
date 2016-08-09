@@ -5,6 +5,6 @@
 	angular
 		.module('EventsApp', [ 'ui.router',
 								'ui.bootstrap', 
-								'ngAnimate' ]);
+								'ngAnimate']);
 		
 })();

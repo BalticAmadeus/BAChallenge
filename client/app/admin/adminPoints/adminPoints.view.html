@@ -1,6 +1,12 @@
 <div class="container-fluid admin-points-container">
     <div class="row">
-    <input type="text" class="form-control" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search">
+        <!-- <input type="text" class="form-control admin-points-search" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search"> -->
+        <div class="input-group search-box">
+            <span class="input-group-addon" id="sizing-addon2">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </span>
+            <input type="text" class="form-control" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search">
+        </div>
         <div class="col-xs-12 admin-points-wrapper" ng-repeat="activity in vm.activitiesParticipants | filter : search">
             <div class="activity-container">
                 <div class="activity-heading"> {{ activity.Activity.Name }}</div>
@@ -10,9 +16,9 @@
                         {{ participant.FirstName }}
                         {{ participant.LastName }}:
                         </span>
-                        <span>{{participant.Results[0].Points}} tašk.</span>
+                        <span>{{participant.Result.Points}} tašk.</span>
                         <!-- <span>description : {{ participant.Results[0].Description}}</span> -->
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="vm.deletePoints(participant.Results[0].ResultId)">
+                        <span class="glyphicon glyphicon-remove admin-points-remove-icon" aria-hidden="true" ng-click="vm.deletePoints(participant.Results[0].ResultId)">
                     </div>
                     <form class="form-inline points-form">
                         <div class="form-group">

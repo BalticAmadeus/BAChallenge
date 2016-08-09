@@ -8,11 +8,12 @@
         .config(configBlock)
         .run(run)
         .constant('constant', {
-            // 'urlBase' : 'http://mokymainet.azurewebsites.net/api'
-            'urlBase' : 'http://mokymaijava.northeurope.cloudapp.azure.com/api'
+            'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/api'
+            // 'http://mokymainet.azurewebsites.net/api'
+            // http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge/
         }),
 
-    configBlock.$inject = ['$httpProvider'];
+        configBlock.$inject = ['$httpProvider'];
     run.$inject = ['$rootScope', '$state', 'AuthTokenFactory'];
     // constant.$inject = [];
 
@@ -21,6 +22,9 @@
     };
 
     function run($rootScope, $state, AuthTokenFactory) {
+
+        $rootScope.$state = $state;
+
 
         var token = null;
 
@@ -31,7 +35,7 @@
                 if (!!token) {
                     return;
                 } else {
-                	event.preventDefault();
+                    event.preventDefault();
                     $state.go('root.login');
                 }
             }
@@ -41,7 +45,7 @@
                     event.preventDefault();
                     $state.go('root.admin.events');
                 } else {
-                	return;
+                    return;
                 }
             }
         })

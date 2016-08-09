@@ -21,15 +21,39 @@
                         value="{{vm.activity.Branch}}"
                         ng-model="vm.newActivityBranch">
             </div>
+            {{vm.newActivityBranch}}
         </div>
         <div class="form-group">
             <label for="date" class="control-label col-xs-2">Data</label>
             <div class="col-xs-10">
-                <input  type="text" 
-                        name="date" 
-                        class="form-control" 
-                        value="{{vm.activity.Date}}"
-                        ng-model="vm.newActivitytDate">
+                <div class="row">
+                    <div class="col-xs-4 input-group">
+      <!--               <input  type="text" 
+                            name="date" 
+                            class="form-control" 
+                            value="{{vm.activity.Date}}"
+                            ng-model="vm.newActivitytDate"> -->
+                    <!-- <h4>Standard date-picker</h4> -->
+             
+<!--                         <input type="text" class="form-control" uib-datepicker-popup is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="{{vm.activity.Date}}"
+                            ng-model="vm.newActivitytDate">
+                        <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                        {{vm.newActivitytDate | date:'yyyy-MM-dd'}} -->
+
+                    <input type="text" class="form-control" placeholder="Renginys" aria-describedby="sizing-addon2" uib-datepicker-popup is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="{{vm.activity.Date}}" ng-model="vm.newActivitytDate">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true" ng-click="open2()"></span>
+                        </span>
+                    </div>
+                    <div class="col-xs-2">
+                        <input class="form-control" type="text" placeholder="hh" ng-model="vm.eventHours">
+                    </div>
+                    <div class="col-xs-2">
+                        <input class="form-control" type="text" placeholder="mm" ng-model="vm.eventMinutes">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="form-group">
@@ -76,6 +100,8 @@
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="vm.onSubmit()">Išsaugoti</button>
     <button class="btn btn-danger" type="button" ng-click="vm.ok()">Atšaukti</button>
+   
+
 </div>
 
 

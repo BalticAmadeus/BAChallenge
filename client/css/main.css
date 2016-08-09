@@ -281,3 +281,12 @@ th:not(:first-child) {
 .add-participant-input-group .add-participant-input{
     width: 100%;
 }
+
+.admin-points-remove-icon:hover{
+    cursor: pointer;
+}
+
+.backend-buttons{
+    margin-bottom: 10px;
+    margin-left: 10px;
+}

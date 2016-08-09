@@ -5,10 +5,10 @@
                 <div class="activity-heading"> {{ activity.Activity.Name }}</div>
                 <div class="activity-participants-container">
                     <div class="activity-participant" ng-repeat="participant in activity.Participants">
-                        <span>                        
+                        <span ng-if="participant.Result.Points">                        
                         {{ participant.FirstName }} {{ participant.LastName }}:
                         </span>
-                        <span>{{participant.Results[0].Points}} taškai</span>
+                        <span ng-if="participant.Result.Points">{{participant.Result.Points}} taškai</span>
                         <!-- <span>description : {{ participant.Results[0].Description}}</span> -->
                     </div>
                 </div>

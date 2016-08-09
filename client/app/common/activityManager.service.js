@@ -54,11 +54,11 @@
                 Description: description,
                 Location: location,
                 RegistrationDate: registrationDate,
-                RegistrationUrl: registrationUrl,
-                _method : 'PUT'
+                RegistrationUrl: registrationUrl
+                // _method : 'PUT'
             };
 
-            return $http.post(constant.urlBase + '/activity/' + activityID, data);
+            return $http.put(constant.urlBase + '/activity/' + activityID, data);
             // return $http.delete('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity/' + activityID);
         };
 

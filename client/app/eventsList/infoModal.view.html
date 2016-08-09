@@ -4,12 +4,12 @@
         </div>
         <div class="modal-body">
         <ul>
-        	<li>Renginio pavadinimas: <b>{{vm.activity.Name}}</b></li>
-        	<li>Kategorija: <b>{{vm.activity.Branch}}</b></li>
-        	<li>Data: <b>{{vm.activity.Date}}</b></li>
-        	<li>Aprašymas: <b>{{vm.activity.Description}}</b></li>
-        	<li>Registracijos data: <b>{{vm.activity.RegistrationDate}}</b></li>
-			<li>Vieta: <b>{{vm.activity.Location}}</b></li>
+        	<li ng-if="vm.activity.Name">Renginio pavadinimas: <b>{{vm.activity.Name}}</b></li>
+        	<li ng-if="vm.activity.Branch">Kategorija: <b>{{vm.activity.Branch}}</b></li>
+        	<li ng-if="vm.activity.Date">Data: <b>{{vm.activity.Date}}</b></li>
+        	<li ng-if="vm.acitivity.Description">Aprašymas: <b>{{vm.activity.Description}}</b></li>
+        	<li ng-if="vm.activity.RegistrationDate">Registracijos data: <b>{{vm.activity.RegistrationDate}}</b></li>
+			<li ng-if="vm.activity.Location">Vieta: <b>{{vm.activity.Location}}</b></li>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>

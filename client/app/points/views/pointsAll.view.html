@@ -15,7 +15,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="participant in vm.participants | filter: search | orderBy: vm.total : true">
-                <td>{{participant.FirstName}} {{participant.LastName}}</td>
+                <td> {{$index + 1}}. {{participant.FirstName}} {{participant.LastName}}</td>
                 <td>{{ vm.total(participant) }}</td>
             </tr>
         </tbody>

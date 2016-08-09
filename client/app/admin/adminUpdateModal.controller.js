@@ -28,7 +28,7 @@
         vm.onSubmit = function(activityID) {
             ActivityManager.updateProject(activityID, vm.activityName,
                     vm.activityBranch, vm.activitytDate, vm.activityDescription,
-                    vm.activityRegistrationDate, vm.activityLocation, vm.activityregistrationUrl)
+                    vm.activityRegistrationDate, vm.activityLocation, vm.activityRegistrationUrl)
                 .then(function(response) {
                     $uibModalInstance.dismiss();
                     $state.reload();

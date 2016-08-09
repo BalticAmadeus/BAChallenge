@@ -4,9 +4,9 @@
         .module('EventsApp')
         .service('dataFactory', dataFactory);
 
-    dataFactory.$inject = ['$http', 'constant'];
+    dataFactory.$inject = ['$http', 'constant', 'UrlBase'];
 
-    function dataFactory($http, constant) {
+    function dataFactory($http, constant, UrlBase) {
         // var dataFactory = {};
 
         return {
@@ -16,7 +16,7 @@
         };
 
         function getActivities() {
-            return $http.get(constant.urlBase + '/activity');
+            return $http.get(UrlBase.getUrl() + '/activity');
             // return $http.get('http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge/activity');
             // return $http.get('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity');
 
@@ -24,6 +24,7 @@
 
         function getParticipants() {
             // return $http.get('http://projectx.16mb.com/participant');
+
             return $http.get(constant.urlBase + '/participant');
         };
 
