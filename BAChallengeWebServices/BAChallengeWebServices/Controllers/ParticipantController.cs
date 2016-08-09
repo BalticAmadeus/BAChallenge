@@ -29,7 +29,7 @@ namespace BAChallengeWebServices.Controllers
         public IHttpActionResult Get()
         {
             var participants = _participantRepository.GetAll();
-            return participants.Any()? (IHttpActionResult) Ok(participants) : NotFound();
+            return participants.Any() ? (IHttpActionResult) Ok(participants) : NotFound();
         }
 
         /// <summary>
@@ -57,8 +57,7 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Post([FromBody] Participant participant)
         {
-            bool participants = _participantRepository.Insert(participant);
-            return participants ?(IHttpActionResult)Ok() : NotFound();
+            return _participantRepository.Insert(participant) ? (IHttpActionResult)Ok() : NotFound();
         }
 
         /// <summary>
@@ -72,8 +71,7 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Delete(int id)
         {
-            bool participants = _participantRepository.Delete(id);
-            return participants ? (IHttpActionResult) Ok() : NotFound();
+            return _participantRepository.Delete(id) ? (IHttpActionResult) Ok() : NotFound();
 
         }
 
@@ -89,8 +87,7 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Put(int id, [FromBody] Participant participant)
         {
-            bool participants = _participantRepository.Modify(id, participant);
-            return participants ? (IHttpActionResult) Ok() : NotFound();
+            return _participantRepository.Modify(id, participant) ? (IHttpActionResult) Ok() : NotFound();
         }
     }
 }

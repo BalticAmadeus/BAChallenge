@@ -60,8 +60,7 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Post([FromBody] Result result)
         {
-            bool results = _resultRepository.Insert(result);
-            return results ? (IHttpActionResult) Ok() : NotFound();
+            return _resultRepository.Insert(result) ? (IHttpActionResult) Ok() : NotFound();
         }
 
         /// <summary>
@@ -75,8 +74,7 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Delete(int id)
         {
-            bool results = _resultRepository.Delete(id);
-            return results ? (IHttpActionResult) Ok() : NotFound();
+            return _resultRepository.Delete(id) ? (IHttpActionResult) Ok() : NotFound();
         }
 
         /// <summary>
@@ -91,8 +89,7 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Put(int id, [FromBody] Result result)
         {
-            var results = _resultRepository.Modify(id, result);
-            return results ? (IHttpActionResult) Ok() : NotFound();
+            return _resultRepository.Modify(id, result) ? (IHttpActionResult) Ok() : NotFound();
         }
     }
 }
