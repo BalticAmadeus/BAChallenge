@@ -7,7 +7,7 @@ using BAChallengeWebServices.Models;
 
 namespace BAChallengeWebServices.Repository
 {
-    public class ActivityRepository : IRepository<Activity>
+    public class ActivityRepository : IActivityRepository
     {
         private readonly ApplicationDbContext _dbContext;
 
@@ -26,19 +26,23 @@ namespace BAChallengeWebServices.Repository
             return _dbContext.Activities.Find(id);
         }
 
-        public void Insert(Activity item)
+        public bool Insert(Activity item)
         {
             _dbContext.Activities.Add(item);
-            _dbContext.SaveChanges();
+            return _dbContext.SaveChanges() > 0;
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var foundActivity = _dbContext.Activities.Find(id);
-            _dbContext.Activities.Remove(foundActivity);
+            if (foundActivity != null)
+            {
+                _dbContext.Activities.Remove(foundActivity);
+            }
+            return _dbContext.SaveChanges() > 0;
         }
 
-        public void Modify(int id, Activity item)
+        public bool Modify(int id, Activity item)
         {
             var foundActivity = _dbContext.Activities.Find(id);
 
@@ -50,7 +54,26 @@ namespace BAChallengeWebServices.Repository
             foundActivity.RegistrationDate = item.RegistrationDate;
             foundActivity.RegistrationUrl = item.RegistrationUrl;
 
-            _dbContext.SaveChanges();
+            return _dbContext.SaveChanges() > 0;
+        }
+
+        public IList<Activity> GetByLocation(string location)
+        {
+            return _dbContext.Activities.Where(x => x.Location == location).ToList();
+        }
+
+        public IList<Activity> GetByBranch(ActivityBranch branch)
+        {
+            return _dbContext.Activities.Where(x => x.Branch == branch).ToList();
+        }
+
+        public IList<Activity> GetByDate(DateTime date)
+        {
+            return _dbContext.Activities.Where(
+               x => x.Date.Value.Year == date.Year &&
+               x.Date.Value.Month == date.Month &&
+               x.Date.Value.Day == date.Day
+           ).ToList();
         }
     }
 }

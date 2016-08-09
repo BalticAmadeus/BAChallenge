@@ -23,6 +23,7 @@ namespace BAChallengeWebServices
             UnityConfig.RegisterComponents(config);
 
             WebApiConfig.Register(config);
+            WebApiConfig.RegisterFormatters(config);
 
             app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
@@ -33,7 +34,7 @@ namespace BAChallengeWebServices
             OAuthAuthorizationServerOptions serverOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/Token"),
+                TokenEndpointPath = new PathString("/api/Token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
                 Provider = new CustomAuthorizationServerProvider()
             };

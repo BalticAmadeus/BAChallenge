@@ -20,7 +20,7 @@ namespace BAChallengeWebServices
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
         }
 
-        private static void RegisterFormatters(HttpConfiguration config)
+        public static void RegisterFormatters(HttpConfiguration config)
         {
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
             config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new StringEnumConverter());

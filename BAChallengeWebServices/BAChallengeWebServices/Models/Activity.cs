@@ -14,13 +14,12 @@ namespace BAChallengeWebServices.Models
         public int ActivityId { get; set; }
         [Required]
         public string Name { get; set; }
-        [JsonConverter(typeof(CustomTimeConverter))]
         public DateTime? Date { get; set; }
-        [JsonConverter(typeof(CustomTimeConverter))]
         public DateTime? RegistrationDate { get; set; }
         public string Description { get; set; }
-        [JsonConverter(typeof(StringEnumConverter))]
+        [Required]
         public ActivityBranch Branch { get; set; }
+        [Required]
         public string Location { get; set; }
         public string RegistrationUrl { get; set; }
     }
