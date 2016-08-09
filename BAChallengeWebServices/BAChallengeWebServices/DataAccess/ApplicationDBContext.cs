@@ -18,6 +18,7 @@ namespace BAChallengeWebServices.DataAccess
         public DbSet<Participant> Participants { get; set; }
         public DbSet<Result> Results { get; set; }
         public DbSet<ExceptionModel> Exceptions { get; set; }
+        public DbSet<ActivityParticipation> ActivityParticipations { get; set; }
 
 
 

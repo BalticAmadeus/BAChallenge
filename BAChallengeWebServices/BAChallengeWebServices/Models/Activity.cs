@@ -19,7 +19,6 @@ namespace BAChallengeWebServices.Models
         public string Description { get; set; }
         [Required]
         public ActivityBranch Branch { get; set; }
-        [Required]
         public string Location { get; set; }
         public string RegistrationUrl { get; set; }
     }

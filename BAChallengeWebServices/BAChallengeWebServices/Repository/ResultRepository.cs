@@ -30,9 +30,24 @@ namespace BAChallengeWebServices.Repository
                 ActivityId = item.ActivityId,
                 ParticipantId = item.ParticipantId,
                 Points = item.Points,
-                Description = item.Description,
-
+                Description = item.Description
             };
+
+            if (!_dbContext.ActivityParticipations.Any(x =>
+                x.ActivityId == item.ActivityId &&
+                x.ParticipantId == item.ParticipantId
+                ))
+            {
+                return false;
+            }
+
+            if (_dbContext.Results.Any(x =>
+                x.ActivityId == item.ActivityId &&
+                x.ParticipantId == item.ParticipantId))
+            {
+                return false;
+            }
+
             _dbContext.Results.Add(results);
             return _dbContext.SaveChanges() > 0;
         }
