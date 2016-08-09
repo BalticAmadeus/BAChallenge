@@ -1,5 +1,6 @@
 ﻿using BAChallengeWebServices.DataAccess;
 using BAChallengeWebServices.Models;
+using BAChallengeWebServices.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +12,16 @@ namespace BAChallengeWebServices.Controllers
 {
     public class ExceptionModelController : ApiController
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly IExceptionRepository<ExceptionModel> _exceptionRepository;
 
-        public ExceptionModelController()
+        public ExceptionModelController(IExceptionRepository<ExceptionModel> exceptionRepository)
         {
-            _dbContext = new ApplicationDbContext();
+            _exceptionRepository = exceptionRepository;
         }
         public IHttpActionResult Get()
         {
-            if (!_dbContext.Exceptions.Any())
-            {
-                return NotFound();
-            }
-            var result = new List<ExceptionModel>(_dbContext.Exceptions);
-            return Ok(result);
+            var exception = _exceptionRepository.GetAll();
+            return exception != null ? (IHttpActionResult) Ok(exception) : NotFound();
         }
     }
 }

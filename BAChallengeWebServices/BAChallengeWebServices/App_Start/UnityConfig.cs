@@ -2,6 +2,8 @@ using Microsoft.Practices.Unity;
 using System.Web.Http;
 using BAChallengeWebServices.Repository;
 using Unity.WebApi;
+using BAChallengeWebServices.Models;
+using BAChallengeWebServices.DataTransferModels;
 
 namespace BAChallengeWebServices
 {
@@ -15,9 +17,13 @@ namespace BAChallengeWebServices
             // it is NOT necessary to register your controllers
 
             container.RegisterType<IActivityRepository, ActivityRepository>();
-            
+            container.RegisterType<IRepository<Result>, ResultRepository>();
+            container.RegisterType<IActivityParticipantRepository<ActivityParticipantModel>, ActivityParticipantRepository>();
+            container.RegisterType<IRepository<Participant>, ParticipantRepository>();
+            container.RegisterType<IExceptionRepository<ExceptionModel>, ExceptionRepository>();
+
             // e.g. container.RegisterType<ITestService, TestService>();
-            
+
             config.DependencyResolver = new UnityDependencyResolver(container);
         }
     }

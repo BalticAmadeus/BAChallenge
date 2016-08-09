@@ -233,6 +233,7 @@
       <DependentUpon>201608090721481_AddedRequiredAttribute.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repository\ActivityParticipantRepository.cs" />
     <Compile Include="Repository\ActivityRepository.cs" />
     <Compile Include="Repository\AuthorizationRepository.cs" />
     <Compile Include="Authentication\CustomAuthorizationServerProvider.cs" />
@@ -256,7 +257,10 @@
     <Compile Include="Models\Result.cs" />
     <Compile Include="DataTransferModels\ResultParticipantModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ExceptionRepository.cs" />
+    <Compile Include="Repository\IActivityParticipantRepository.cs" />
     <Compile Include="Repository\IActivityRepository.cs" />
+    <Compile Include="Repository\IExceptionRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\ParticipantRepository.cs" />
     <Compile Include="Repository\ResultRepository.cs" />
