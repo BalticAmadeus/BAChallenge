@@ -59,6 +59,279 @@ namespace BAChallengeWebServices.DataAccess
             context.Activities.Add(new Activity { ActivityId = 19, Name = "Krepšinio/futbolo turnyras", Date = DateTime.ParseExact("2016-07-25 14:10", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), RegistrationDate = DateTime.ParseExact("2016-07-20 10:50", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), Branch = ActivityBranch.Team, Description = "Blank", Location = "Vilnius", RegistrationUrl = @"https://docs.google.com/spreadsheets/d/1fb_OWYg_X-JGkTogEQe78qoakBh-H2UpFDr1OOjwlwM/edit?usp=sharing" });
 
             context.SaveChanges();
+
+            //ActivityParticipation entries
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 1,
+                ParticipantId = 1
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 12,
+                ParticipantId = 1
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 5,
+                ParticipantId = 2
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 6,
+                ParticipantId = 2
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 17,
+                ParticipantId = 3
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 16,
+                ParticipantId = 3
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 10,
+                ParticipantId = 3
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 2,
+                ParticipantId = 4
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 3,
+                ParticipantId = 4
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 2,
+                ParticipantId = 5
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 3,
+                ParticipantId = 5
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 4,
+                ParticipantId = 6
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 5,
+                ParticipantId = 6
+            });
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 4,
+                ParticipantId = 7
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 5,
+                ParticipantId = 7
+            });
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 3,
+                ParticipantId = 7
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 6,
+                ParticipantId = 8
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 7,
+                ParticipantId = 8
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 6,
+                ParticipantId = 9
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 7,
+                ParticipantId = 9
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 8,
+                ParticipantId = 10
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 9,
+                ParticipantId = 10
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 8,
+                ParticipantId = 11
+            });
+
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 9,
+                ParticipantId = 11
+            });
+
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 9,
+                ParticipantId = 11
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 10,
+                ParticipantId = 12
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 11,
+                ParticipantId = 12
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 10,
+                ParticipantId = 13
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 11,
+                ParticipantId = 13
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 12,
+                ParticipantId = 14
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 13,
+                ParticipantId = 14
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 12,
+                ParticipantId = 15
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 13,
+                ParticipantId = 15
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 14,
+                ParticipantId = 16
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 15,
+                ParticipantId = 16
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 14,
+                ParticipantId = 17
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 15,
+                ParticipantId = 17
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 16,
+                ParticipantId = 18
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 17,
+                ParticipantId = 18
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 16,
+                ParticipantId = 19
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 17,
+                ParticipantId = 19
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 18,
+                ParticipantId = 20
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 19,
+                ParticipantId = 20
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 18,
+                ParticipantId = 21
+            });
+
+            context.ActivityParticipations.Add(new ActivityParticipation()
+            {
+                ActivityId = 19,
+                ParticipantId = 21
+            });
+
             //Participant Database table
             context.Participants.Add(new Participant
             {

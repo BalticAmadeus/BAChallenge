@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using BAChallengeWebServices.Models;
 
 namespace BAChallengeWebServices.Repository
 {
-    public class ActivityParticipantRepository : IActivityParticipantRepository<ActivityParticipantModel>
+    public class ActivityParticipantRepository : IActivityParticipantRepository
     {
         private readonly ApplicationDbContext _dbContext;
 
@@ -26,13 +27,38 @@ namespace BAChallengeWebServices.Repository
         public ActivityParticipantModel GetById(int id)
         {
             return GetActivityById(id);
-        }        
+        }
+
+        public bool Insert(ActivityParticipation item)
+        {
+            if (_dbContext.ActivityParticipations.Any(x =>
+            x.ActivityId == item.ActivityId &&
+            x.ParticipantId == item.ParticipantId))
+                return false;
+
+            _dbContext.ActivityParticipations.Add(item);
+            return _dbContext.SaveChanges() > 0;
+        }
+
+        public bool Delete(int activityId, int participantId)
+        {
+            var foundItem = _dbContext.ActivityParticipations.FirstOrDefault(
+                x => x.ActivityId == activityId && x.ParticipantId == participantId);
+
+            if (foundItem != null)
+            {
+                _dbContext.ActivityParticipations.Remove(foundItem);
+            }
+
+            return _dbContext.SaveChanges() > 0;
+        }
+
         private ActivityParticipantModel GetActivityById(int id)
         {
             var activity = _dbContext.Activities.Find(id);
 
             var participants = _dbContext.Participants.Where(x =>
-            x.Results.Any(y => y.ActivityId == id)).ToList();
+            _dbContext.ActivityParticipations.Any(y => y.ParticipantId == x.ParticipantId && y.ActivityId == activity.ActivityId)).ToList();
 
             var participantModel = new List<ParticipantModel>();
 
@@ -48,7 +74,7 @@ namespace BAChallengeWebServices.Repository
                         ParticipantId = x.ParticipantId,
 
                         Result = (result == null) ?
-                        new ResultParticipantModel() :
+                        null :
                         new ResultParticipantModel
                         {
                             ResultId = result.ResultId,

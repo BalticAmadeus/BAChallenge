@@ -60,7 +60,7 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Post([FromBody] Result result)
         {
-            return _resultRepository.Insert(result) ? (IHttpActionResult) Ok() : NotFound();
+            return _resultRepository.Insert(result) ? (IHttpActionResult) Ok() : BadRequest();
         }
 
         /// <summary>

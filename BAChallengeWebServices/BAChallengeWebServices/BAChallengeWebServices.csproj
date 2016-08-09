@@ -228,11 +228,7 @@
   <ItemGroup>
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Migrations\201608090721481_AddedRequiredAttribute.cs" />
-    <Compile Include="Migrations\201608090721481_AddedRequiredAttribute.Designer.cs">
-      <DependentUpon>201608090721481_AddedRequiredAttribute.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ActivityParticipation.cs" />
     <Compile Include="Repository\ActivityParticipantRepository.cs" />
     <Compile Include="Repository\ActivityRepository.cs" />
     <Compile Include="Repository\AuthorizationRepository.cs" />
@@ -276,11 +272,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608090721481_AddedRequiredAttribute.resx">
-      <DependentUpon>201608090721481_AddedRequiredAttribute.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
