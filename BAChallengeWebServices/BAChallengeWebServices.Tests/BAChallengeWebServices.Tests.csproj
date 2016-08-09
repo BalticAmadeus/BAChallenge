@@ -41,7 +41,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -57,7 +59,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivityTest.cs" />
+    <Compile Include="Tests\ActivityTest.cs" />
     <Compile Include="DataAccess\MockModelDbSets.cs" />
     <Compile Include="DataAccess\MockDbContext.cs" />
     <Compile Include="DataAccess\MockDbSet.cs" />
@@ -65,6 +67,8 @@
     <Compile Include="Repository\MockActivityRepository.cs" />
     <Compile Include="Repository\MockParticipantRepository.cs" />
     <Compile Include="Repository\MockResultRepository.cs" />
+    <Compile Include="Tests\ResultTest.cs" />
+    <Compile Include="Tests\ParticipantTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BAChallengeWebServices\BAChallengeWebServices.csproj">

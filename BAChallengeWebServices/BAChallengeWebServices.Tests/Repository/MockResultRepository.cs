@@ -29,6 +29,7 @@ namespace BAChallengeWebServices.Tests.Repository
         {
             var results = new Result()
             {
+                ResultId = item.ResultId,
                 ActivityId = item.ActivityId,
                 ParticipantId = item.ParticipantId,
                 Points = item.Points,

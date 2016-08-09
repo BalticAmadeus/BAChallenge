@@ -12,11 +12,14 @@ namespace BAChallengeWebServices.Tests.DataAccess
         public MockDbContext()
         {
             Activities = new MockActivityDbSet();
+            Participants = new MockParticipantDbSet();
+            Results = new MockResultDbSet();
         }
 
         public MockDbSet<Activity> Activities;
         public MockDbSet<Participant> Participants;
         public MockDbSet<Result> Results;
+
         public int SaveChangesCounter { set; private get; }
 
         public int SaveChanges()

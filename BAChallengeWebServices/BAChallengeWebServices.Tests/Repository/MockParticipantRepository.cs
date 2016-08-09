@@ -28,7 +28,6 @@ namespace BAChallengeWebServices.Tests.Repository
         }
         public bool Insert(Participant item)
         {
-            item.ParticipantId = 0;
             item.Results = new List<Result>();
             _dbContext.Participants.Add(item);
             return _dbContext.SaveChanges() > 0;

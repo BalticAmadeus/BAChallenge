@@ -25,7 +25,6 @@ namespace BAChallengeWebServices.Repository
         }
         public bool Insert(Participant item)
         {
-            item.ParticipantId = 0;
             item.Results = new List<Result>();
             _dbContext.Participants.Add(item);
             return _dbContext.SaveChanges() > 0;
@@ -42,6 +41,7 @@ namespace BAChallengeWebServices.Repository
 
             foundParticipant.FirstName = item.FirstName;
             foundParticipant.LastName = item.LastName;
+
             return _dbContext.SaveChanges() > 0;
         }
     }
