@@ -152,9 +152,7 @@
 }
 
 .list-group-horizontal .list-group-item {
-    /*margin-bottom: 0;*/
     margin-left: -7px;
-    /*margin-right: 0;*/
     padding: 15px 30px 15px 30px;
 }
 
@@ -184,7 +182,7 @@
 }
 
 .results-table-all {
-    width: 30%;
+    max-width: 30%;
     margin: 0 auto;
 }
 
@@ -230,7 +228,7 @@ th:not(:first-child) {
     font-size: 1.3em;
 }
 
-.activity-heading:hover{
+.activity-heading:hover {
     cursor: pointer;
 }
 
@@ -253,6 +251,12 @@ th:not(:first-child) {
 @media (max-width: 1199px) and (min-width: 992px) {
     .activity-wrapper:nth-child(4n) {
         clear: left;
+    }
+    .results-table-all {
+        max-width: 60%;
+    }
+    .search-box {
+        width: 60%;
     }
 }
 
@@ -313,15 +317,33 @@ th:not(:first-child) {
         display: inline-block;
         width: 48%;
     }
+    .results-table-all {
+        max-width: 100%;
+    }
+    .search-box {
+        width: 100%;
+    }
+    .list-group-horizontal .list-group-item {
+    /*margin-left: -7px;*/
+    padding: 5px 7px 5px 7px;
+}
 }
 
-.participant-list-container{
+@media (max-width: 1100px) and (min-width: 500px) {
+    .results-table-all {
+        max-width: 60%;
+    }
+    .search-box {
+        width: 60%;
+    }
+}
+
+.participant-list-container {
     max-height: 0;
     overflow: hidden;
     transition: max-height 1s ease;
-
 }
 
-.participant-list-container-animate{
+.participant-list-container-animate {
     max-height: 200px;
 }

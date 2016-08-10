@@ -74,8 +74,8 @@
             $state.go('root.login');
         };
 
-        function addPoints(activityId, participantId, points) {
-            ActivityManager.setPoints(activityId, participantId, points)
+        function addPoints(activityId, participantId, points, description) {
+            ActivityManager.setPoints(activityId, participantId, points, description)
                 .then(function(response) {
                     getData();
 

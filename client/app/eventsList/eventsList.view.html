@@ -22,7 +22,7 @@
                     <br>
                     <span>{{activity.Date | limitTo: 10}}</span>
                     <br>
-                    <a href="{{activity.RegistrationUrl}}" class="btn btn-primary">registracija</a>
+                    <a class="btn btn-primary" ng-click="vm.openRegistrationModal(activity)">registracija</a>
                     <br>
                 </div>
             </div>
@@ -71,4 +71,7 @@
             </div>
         </div>
     </div>
+            <div ng-repeat="participant in vm.participants">
+            {{participant.FirstName}}
+        </div>
 </div>

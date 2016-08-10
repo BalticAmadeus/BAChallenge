@@ -15,7 +15,8 @@
             setPoints : setPoints,
             deletePoints : deletePoints,
             addParticipant : addParticipant,
-            deleteParticipant : deleteParticipant
+            deleteParticipant : deleteParticipant,
+            registerParticipant : registerParticipant
         };
 
         function createProject(name, branch, date, description,
@@ -62,11 +63,12 @@
             // return $http.delete('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity/' + activityID);
         };
 
-        function setPoints (activityId, participantId, points){
+        function setPoints (activityId, participantId, points, description){
             var data = {
                 ActivityId : activityId,
                 ParticipantId : participantId,
-                Points : points
+                Points : points,
+                Description : description
             };
             return $http.post(constant.urlBase + '/result', data);
         };
@@ -92,5 +94,14 @@
             };
             return $http.delete(constant.urlBase + '/participant/' + participantId);
         };
+
+        function registerParticipant(activityId, participantId, description){
+            var data = {
+                ActivityId : activityId,
+                ParticipantId : participantId,
+                Information : description    
+            };
+            return $http.post(constant.urlBase + '/activityparticipant/', data);
+        }
     };
 })();

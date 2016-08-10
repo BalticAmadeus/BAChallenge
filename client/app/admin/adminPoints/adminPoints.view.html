@@ -11,27 +11,36 @@
             <div class="activity-container">
                 <div class="activity-heading"> {{ activity.Activity.Name }}</div>
                 <div class="activity-participants-container">
-                    <div class="activity-participant" ng-repeat="participant in activity.Participants">
+                    <div ng-if="participant.Result" class="activity-participant" ng-repeat="participant in activity.Participants">
                         <span>                        
                         {{ participant.FirstName }}
                         {{ participant.LastName }}:
                         </span>
                         <span>{{participant.Result.Points}} tašk.</span>
+                        <span>{{participant.Result.Description}}</span>
                         <!-- <span>description : {{ participant.Results[0].Description}}</span> -->
-                        <span class="glyphicon glyphicon-remove admin-points-remove-icon" aria-hidden="true" ng-click="vm.deletePoints(participant.Results[0].ResultId)">
+                        <span class="glyphicon glyphicon-remove admin-points-remove-icon" aria-hidden="true" ng-click="vm.deletePoints(participant.Result.ResultId)">
                     </div>
-                    <form class="form-inline points-form">
-                        <div class="form-group">
-                            <label>Dalyvis</label>
-                            <select ng-model="participantId" class="form-control">
-                                <option ng-repeat="participant in vm.participants | orderBy : 'FirstName'" value="{{participant.ParticipantId}}">{{participant.FirstName}} {{participant.LastName}}</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Taškai</label>
-                            <input type="text" class="form-control" placeholder="Taškai" ng-model="points">
-                        </div>
-                        <button type="button" class="btn btn-primary" ng-click="vm.addPoints(activity.Activity.ActivityId, participantId, points)">ok</button>
+                    <form class="points-form">
+                        <div class="row">
+                            <div class="form-group col-xs-4">
+                                <label>Dalyvis</label>
+                                <select ng-model="participantId" class="form-control">
+                                    <option value="" selected hidden />
+                                    <option ng-if="!participant.Result" ng-repeat="participant in activity.Participants | orderBy : 'FirstName'" value="{{participant.ParticipantId}}">{{participant.FirstName}} {{participant.LastName}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <label>Taškai</label>
+                                <input type="text" class="form-control" placeholder="Taškai" ng-model="points">
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Aprašymas</label>
+                                <input class="form-control" type="text" ng-model="description">
+                            </div>
+                        
+                        <button type="button" class="btn btn-primary" ng-click="vm.addPoints(activity.Activity.ActivityId, participantId, points, description)">ok</button>
                     </form>
                 </div>
             </div>

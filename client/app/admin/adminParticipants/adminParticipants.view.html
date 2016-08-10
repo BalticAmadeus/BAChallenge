@@ -19,9 +19,7 @@
             <div ng-repeat="participant in vm.participants">
                 <div class="list-group-item list-group-item-info ">
                     {{participant.FirstName}} {{participant.LastName}}
-                    <!-- {{participant.ParticipantId}} -->
                     <span class=" pull-right glyphicon glyphicon-remove activity-delete" ng-click="vm.deleteParticipant(participant.ParticipantId)" aria-hidden="true"></span>
-                    <!-- <span class=" pull-right activity-edit" ng-click="vm.openUpdateModal(activity)">Peržiūrėti/Redaguoti</span> -->
                 </div>
             </div>
         </div>

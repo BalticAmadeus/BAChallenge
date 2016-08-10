@@ -8,11 +8,9 @@
         .config(configBlock)
         .run(run)
         .constant('constant', {
-            'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/api'
-            // 'http://mokymainet.azurewebsites.net/api'
-            // http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge/
-
-            //http://mokymaijava.northeurope.cloudapp.azure.com/api/activity
+            'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/api' //php
+            // 'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge' //java
+            // 'urlBase': 'http://mokymainet.azurewebsites.net/api'    //.net
         }),
 
         configBlock.$inject = ['$httpProvider'];
@@ -52,10 +50,4 @@
             }
         })
     };
-
-    // function constant(){
-    //     'urlBase' : 'http://mokymainet.azurewebsites.net/token';
-    //     console.log(urlBase);
-    // };
-
 })();

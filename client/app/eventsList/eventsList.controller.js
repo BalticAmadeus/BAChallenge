@@ -12,6 +12,7 @@
 
         var vm = this;
         vm.openInfoModal = openInfoModal;
+        vm.openRegistrationModal = openRegistrationModal;
         vm.switchToPhp = switchToPhp;
         vm.switchToNet = switchToNet;
         vm.switchToJava = switchToJava;
@@ -25,9 +26,14 @@
                 }, function(error) {
                     vm.status = 'Unable to load customer data: ' + error.message;
                 });
-        };	
+        };
 
         getActivitiesData();
+
+        function openRegistrationModal(activity) {
+            var templateUrl = 'app/eventsList/Registration/registrationModal.view.html';
+            ModalWindow.createWindow(activity, templateUrl, 'RegistrationModalController');
+        };
 
         function openInfoModal(activity) {
             var templateUrl = 'app/eventsList/infoModal.view.html';
@@ -39,14 +45,14 @@
             var url = 'http://mokymaijava.northeurope.cloudapp.azure.com/api';
             UrlBase.setUrl(url);
             getActivitiesData();
-        };      
+        };
 
         function switchToNet() {
             // var url = 'http://mokymaijava.northeurope.cloudapp.azure.com/api';
             var url = 'http://mokymainet.azurewebsites.net/api';
             UrlBase.setUrl(url);
             getActivitiesData();
-        };        
+        };
 
         function switchToJava() {
             // var url = 'http://mokymaijava.northeurope.cloudapp.azure.com/api';
@@ -54,6 +60,7 @@
             UrlBase.setUrl(url);
             getActivitiesData();
         };
+
 
     };
 })();

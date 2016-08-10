@@ -24,6 +24,8 @@
         function getUrl() {
             if (urlBase == null) {
                 urlBase = 'http://mokymaijava.northeurope.cloudapp.azure.com/api';
+                // urlBase = 'http://mokymainet.azurewebsites.net/api';
+                // 'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge'
                 return urlBase;
             } else {
                 return urlBase;

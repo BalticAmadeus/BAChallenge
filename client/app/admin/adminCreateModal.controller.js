@@ -18,6 +18,8 @@
         vm.eventMinutes = '';
         vm.newActivityDescription = '';
         vm.newActivityRegistrationDate = '';
+        vm.eventRegistrationHours = '';
+        vm.eventRegistrationMinutes = '';
         vm.newActivityLocation = '';
         vm.newActivityRegistrationUrl = '';
 
@@ -32,23 +34,31 @@
         vm.onSubmit = function() {
             // var user = UserService.getUser();
             //console.log('onSubmit');
-            if($scope.userForm.$valid){
-            var eventDate = $filter('date')(new Date(vm.newActivitytDate), 'yyyy-MM-dd');
-            var filteredEventDate = eventDate + ' ' + vm.eventHours + ':' + vm.eventMinutes;
-            // console.log(filteredEventDate);
-            var eventRegistrationDate = $filter('date')(new Date(vm.newActivityRegistrationDate), 'yyyy-MM-dd');
-            var filteredEventRegistrationDate = eventRegistrationDate + ' ' + vm.eventRegistrationHours + ':' + vm.eventRegistrationMinutes;
+            if ($scope.userForm.$valid) {
+                if (!!vm.newActivitytDate) {
+                    var eventDate = $filter('date')(new Date(vm.newActivitytDate), 'yyyy-MM-dd');
+                    var filteredEventDate = eventDate + ' ' + vm.eventHours + ':' + vm.eventMinutes;
+                } else {
+                    filteredEventDate = '';
+                }
+                if (!!vm.newActivityRegistrationDate) {
+                    var eventRegistrationDate = $filter('date')(new Date(vm.newActivityRegistrationDate), 'yyyy-MM-dd');
+                    var filteredEventRegistrationDate = eventRegistrationDate + ' ' + vm.eventRegistrationHours + ':' + vm.eventRegistrationMinutes;
+                }
+                else {
+                    filteredEventRegistrationDate = '';
+                }
 
-            ActivityManager.createProject(vm.newActivityName,
-                    vm.newActivityBranch, filteredEventDate, vm.newActivityDescription, 
-                    filteredEventRegistrationDate, vm.newActivityLocation, vm.newActivityRegistrationUrl)
-                .then(function(response) {
-                    $uibModalInstance.dismiss();
-                    $state.reload();
-                    //EventDispatcher.triggerEvent('user:accessedEditorView');
-                    ///////console.log(response.data);
-                    //$state.go('main.container.editor.layout', {id: response.data.id});
-                });
+                ActivityManager.createProject(vm.newActivityName,
+                        vm.newActivityBranch, filteredEventDate, vm.newActivityDescription,
+                        filteredEventRegistrationDate, vm.newActivityLocation, vm.newActivityRegistrationUrl)
+                    .then(function(response) {
+                        $uibModalInstance.dismiss();
+                        $state.reload();
+                        //EventDispatcher.triggerEvent('user:accessedEditorView');
+                        ///////console.log(response.data);
+                        //$state.go('main.container.editor.layout', {id: response.data.id});
+                    });
             }
         };
 
@@ -71,10 +81,10 @@
 
         $scope.submitForm = function(isValid) {
 
-    // check to make sure the form is completely valid
-    if (isValid) {
-      alert('our form is amazing');
-    }
-}
+            // check to make sure the form is completely valid
+            if (isValid) {
+                alert('our form is amazing');
+            }
+        }
     };
 })();
