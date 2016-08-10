@@ -8,9 +8,11 @@
         .config(configBlock)
         .run(run)
         .constant('constant', {
-            'urlBase': 'http://mokymainet.azurewebsites.net/api'
+            'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/api'
             // 'http://mokymainet.azurewebsites.net/api'
             // http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge/
+
+            //http://mokymaijava.northeurope.cloudapp.azure.com/api/activity
         }),
 
         configBlock.$inject = ['$httpProvider'];
