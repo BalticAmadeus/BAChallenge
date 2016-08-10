@@ -56,5 +56,10 @@ namespace BAChallengeWebServices.Tests.Repository
 
             return _dbContext.SaveChanges() > 0;
         }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
