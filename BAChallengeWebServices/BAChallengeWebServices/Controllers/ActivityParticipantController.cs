@@ -47,6 +47,7 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpPost]
         [Route("api/ActivityParticipant/{activityId}/{participantId}")]
+        [Authorize]
         public IHttpActionResult Delete(int activityId, int participantId)
         {
             return _activityParticipantRepository.Delete(activityId, participantId)
@@ -54,5 +55,11 @@ namespace BAChallengeWebServices.Controllers
                 : NotFound();
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            _activityParticipantRepository.Dispose();
+
+            base.Dispose(disposing);
+        }
     }
 }

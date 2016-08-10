@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BAChallengeWebServices.Repository
 {
-    public interface IRepository<T>
+    public interface IRepository<T> : IDisposable
     {
         IList<T> GetAll();
         T GetById(int id);

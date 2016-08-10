@@ -91,5 +91,12 @@ namespace BAChallengeWebServices.Controllers
         {
             return _resultRepository.Modify(id, result) ? (IHttpActionResult) Ok() : NotFound();
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _resultRepository.Dispose();
+
+            base.Dispose(disposing);
+        }
     }
 }

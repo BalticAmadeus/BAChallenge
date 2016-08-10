@@ -44,5 +44,10 @@ namespace BAChallengeWebServices.Repository
 
             return _dbContext.SaveChanges() > 0;
         }
+
+        public void Dispose()
+        {
+            _dbContext.Dispose();
+        }
     }
 }

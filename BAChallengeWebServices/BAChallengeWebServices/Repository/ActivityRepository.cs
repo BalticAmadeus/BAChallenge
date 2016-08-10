@@ -75,5 +75,10 @@ namespace BAChallengeWebServices.Repository
                x.Date.Value.Day == date.Day
            ).ToList();
         }
+
+        public void Dispose()
+        {
+            _dbContext.Dispose();
+        }
     }
 }

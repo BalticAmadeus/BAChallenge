@@ -7,7 +7,7 @@ using BAChallengeWebServices.Models;
 
 namespace BAChallengeWebServices.Repository
 {
-    public interface IActivityParticipantRepository
+    public interface IActivityParticipantRepository : IDisposable
     {
         IList<ActivityParticipantModel> GetAll();
         ActivityParticipantModel GetById(int id);

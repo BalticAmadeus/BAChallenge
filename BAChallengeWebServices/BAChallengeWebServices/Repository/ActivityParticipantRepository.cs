@@ -89,5 +89,10 @@ namespace BAChallengeWebServices.Repository
                 Participants = participantModel
             };
         }
+
+        public void Dispose()
+        {
+            _dbContext.Dispose();
+        }
     }
 }
