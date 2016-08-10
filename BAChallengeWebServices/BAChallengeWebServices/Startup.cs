@@ -31,7 +31,7 @@ namespace BAChallengeWebServices
 
         public void ConfigureOAuth(IAppBuilder app)
         {
-            OAuthAuthorizationServerOptions serverOptions = new OAuthAuthorizationServerOptions()
+            var serverOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/api/Token"),

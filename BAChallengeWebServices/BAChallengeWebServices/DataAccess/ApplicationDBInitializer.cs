@@ -113,7 +113,8 @@ namespace BAChallengeWebServices.DataAccess
             context.ActivityParticipations.Add(new ActivityParticipation()
             {
                 ActivityId = 3,
-                ParticipantId = 4
+                ParticipantId = 4,
+                Information = "Kopsiu į bebrų kalną"
             });
 
             context.ActivityParticipations.Add(new ActivityParticipation()
@@ -125,7 +126,8 @@ namespace BAChallengeWebServices.DataAccess
             context.ActivityParticipations.Add(new ActivityParticipation()
             {
                 ActivityId = 3,
-                ParticipantId = 5
+                ParticipantId = 5,
+                Information = "Nekopsiu į bebrų kalną"
             });
 
             context.ActivityParticipations.Add(new ActivityParticipation()
@@ -153,7 +155,8 @@ namespace BAChallengeWebServices.DataAccess
             context.ActivityParticipations.Add(new ActivityParticipation()
             {
                 ActivityId = 3,
-                ParticipantId = 7
+                ParticipantId = 7,
+                Information = "Kopsiu į bebrų kalną"
             });
 
             context.ActivityParticipations.Add(new ActivityParticipation()

@@ -70,7 +70,7 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         [ResponseType(typeof(IHttpActionResult))]
         [HttpDelete]
-        [Route("api/Result")]
+        [Route("api/Result/{id}")]
         [Authorize]
         public IHttpActionResult Delete(int id)
         {
@@ -85,7 +85,7 @@ namespace BAChallengeWebServices.Controllers
         /// <returns>IHttpActionResult</returns>
         [ResponseType(typeof(IHttpActionResult))]
         [HttpPut]
-        [Route("api/Result")]
+        [Route("api/Result/{id}")]
         [Authorize]
         public IHttpActionResult Put(int id, [FromBody] Result result)
         {

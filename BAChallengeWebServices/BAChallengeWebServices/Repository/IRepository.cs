@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace BAChallengeWebServices.Repository
 {
-    public interface IRepository<T> : IDisposable
+    public interface IRepository<T> : IGetableById<T>, IDisposable
     {
         IList<T> GetAll();
-        T GetById(int id);
         bool Insert(T item);
         bool Delete(int id);
         bool Modify(int id, T item);
