@@ -55,6 +55,17 @@ namespace BAChallengeWebServices.Controllers
                 : NotFound();
         }
 
+        [ResponseType(typeof(IHttpActionResult))]
+        [HttpPut]
+        [Route("api/ActivityParticipant/{activityId}/{participantId}")]
+        [Authorize]
+        public IHttpActionResult Put(int activityId, int participantId, [FromBody] string information)
+        {
+            return _activityParticipantRepository.Modify(activityId, participantId, information)
+                ? (IHttpActionResult) Ok()
+                : NotFound();
+        }
+
         protected override void Dispose(bool disposing)
         {
             _activityParticipantRepository.Dispose();

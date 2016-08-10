@@ -53,6 +53,22 @@ namespace BAChallengeWebServices.Repository
             return _dbContext.SaveChanges() > 0;
         }
 
+        public bool Modify(int activityId, int participantId, string information)
+        {
+            var activityParticipation =
+                _dbContext.ActivityParticipations.FirstOrDefault(
+                    x => x.ActivityId == activityId && x.ParticipantId == participantId);
+
+            if (activityParticipation == null)
+            {
+                return false;
+            }
+
+            activityParticipation.Information = information;
+
+            return _dbContext.SaveChanges() > 0;
+        }
+
         private ActivityParticipantModel GetActivityById(int id)
         {
             var activity = _dbContext.Activities.Find(id);
