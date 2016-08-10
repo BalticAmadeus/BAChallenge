@@ -18,7 +18,6 @@
         vm.description = '';
 
         vm.participants = [];
-        vm.activityParticipants = [];
 
         dataFactory.getParticipants()
             .then(function(participants) {

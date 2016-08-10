@@ -4,9 +4,9 @@
         .module('EventsApp')
         .service('ActivityManager', ActivityManager);
 
-    ActivityManager.$inject = ['$http', 'constant'];
+    ActivityManager.$inject = ['$http', 'UrlBase'];
 
-    function ActivityManager($http, constant) {
+    function ActivityManager($http, UrlBase) {
 
         return {
             createProject: createProject,
@@ -31,7 +31,7 @@
                 RegistrationUrl: registrationUrl
             };
 
-            return $http.post(constant.urlBase + '/activity', requestData);
+            return $http.post(UrlBase.getUrl() + '/activity', requestData);
             // return $http.post('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity', requestData);
         };
 
@@ -39,7 +39,7 @@
             //console.log(activityID);
             //console.log('http://mokymainet.azurewebsites.net/activity/' + activityID);
 
-            return $http.delete(constant.urlBase + '/activity/' + activityID);
+            return $http.delete(UrlBase.getUrl() + '/activity/' + activityID);
             // return $http.delete('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity/' + activityID);
         };
 
@@ -59,7 +59,7 @@
                 // _method : 'PUT'
             };
 
-            return $http.put(constant.urlBase + '/activity/' + activityID, data);
+            return $http.put(UrlBase.getUrl() + '/activity/' + activityID, data);
             // return $http.delete('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity/' + activityID);
         };
 
@@ -70,14 +70,14 @@
                 Points : points,
                 Description : description
             };
-            return $http.post(constant.urlBase + '/result', data);
+            return $http.post(UrlBase.getUrl() + '/result', data);
         };
 
         function deletePoints(resultId){
             var data = {
                 ResultId : resultId
             };
-            return $http.delete(constant.urlBase + '/result/' + resultId);
+            return $http.delete(UrlBase.getUrl() + '/result/' + resultId);
         };
 
         function addParticipant(newParticipantFirstName, newParticipantLastName){
@@ -85,14 +85,14 @@
                 FirstName : newParticipantFirstName,
                 LastName : newParticipantLastName
             };
-            return $http.post(constant.urlBase + '/participant', data)
+            return $http.post(UrlBase.getUrl() + '/participant', data)
         };
 
         function deleteParticipant(participantId){
             var data = {
                 ParticipantId : participantId
             };
-            return $http.delete(constant.urlBase + '/participant/' + participantId);
+            return $http.delete(UrlBase.getUrl() + '/participant/' + participantId);
         };
 
         function registerParticipant(activityId, participantId, description){
@@ -101,7 +101,7 @@
                 ParticipantId : participantId,
                 Information : description    
             };
-            return $http.post(constant.urlBase + '/activityparticipant/', data);
+            return $http.post(UrlBase.getUrl() + '/activityparticipant/', data);
         }
     };
 })();

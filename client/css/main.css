@@ -166,10 +166,6 @@
     border-bottom-left-radius: 0;
 }
 
-.points-container {
-    margin: 40px 0 40px 0;
-    width: 80%;
-}
 
 .points-list {
     font-size: 1.5em;
@@ -323,10 +319,6 @@ th:not(:first-child) {
     .search-box {
         width: 100%;
     }
-    .list-group-horizontal .list-group-item {
-    /*margin-left: -7px;*/
-    padding: 5px 7px 5px 7px;
-}
 }
 
 @media (max-width: 1100px) and (min-width: 500px) {
@@ -346,4 +338,10 @@ th:not(:first-child) {
 
 .participant-list-container-animate {
     max-height: 200px;
+}
+
+@media (max-width: 780px) {
+    .list-group-horizontal .list-group-item {
+        display: block;
+    }
 }

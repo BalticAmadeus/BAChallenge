@@ -6,9 +6,9 @@
         .module('EventsApp')
         .controller('EventListController', EventListController);
 
-    EventListController.$inject = ['$scope', 'dataFactory', 'ModalWindow', 'constant', 'UrlBase'];
+    EventListController.$inject = ['$scope', 'dataFactory', 'ModalWindow', 'UrlBase'];
 
-    function EventListController($scope, dataFactory, ModalWindow, constant, UrlBase) {
+    function EventListController($scope, dataFactory, ModalWindow, UrlBase) {
 
         var vm = this;
         vm.openInfoModal = openInfoModal;

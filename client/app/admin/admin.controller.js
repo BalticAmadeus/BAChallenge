@@ -6,9 +6,9 @@
         .module('EventsApp')
         .controller('AdminController', AdminController);
 
-    AdminController.$inject = ['$scope', '$state', 'dataFactory', 'ModalWindow', 'UserFactory', 'ActivityManager'];
+    AdminController.$inject = ['$scope', '$state', '$uibModal', 'dataFactory', 'ModalWindow', 'UserFactory', 'ActivityManager'];
 
-    function AdminController($scope, $state, dataFactory, ModalWindow, UserFactory, ActivityManager) {
+    function AdminController($scope, $state, $uibModal, dataFactory, ModalWindow, UserFactory, ActivityManager) {
 
         var vm = this;
         vm.openCreateModal = openCreateModal;
@@ -19,6 +19,7 @@
         vm.deletePoints = deletePoints;
         vm.addNewParticipant = addNewParticipant;
         vm.deleteParticipant = deleteParticipant;
+        vm.openDeleteRegisteredModal = openDeleteRegisteredModal;
 
         vm.activities = [];
         vm.participants = [];
@@ -51,7 +52,7 @@
                     vm.status = 'Unable to load customer data: ' + error.message;
                 });
         }
-        
+
         getData();
 
         function openCreateModal(activity) {
@@ -83,7 +84,6 @@
         };
 
         function deletePoints(resultId) {
-            console.log(resultId);
             ActivityManager.deletePoints(resultId)
                 .then(function(response) {
                     getData();
@@ -104,6 +104,29 @@
                 .then(function(response) {
                     $state.reload();
                 });
+        };
+
+        function openDeleteRegisteredModal(participantId, activityId) {
+            var modalInstance;
+
+            var modalInfo = {
+                'participantId': participantId,
+                'activityId': activityId
+            }
+
+            modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/admin/adminParticipants/registrationDeleteModal.view.html',
+                controller: 'RegistrationDeleteModal',
+                controllerAs: 'vm',
+                resolve: {
+                    modalInfo: function() {
+                        return modalInfo;
+                    }
+                }
+            });
+
+            return modalInstance.result;
         };
     };
 })();

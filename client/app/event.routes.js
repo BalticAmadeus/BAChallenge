@@ -106,6 +106,12 @@
                 templateUrl: 'app/admin/adminParticipants/adminParticipants.view.html',
                 controller: 'AdminController',
                 controllerAs: 'vm'
+            })            
+            .state('root.admin.registration', {
+                url: '/registration',
+                templateUrl: 'app/admin/adminParticipants/adminRegistration.view.html',
+                controller: 'AdminController',
+                controllerAs: 'vm'
             });
     };
 

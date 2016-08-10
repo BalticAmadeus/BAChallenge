@@ -1,0 +1,30 @@
+<div class="container-fluid admin-points-container">
+    <div class="row">
+        <!-- <input type="text" class="form-control admin-points-search" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search"> -->
+        <div class="input-group search-box">
+            <span class="input-group-addon" id="sizing-addon2">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </span>
+            <input type="text" class="form-control" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search">
+        </div>
+        <div class="col-xs-12 admin-points-wrapper" ng-repeat="activity in vm.activitiesParticipants | filter : search">
+            <div class="activity-container">
+                <div class="activity-heading"> {{ activity.Activity.Name }}</div>
+                <div class="activity-participants-container">
+                    <div class="activity-participant" ng-repeat="participant in activity.Participants">
+                        <div>
+                            <span>                        
+                        {{ participant.FirstName }}
+                        {{ participant.LastName }}:
+                        </span>
+                        <br>
+                        <span>Deskriptionas</span>
+                        </div>
+                        <span class="glyphicon glyphicon-remove admin-points-remove-icon" aria-hidden="true" ng-click="vm.openDeleteRegisteredModal(participant.ParticipantId, activity.Activity.ActivityId)">
+                        <span class="glyphicon glyphicon-edit admin-points-remove-icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

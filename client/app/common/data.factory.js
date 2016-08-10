@@ -4,9 +4,9 @@
         .module('EventsApp')
         .service('dataFactory', dataFactory);
 
-    dataFactory.$inject = ['$http', 'constant', 'UrlBase'];
+    dataFactory.$inject = ['$http', 'UrlBase'];
 
-    function dataFactory($http, constant, UrlBase) {
+    function dataFactory($http, UrlBase) {
         // var dataFactory = {};
 
         return {
@@ -25,11 +25,11 @@
         function getParticipants() {
             // return $http.get('http://projectx.16mb.com/participant');
 
-            return $http.get(constant.urlBase + '/participant');
+            return $http.get(UrlBase.getUrl() + '/participant');
         };
 
         function getActivitiesParticipants() {
-            return $http.get(constant.urlBase + '/activityparticipant');
+            return $http.get(UrlBase.getUrl() + '/activityparticipant');
         };
     }
 })();

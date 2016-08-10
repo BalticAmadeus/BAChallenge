@@ -6,30 +6,23 @@
         .module('EventsApp')
         .factory('UrlBase', UrlBase);
 
-    UrlBase.$inject = [];
+    UrlBase.$inject = ['apiUrl'];
 
-    function UrlBase() {
+    function UrlBase(apiUrl) {
 
         return {
             setUrl: setUrl,
             getUrl: getUrl
         };
 
-        var urlBase;
-
         function setUrl(url) {
-            urlBase = url;
+            apiUrl.urlBase = url;
+            console.log(apiUrl.urlBase);
         };
 
         function getUrl() {
-            if (urlBase == null) {
-                urlBase = 'http://mokymaijava.northeurope.cloudapp.azure.com/api';
-                // urlBase = 'http://mokymainet.azurewebsites.net/api';
-                // 'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge'
-                return urlBase;
-            } else {
-                return urlBase;
-            }
+            console.log(apiUrl.urlBase);
+            return apiUrl.urlBase;
         }
     };
 })();

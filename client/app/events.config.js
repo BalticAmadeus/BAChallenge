@@ -7,7 +7,7 @@
         .module('EventsApp')
         .config(configBlock)
         .run(run)
-        .constant('constant', {
+        .constant('apiUrl', {
             'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/api' //php
             // 'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge' //java
             // 'urlBase': 'http://mokymainet.azurewebsites.net/api'    //.net
@@ -15,7 +15,7 @@
 
         configBlock.$inject = ['$httpProvider'];
     run.$inject = ['$rootScope', '$state', 'AuthTokenFactory'];
-    // constant.$inject = [];
+
 
     function configBlock($httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');

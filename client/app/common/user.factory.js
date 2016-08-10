@@ -6,11 +6,11 @@
         .module('EventsApp')
         .factory('UserFactory', UserFactory);
 
-    UserFactory.$inject = ['$http', '$q', 'AuthTokenFactory', 'constant'];
+    UserFactory.$inject = ['$http', '$q', 'AuthTokenFactory', 'UrlBase'];
 
     // handle API URL
 
-    function UserFactory($http, $q, AuthTokenFactory, constant) {
+    function UserFactory($http, $q, AuthTokenFactory, UrlBase) {
 
         return {
             login: login,
@@ -27,7 +27,7 @@
 
             return $http({
                     method: "POST",
-                    url: constant.urlBase + '/token',
+                    url: UrlBase.getUrl() + '/token',
                     // url: 'http://mokymaijava.northeurope.cloudapp.azure.com/api/token',
                     data: formData,
                     headers: {
@@ -53,7 +53,7 @@
 
         function getUser() {
             if (AuthTokenFactory.getToken()) {
-                return $http.get(constant.urlBase + '/token');
+                return $http.get(UrlBase.getUrl() + '/token');
                 // return $http.get('http://mokymaijava.northeurope.cloudapp.azure.com/api/token');
             } else {
                 return $q.reject({ data: 'client has no auth token' });
