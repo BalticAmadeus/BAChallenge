@@ -2,6 +2,7 @@
 using System.Web.Http;
 using BAChallengeWebServices.Utility;
 using Newtonsoft.Json.Converters;
+using System.Web.Http.ExceptionHandling;
 
 namespace BAChallengeWebServices
 {
@@ -17,7 +18,7 @@ namespace BAChallengeWebServices
             config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new { id = RouteParameter.Optional }
             );
             
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            config.Services.Replace(typeof(IExceptionHandler), new ExceptionHandling());
         }
 
         public static void RegisterFormatters(HttpConfiguration config)

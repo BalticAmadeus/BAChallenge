@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BAChallengeWebServices.Models;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BAChallengeWebServices.Models;
 
 namespace BAChallengeWebServices.Tests.DataAccess
 {
@@ -28,6 +24,14 @@ namespace BAChallengeWebServices.Tests.DataAccess
     public class MockParticipantDbSet : MockDbSet<Participant>
     {
         public override Participant Find(params object[] keyValues)
+        {
+            var id = (int)keyValues.Single();
+            return this.SingleOrDefault(b => b.ParticipantId == id);
+        }
+    }
+    public class MockActivityParticipationDbSet : MockDbSet<ActivityParticipation>
+    {
+        public override ActivityParticipation Find(params object[] keyValues)
         {
             var id = (int)keyValues.Single();
             return this.SingleOrDefault(b => b.ParticipantId == id);

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BAChallengeWebServices.Models;
+﻿using BAChallengeWebServices.Models;
 
 namespace BAChallengeWebServices.Tests.DataAccess
 {
@@ -11,11 +6,12 @@ namespace BAChallengeWebServices.Tests.DataAccess
     {
         public MockDbContext()
         {
+            ActivityParticipations = new MockActivityParticipationDbSet();
             Activities = new MockActivityDbSet();
             Participants = new MockParticipantDbSet();
             Results = new MockResultDbSet();
         }
-
+        public MockDbSet<ActivityParticipation> ActivityParticipations;
         public MockDbSet<Activity> Activities;
         public MockDbSet<Participant> Participants;
         public MockDbSet<Result> Results;
