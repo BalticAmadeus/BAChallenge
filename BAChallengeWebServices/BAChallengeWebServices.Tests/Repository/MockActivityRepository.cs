@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using BAChallengeWebServices.DataAccess;
+using System.Text;
+using System.Threading.Tasks;
 using BAChallengeWebServices.Models;
+using BAChallengeWebServices.Repository;
+using BAChallengeWebServices.Tests.DataAccess;
 
-namespace BAChallengeWebServices.Repository
+namespace BAChallengeWebServices.Tests.Repository
 {
-    public class ActivityRepository : IActivityRepository
+    public class MockActivityRepository : IActivityRepository
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly MockDbContext _dbContext;
 
-        public ActivityRepository(ApplicationDbContext dbContext)
+        public MockActivityRepository(MockDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -78,7 +80,7 @@ namespace BAChallengeWebServices.Repository
 
         public void Dispose()
         {
-            _dbContext.Dispose();
+            throw new NotImplementedException();
         }
     }
 }

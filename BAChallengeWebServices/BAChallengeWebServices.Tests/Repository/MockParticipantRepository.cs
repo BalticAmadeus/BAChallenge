@@ -46,5 +46,10 @@ namespace BAChallengeWebServices.Tests.Repository
             foundParticipant.LastName = item.LastName;
             return _dbContext.SaveChanges() > 0;
         }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

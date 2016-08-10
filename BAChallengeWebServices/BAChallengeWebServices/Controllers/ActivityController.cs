@@ -132,6 +132,13 @@ namespace BAChallengeWebServices.Controllers
         {
             return _activityRepository.Modify(id, activity) ? (IHttpActionResult) Ok() : BadRequest();
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _activityRepository.Dispose();
+
+            base.Dispose(disposing);
+        }
     }
 }
 
