@@ -8,7 +8,7 @@
         .config(configBlock)
         .run(run)
         .constant('constant', {
-            'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/api'
+            'urlBase': 'http://mokymainet.azurewebsites.net/api'
             // 'http://mokymainet.azurewebsites.net/api'
             // http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge/
         }),

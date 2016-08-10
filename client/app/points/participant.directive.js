@@ -3,16 +3,15 @@
 
     angular
         .module('EventsApp')
-        .directive('pointsDir', pointsDir);
+        .directive('participantDir', participantDir);
 
-    function pointsDir() {
+    function participantDir() {
 
     	var directive = {
-    		templateUrl: 'app/points/views/pointsDirective.html',
+    		templateUrl: 'app/points/views/participantDirective.html',
     		link: linkFunc,
     		scope: {
-    			activityArray: '=',
-    			activityType: '@'
+    			participant: '=',
     		}
     	}
 

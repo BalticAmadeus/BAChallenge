@@ -1,0 +1,8 @@
+<div class="activity-container">
+    <div class="activity-heading"> {{ activityName }}</div>
+    <div class="participant-list-container" ng-class="{ 'participant-list-container-animate' : active }">
+        <div ng-repeat="participant in participants">
+            <participant-dir participant="participant"></participant-dir>
+        </div>
+    </div>
+</div>

@@ -230,6 +230,10 @@ th:not(:first-child) {
     font-size: 1.3em;
 }
 
+.activity-heading:hover{
+    cursor: pointer;
+}
+
 .activity-participant {
     padding: 10px 0;
     font-size: 1.2em;
@@ -252,41 +256,72 @@ th:not(:first-child) {
     }
 }
 
-
-.admin-points-wrapper{
+.admin-points-wrapper {
     width: 51%;
     margin-bottom: 50px;
     left: 25%;
 }
 
-.points-form{
+.points-form {
     margin: 15px 0 20px 0;
 }
 
-.admin-points-container{
+.admin-points-container {
     padding-top: 50px;
 }
 
-.add-participant-button{
+.add-participant-button {
     width: 100%;
     margin-bottom: 20px;
     margin-top: 10px;
 }
 
-.add-participant-input-group{
+.add-participant-input-group {
     width: 100%;
 }
 
-
-.add-participant-input-group .add-participant-input{
+.add-participant-input-group .add-participant-input {
     width: 100%;
 }
 
-.admin-points-remove-icon:hover{
+.admin-points-remove-icon:hover {
     cursor: pointer;
 }
 
-.backend-buttons{
+.backend-buttons {
     margin-bottom: 10px;
     margin-left: 10px;
+}
+
+.input-group[class*=col-] {
+    float: left;
+    margin-left: 15px;
+}
+
+.time-input-container {
+    display: inline-block;
+    width: 48%;
+    padding: 0 5px;
+}
+
+.time-input {
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    .time-input-container {
+        display: inline-block;
+        width: 48%;
+    }
+}
+
+.participant-list-container{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease;
+
+}
+
+.participant-list-container-animate{
+    max-height: 200px;
 }
