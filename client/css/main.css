@@ -94,8 +94,8 @@
 }
 
 .admin-list-container {
-    width: 45%;
-    margin: 0 auto;
+    /*width: 45%;*/
+    /*margin: 0 auto;*/
     text-align: left;
 }
 
@@ -142,7 +142,7 @@
 
 .login-container {
     margin-top: 80px;
-    width: 30%;
+    width: 100%;
 }
 
 
@@ -175,15 +175,15 @@
     margin: 0 auto;
 }
 
-.results-table {
+/*.results-table {
     margin-top: 50px;
     font-size: 1.3em;
-}
+}*/
 
-.results-table-all {
+/*.results-table-all {
     max-width: 30%;
     margin: 0 auto;
-}
+}*/
 
 
 /*tbody tr{
@@ -209,7 +209,8 @@ th:not(:first-child) {
 }
 
 .search-box {
-    width: 30%;
+    /*width: 30%;*/
+    width: 95%;
     margin: 0 auto;
     margin-bottom: 50px;
     margin-top: 50px;
@@ -252,25 +253,28 @@ th:not(:first-child) {
     .activity-wrapper:nth-child(4n) {
         clear: left;
     }
-    .results-table-all {
+/*    .results-table-all {
         max-width: 60%;
-    }
-    .search-box {
+    }*/
+/*    .search-box {
         width: 60%;
-    }
+    }*/
 }
+
+
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 @media (max-width: 1191px) and (min-width: 845px) {
-/*    .event-list-columns: first-child) {
+    /*    .event-list-columns: first-child) {
         border-right: 1px solid rgba(0, 0, 0, 0.3);
         color:red;
     }*/
 }
 
 .admin-points-wrapper {
-    width: 51%;
+    /*width: 51%;*/
     margin-bottom: 50px;
-    left: 25%;
+    /*left: 25%;*/
 }
 
 .points-form {
@@ -335,20 +339,20 @@ th:not(:first-child) {
         display: inline-block;
         width: 48%;
     }
-    .results-table-all {
+/*    .results-table-all {
         max-width: 100%;
-    }
+    }*/
     .search-box {
         width: 100%;
     }
 }
 
 @media (max-width: 1100px) and (min-width: 500px) {
-    .results-table-all {
+/*    .results-table-all {
         max-width: 60%;
-    }
+    }*/
     .search-box {
-        width: 60%;
+        width: 95%;
     }
 }
 
@@ -456,16 +460,19 @@ footer {
     transform: translate(-50%, -50%);
 }
 
-.date-passed span:nth-child(1){
+.date-passed span:nth-child(1) {
     color: gray;
 }
 
-.event-list-columns{
-   padding-top: 40px;
+.event-list-columns {
+    padding-top: 40px;
 }
 
-@media (max-width: 991px){
-    .event-list-columns{
+@media (max-width: 991px) {
+    .event-list-columns {
         border: none !important;
+    }
+    .admin-list-container div{
+        font-size:15px;
     }
 }
