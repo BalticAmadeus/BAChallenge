@@ -41,7 +41,6 @@ namespace BAChallengeWebServices.DataAccess
             context.Activities.Add(new Activity { ActivityId = 4, Name = "Velomaratonas", Date = DateTime.ParseExact("2016-04-19 16:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), RegistrationDate = DateTime.ParseExact("2016-08-10 22:00", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), Branch = ActivityBranch.Sports, Description = "Blank", Location = "Vilnius", RegistrationUrl = @"https://docs.google.com/spreadsheets/d/1fb_OWYg_X-JGkTogEQe78qoakBh-H2UpFDr1OOjwlwM/edit?usp=sharing" });
             context.Activities.Add(new Activity { ActivityId = 5, Name = "Orientacinis", Date = DateTime.ParseExact("2016-04-22 11:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), RegistrationDate = DateTime.ParseExact("2016-08-15 22:00", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), Branch = ActivityBranch.Sports, Description = "Blank", Location = "Vilnius", RegistrationUrl = @"https://docs.google.com/spreadsheets/d/1fb_OWYg_X-JGkTogEQe78qoakBh-H2UpFDr1OOjwlwM/edit?usp=sharing" });
             context.Activities.Add(new Activity { ActivityId = 6, Name = "Vilniaus Maratonas", Date = DateTime.ParseExact("2016-05-21 09:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), RegistrationDate = DateTime.ParseExact("2016-08-26 22:00", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), Branch = ActivityBranch.Sports, Description = "Blank", Location = "Vilnius", RegistrationUrl = @"https://docs.google.com/spreadsheets/d/1fb_OWYg_X-JGkTogEQe78qoakBh-H2UpFDr1OOjwlwM/edit?usp=sharing" });
-            context.Activities.Add(new Activity { ActivityId = 7, Name = "Velomaratonas", Date = DateTime.ParseExact("2016-04-19 16:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), RegistrationDate = DateTime.ParseExact("2016-04-16 22:00", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), Branch = ActivityBranch.Sports, Description = "Blank", Location = "Vilnius", RegistrationUrl = @"https://docs.google.com/spreadsheets/d/1fb_OWYg_X-JGkTogEQe78qoakBh-H2UpFDr1OOjwlwM/edit?usp=sharing" });
             //Brain activities
             context.Activities.Add(new Activity { ActivityId = 8, Name = "Paskaita (Švietimas)", Date = DateTime.ParseExact("2016-03-14 10:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), RegistrationDate = DateTime.ParseExact("2016-03-10 12:10", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), Branch = ActivityBranch.Brain, Description = "Blank", Location = "Vilnius", RegistrationUrl = @"https://docs.google.com/spreadsheets/d/1fb_OWYg_X-JGkTogEQe78qoakBh-H2UpFDr1OOjwlwM/edit?usp=sharing" });
             context.Activities.Add(new Activity { ActivityId = 9, Name = "Paskaita (Išorinis pranešimas)", Date = DateTime.ParseExact("2016-03-19 10:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), RegistrationDate = DateTime.ParseExact("2016-03-15 12:00", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture), Branch = ActivityBranch.Brain, Description = "Blank", Location = "Vilnius", RegistrationUrl = @"https://docs.google.com/spreadsheets/d/1fb_OWYg_X-JGkTogEQe78qoakBh-H2UpFDr1OOjwlwM/edit?usp=sharing" });
@@ -62,278 +61,7 @@ namespace BAChallengeWebServices.DataAccess
 
             //ActivityParticipation entries
 
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 1,
-                ParticipantId = 1
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 12,
-                ParticipantId = 1
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 5,
-                ParticipantId = 2
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 6,
-                ParticipantId = 2
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 17,
-                ParticipantId = 3
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 16,
-                ParticipantId = 3
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 10,
-                ParticipantId = 3
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 2,
-                ParticipantId = 4
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 3,
-                ParticipantId = 4,
-                Information = "Kopsiu į bebrų kalną"
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 2,
-                ParticipantId = 5
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 3,
-                ParticipantId = 5,
-                Information = "Nekopsiu į bebrų kalną"
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 4,
-                ParticipantId = 6
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 5,
-                ParticipantId = 6
-            });
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 4,
-                ParticipantId = 7
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 5,
-                ParticipantId = 7
-            });
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 3,
-                ParticipantId = 7,
-                Information = "Kopsiu į bebrų kalną"
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 6,
-                ParticipantId = 8
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 7,
-                ParticipantId = 8
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 6,
-                ParticipantId = 9
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 7,
-                ParticipantId = 9
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 8,
-                ParticipantId = 10
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 9,
-                ParticipantId = 10
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 8,
-                ParticipantId = 11
-            });
-
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 9,
-                ParticipantId = 11
-            });
-
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 9,
-                ParticipantId = 11
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 10,
-                ParticipantId = 12
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 11,
-                ParticipantId = 12
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 10,
-                ParticipantId = 13
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 11,
-                ParticipantId = 13
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 12,
-                ParticipantId = 14
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 13,
-                ParticipantId = 14
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 12,
-                ParticipantId = 15
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 13,
-                ParticipantId = 15
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 14,
-                ParticipantId = 16
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 15,
-                ParticipantId = 16
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 14,
-                ParticipantId = 17
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 15,
-                ParticipantId = 17
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 16,
-                ParticipantId = 18
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 17,
-                ParticipantId = 18
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 16,
-                ParticipantId = 19
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 17,
-                ParticipantId = 19
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 18,
-                ParticipantId = 20
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 19,
-                ParticipantId = 20
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 18,
-                ParticipantId = 21
-            });
-
-            context.ActivityParticipations.Add(new ActivityParticipation()
-            {
-                ActivityId = 19,
-                ParticipantId = 21
-            });
+            
 
             //Participant Database table
             context.Participants.Add(new Participant
@@ -587,7 +315,263 @@ namespace BAChallengeWebServices.DataAccess
 
                 }
             });
+
+            AddActivityParticipations(context);
+
             base.Seed(context);
+        }
+
+        private static void AddActivityParticipations(ApplicationDbContext context)
+        {
+            var activityParticipations = new List<Tuple<int, int, string>>()
+            {
+                new Tuple<int, int, string>(1, 1, null),
+                new Tuple<int, int, string>(1, 4, null),
+                new Tuple<int, int, string>(1, 6, null),
+                new Tuple<int, int, string>(1, 8, null),
+                new Tuple<int, int, string>(1, 11, null),
+                new Tuple<int, int, string>(1, 13, null),
+                new Tuple<int, int, string>(1, 15, null),
+                new Tuple<int, int, string>(1, 17, null),
+                new Tuple<int, int, string>(1, 18, null),
+                new Tuple<int, int, string>(1, 20, null),
+                new Tuple<int, int, string>(1, 33, null),
+                new Tuple<int, int, string>(1, 36, null),
+                new Tuple<int, int, string>(1, 39, null),
+                new Tuple<int, int, string>(1, 40, null),
+                new Tuple<int, int, string>(1, 41, null),
+                new Tuple<int, int, string>(1, 43, null),
+                new Tuple<int, int, string>(1, 46, null),
+                new Tuple<int, int, string>(1, 56, null),
+                new Tuple<int, int, string>(1, 59, null),
+                new Tuple<int, int, string>(1, 62, null),
+                new Tuple<int, int, string>(1, 67, null),
+                new Tuple<int, int, string>(1, 72, null),
+                new Tuple<int, int, string>(1, 73, null),
+                new Tuple<int, int, string>(1, 77, null),
+                new Tuple<int, int, string>(1, 80, null),
+                new Tuple<int, int, string>(1, 82, null),
+                new Tuple<int, int, string>(1, 85, null),
+                new Tuple<int, int, string>(1, 87, null),
+                new Tuple<int, int, string>(1, 90, null),
+                new Tuple<int, int, string>(1, 103, null),
+                new Tuple<int, int, string>(1, 104, null),
+                new Tuple<int, int, string>(1, 105, null),
+                new Tuple<int, int, string>(2, 4, null),
+                new Tuple<int, int, string>(2, 6, null),
+                new Tuple<int, int, string>(2, 11, null),
+                new Tuple<int, int, string>(2, 15, null),
+                new Tuple<int, int, string>(2, 24, null),
+                new Tuple<int, int, string>(2, 29, null),
+                new Tuple<int, int, string>(2, 36, null),
+                new Tuple<int, int, string>(2, 40, null),
+                new Tuple<int, int, string>(2, 41, null),
+                new Tuple<int, int, string>(2, 43, null),
+                new Tuple<int, int, string>(2, 59, null),
+                new Tuple<int, int, string>(2, 68, null),
+                new Tuple<int, int, string>(2, 72, null),
+                new Tuple<int, int, string>(2, 82, null),
+                new Tuple<int, int, string>(2, 87, null),
+                new Tuple<int, int, string>(2, 90, null),
+                new Tuple<int, int, string>(2, 103, null),
+                new Tuple<int, int, string>(2, 105, null),
+                new Tuple<int, int, string>(3, 4, null),
+                new Tuple<int, int, string>(3, 39, null),
+                new Tuple<int, int, string>(3, 41, null),
+                new Tuple<int, int, string>(3, 59, null),
+                new Tuple<int, int, string>(3, 67, null),
+                new Tuple<int, int, string>(3, 72, null),
+                new Tuple<int, int, string>(3, 82, null),
+                new Tuple<int, int, string>(3, 87, null),
+                new Tuple<int, int, string>(3, 96, null),
+                new Tuple<int, int, string>(3, 105, null),
+                new Tuple<int, int, string>(7, 11, null),
+                new Tuple<int, int, string>(7, 22, null),
+                new Tuple<int, int, string>(7, 24, null),
+                new Tuple<int, int, string>(7, 25, null),
+                new Tuple<int, int, string>(7, 28, null),
+                new Tuple<int, int, string>(7, 29, null),
+                new Tuple<int, int, string>(7, 32, null),
+                new Tuple<int, int, string>(7, 35, null),
+                new Tuple<int, int, string>(7, 40, null),
+                new Tuple<int, int, string>(7, 41, null),
+                new Tuple<int, int, string>(7, 47, null),
+                new Tuple<int, int, string>(7, 48, null),
+                new Tuple<int, int, string>(7, 49, null),
+                new Tuple<int, int, string>(7, 54, null),
+                new Tuple<int, int, string>(7, 69, null),
+                new Tuple<int, int, string>(7, 77, null),
+                new Tuple<int, int, string>(7, 11, null),
+                new Tuple<int, int, string>(8, 5, null),
+                new Tuple<int, int, string>(8, 15, null),
+                new Tuple<int, int, string>(8, 17, null),
+                new Tuple<int, int, string>(8, 24, null),
+                new Tuple<int, int, string>(8, 30, null),
+                new Tuple<int, int, string>(8, 5, null),
+                new Tuple<int, int, string>(8, 92, null),
+                new Tuple<int, int, string>(8, 96, null),
+                new Tuple<int, int, string>(9, 26, null),
+                new Tuple<int, int, string>(9, 41, null),
+                new Tuple<int, int, string>(10, 34, null),
+                new Tuple<int, int, string>(11, 22, null),
+                new Tuple<int, int, string>(11, 32, null),
+                new Tuple<int, int, string>(11, 54, null),
+                new Tuple<int, int, string>(12, 28, null),
+                new Tuple<int, int, string>(12, 54, null),
+                new Tuple<int, int, string>(11, 90, null),
+                new Tuple<int, int, string>(15, 1, null),
+                new Tuple<int, int, string>(15, 4, null),
+                new Tuple<int, int, string>(15, 6, null),
+                new Tuple<int, int, string>(15, 9, null),
+                new Tuple<int, int, string>(15, 11, null),
+                new Tuple<int, int, string>(15, 16, null),
+                new Tuple<int, int, string>(15, 17, null),
+                new Tuple<int, int, string>(15, 20, null),
+                new Tuple<int, int, string>(15, 24, null),
+                new Tuple<int, int, string>(15, 27, null),
+                new Tuple<int, int, string>(15, 34, null),
+                new Tuple<int, int, string>(15, 36, null),
+                new Tuple<int, int, string>(15, 41, null),
+                new Tuple<int, int, string>(15, 47, null),
+                new Tuple<int, int, string>(15, 49, null),
+                new Tuple<int, int, string>(15, 54, null),
+                new Tuple<int, int, string>(15, 58, null),
+                new Tuple<int, int, string>(15, 65, null),
+                new Tuple<int, int, string>(15, 67, null),
+                new Tuple<int, int, string>(15, 68, null),
+                new Tuple<int, int, string>(15, 71, null),
+                new Tuple<int, int, string>(15, 72, null),
+                new Tuple<int, int, string>(15, 76, null),
+                new Tuple<int, int, string>(15, 82, null),
+                new Tuple<int, int, string>(15, 87, null),
+                new Tuple<int, int, string>(15, 90, null),
+                new Tuple<int, int, string>(15, 95, null),
+                new Tuple<int, int, string>(15, 104, null),
+                new Tuple<int, int, string>(17, 6, null),
+                new Tuple<int, int, string>(17, 8, null),
+                new Tuple<int, int, string>(17, 12, null),
+                new Tuple<int, int, string>(17, 14, null),
+                new Tuple<int, int, string>(17, 16, null),
+                new Tuple<int, int, string>(17, 20, null),
+                new Tuple<int, int, string>(17, 22, null),
+                new Tuple<int, int, string>(17, 26, null),
+                new Tuple<int, int, string>(17, 34, null),
+                new Tuple<int, int, string>(17, 42, null),
+                new Tuple<int, int, string>(17, 44, null),
+                new Tuple<int, int, string>(17, 45, null),
+                new Tuple<int, int, string>(17, 50, null),
+                new Tuple<int, int, string>(17, 54, null),
+                new Tuple<int, int, string>(17, 58, null),
+                new Tuple<int, int, string>(17, 60, null),
+                new Tuple<int, int, string>(17, 72, null),
+                new Tuple<int, int, string>(17, 73, null),
+                new Tuple<int, int, string>(17, 79, null),
+                new Tuple<int, int, string>(17, 80, null),
+                new Tuple<int, int, string>(17, 81, null),
+                new Tuple<int, int, string>(17, 82, null),
+                new Tuple<int, int, string>(17, 90, null),
+                new Tuple<int, int, string>(17, 102, null),
+                new Tuple<int, int, string>(17, 103, null),
+                new Tuple<int, int, string>(17, 104, null),
+                new Tuple<int, int, string>(17, 105, null),
+                new Tuple<int, int, string>(17, 109, null),
+                new Tuple<int, int, string>(18, 1, null),
+                new Tuple<int, int, string>(18, 2, null),
+                new Tuple<int, int, string>(18, 6, null),
+                new Tuple<int, int, string>(18, 8, null),
+                new Tuple<int, int, string>(18, 9, null),
+                new Tuple<int, int, string>(18, 14, null),
+                new Tuple<int, int, string>(18, 15, null),
+                new Tuple<int, int, string>(18, 16, null),
+                new Tuple<int, int, string>(18, 18, null),
+                new Tuple<int, int, string>(18, 23, null),
+                new Tuple<int, int, string>(18, 35, null),
+                new Tuple<int, int, string>(18, 39, null),
+                new Tuple<int, int, string>(18, 42, null),
+                new Tuple<int, int, string>(18, 43, null),
+                new Tuple<int, int, string>(18, 45, null),
+                new Tuple<int, int, string>(18, 54, null),
+                new Tuple<int, int, string>(18, 67, null),
+                new Tuple<int, int, string>(18, 71, null),
+                new Tuple<int, int, string>(18, 72, null),
+                new Tuple<int, int, string>(18, 82, null),
+                new Tuple<int, int, string>(18, 91, null),
+                new Tuple<int, int, string>(18, 94, null),
+                new Tuple<int, int, string>(18, 95, null),
+                new Tuple<int, int, string>(18, 96, null),
+                new Tuple<int, int, string>(18, 97, null),
+                new Tuple<int, int, string>(18, 102, null),
+                new Tuple<int, int, string>(18, 103, null),
+                new Tuple<int, int, string>(18, 105, null),
+                new Tuple<int, int, string>(18, 107, null),
+                new Tuple<int, int, string>(20, 2, null),
+                new Tuple<int, int, string>(20, 4, null),
+                new Tuple<int, int, string>(20, 6, null),
+                new Tuple<int, int, string>(20, 8, null),
+                new Tuple<int, int, string>(20, 9, null),
+                new Tuple<int, int, string>(20, 16, null),
+                new Tuple<int, int, string>(20, 17, null),
+                new Tuple<int, int, string>(20, 33, null),
+                new Tuple<int, int, string>(20, 39, null),
+                new Tuple<int, int, string>(20, 42, null),
+                new Tuple<int, int, string>(20, 45, null),
+                new Tuple<int, int, string>(20, 54, null),
+                new Tuple<int, int, string>(20, 59, null),
+                new Tuple<int, int, string>(20, 72, null),
+                new Tuple<int, int, string>(20, 80, null),
+                new Tuple<int, int, string>(20, 82, null),
+                new Tuple<int, int, string>(20, 87, null),
+                new Tuple<int, int, string>(20, 95, null),
+                new Tuple<int, int, string>(4, 105, "50 km (Semi-Sport)"),
+                new Tuple<int, int, string>(4, 41, "30 km (Mėgėjų grupė)"),
+                new Tuple<int, int, string>(4, 81, "30 km (Mėgėjų grupė)"),
+                new Tuple<int, int, string>(4, 82, "30 km (Mėgėjų grupė)"),
+                new Tuple<int, int, string>(4, 56, "30 km (Mėgėjų grupė)"),
+                new Tuple<int, int, string>(4, 16, "50 km (Semi-Sport)"),
+                new Tuple<int, int, string>(4, 96, "30 km (Mėgėjų grupė)"),
+                new Tuple<int, int, string>(6, 87, "10 km"),
+                new Tuple<int, int, string>(6, 41, "21 km. 98 m."),
+                new Tuple<int, int, string>(6, 105, "42 km. 195 m. Dydis M"),
+                new Tuple<int, int, string>(6, 17, "10 km"),
+                new Tuple<int, int, string>(6, 103, "10 km"),
+                new Tuple<int, int, string>(6, 82, "4 km. 200 m."),
+                new Tuple<int, int, string>(6, 24, "21 km. 98 m."),
+                new Tuple<int, int, string>(6, 81, "10 km"),
+                new Tuple<int, int, string>(6, 33, "42 km. 195 m. Dydis XL"),
+                new Tuple<int, int, string>(6, 104, "4 km. 200 m."),
+                new Tuple<int, int, string>(6, 39, "42 km. 195 m. Dydis M"),
+                new Tuple<int, int, string>(6, 59, "21 km. 98 m."),
+                new Tuple<int, int, string>(6, 96, "21 km. 98 m."),
+                new Tuple<int, int, string>(6, 4, "4 km. 200 m."),
+                new Tuple<int, int, string>(6, 45, "4 km. 200 m."),
+                new Tuple<int, int, string>(6, 1, "42 km. 195 m. Dydis L"),
+                new Tuple<int, int, string>(6, 77, "4 km. 200 m."),
+                new Tuple<int, int, string>(6, 40, "21 km. 98 m."),
+                new Tuple<int, int, string>(5, 105, null),
+                new Tuple<int, int, string>(5, 74, null),
+                new Tuple<int, int, string>(5, 72, null),
+                new Tuple<int, int, string>(5, 4, null),
+                new Tuple<int, int, string>(5, 87, null),
+                new Tuple<int, int, string>(5, 39, null),
+                new Tuple<int, int, string>(5, 41, null),
+                new Tuple<int, int, string>(5, 105, null),
+                new Tuple<int, int, string>(5, 45, null),
+                new Tuple<int, int, string>(5, 1, null),
+                new Tuple<int, int, string>(5, 82, null),
+                new Tuple<int, int, string>(5, 40, null)
+            };
+
+            foreach (var row in activityParticipations)
+            {
+                context.ActivityParticipations.Add(new ActivityParticipation()
+                {
+                    ActivityId = row.Item1,
+                    ParticipantId = row.Item2,
+                    Information = row.Item3
+                });
+            }
+
+            context.SaveChanges();
         }
 
     }
