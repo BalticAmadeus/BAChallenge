@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BAChallengeWebServices.Models;
+﻿using BAChallengeWebServices.Models;
 using BAChallengeWebServices.Repository;
 using BAChallengeWebServices.Tests.DataAccess;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BAChallengeWebServices.Tests.Repository
 {

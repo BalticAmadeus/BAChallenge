@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="DataAccess\MockDbSet.cs" />
     <Compile Include="DataAccess\MockModelDbSets.cs" />
+    <Compile Include="Repository\MockActivityParticipantRepository.cs" />
     <Compile Include="Repository\MockActivityRepository.cs" />
     <Compile Include="Tests\ActivityTest.cs" />
     <Compile Include="DataAccess\MockDbContext.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Repository\MockResultRepository.cs" />
     <Compile Include="Tests\ResultTest.cs" />
     <Compile Include="Tests\ParticipantTest.cs" />
+    <Compile Include="Tests\ActivityParticipantTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BAChallengeWebServices\BAChallengeWebServices.csproj">

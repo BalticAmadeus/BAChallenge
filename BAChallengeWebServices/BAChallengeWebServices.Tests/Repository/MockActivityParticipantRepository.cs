@@ -1,18 +1,19 @@
 ﻿using BAChallengeWebServices.DataAccess;
 using BAChallengeWebServices.DataTransferModels;
+using BAChallengeWebServices.Models;
+using BAChallengeWebServices.Repository;
+using BAChallengeWebServices.Tests.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using BAChallengeWebServices.Models;
 
-namespace BAChallengeWebServices.Repository
+namespace BAChallengeWebServices.Tests.Repository
 {
-    public class ActivityParticipantRepository : IActivityParticipantRepository
+    public class MockActivityParticipantRepository : IActivityParticipantRepository
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly MockDbContext _dbContext;
 
-        public ActivityParticipantRepository(ApplicationDbContext dbContext)
+        public MockActivityParticipantRepository(MockDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -53,42 +54,26 @@ namespace BAChallengeWebServices.Repository
             return _dbContext.SaveChanges() > 0;
         }
 
-        public bool Modify(int activityId, int participantId, string information)
-        {
-            var activityParticipation =
-                _dbContext.ActivityParticipations.FirstOrDefault(
-                    x => x.ActivityId == activityId && x.ParticipantId == participantId);
-
-            if (activityParticipation == null)
-            {
-                return false;
-            }
-
-            activityParticipation.Information = information;
-
-            return _dbContext.SaveChanges() > 0;
-        }
-
         private ActivityParticipantModel GetActivityById(int id)
         {
             var activity = _dbContext.Activities.Find(id);
-            var activityParticipation =
-                _dbContext.ActivityParticipations.Where(y => y.ActivityId == activity.ActivityId).ToList();
+
+            var participants = _dbContext.Participants.Where(x =>
+            _dbContext.ActivityParticipations.Any(y => y.ParticipantId == x.ParticipantId && y.ActivityId == activity.ActivityId)).ToList();
 
             var participantModel = new List<ParticipantModel>();
 
-            activityParticipation.ForEach((x) =>
+            participants.ForEach((x) =>
             {
-                var participant = _dbContext.Participants.Find(x.ParticipantId);
-                var result = participant.Results.FirstOrDefault(y => y.ActivityId == id);
+                var result = x.Results.FirstOrDefault(y => y.ActivityId == id);
 
                 participantModel.Add(
                     new ParticipantModel
                     {
-                        FirstName = participant.FirstName,
-                        LastName = participant.LastName,
+                        FirstName = x.FirstName,
+                        LastName = x.LastName,
                         ParticipantId = x.ParticipantId,
-                        Information = x.Information,
+
                         Result = (result == null) ?
                         null :
                         new ResultParticipantModel
@@ -108,7 +93,7 @@ namespace BAChallengeWebServices.Repository
 
         public void Dispose()
         {
-            _dbContext.Dispose();
+            throw new NotImplementedException();
         }
     }
 }

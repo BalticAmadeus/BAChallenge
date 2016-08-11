@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BAChallengeWebServices.DataTransferModels
+﻿namespace BAChallengeWebServices.DataTransferModels
 {
     public class ParticipantModel
     {

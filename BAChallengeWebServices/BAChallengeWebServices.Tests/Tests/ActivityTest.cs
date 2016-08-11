@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Security.Cryptography.X509Certificates;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BAChallengeWebServices.Controllers;
+﻿using BAChallengeWebServices.Controllers;
 using BAChallengeWebServices.Models;
-using System.Web.Http.Results;
 using BAChallengeWebServices.Tests.DataAccess;
 using BAChallengeWebServices.Tests.Repository;
-using System.Web.Http;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Web.Http.Results;
 
 namespace BAChallengeWebServices.Tests
 {
