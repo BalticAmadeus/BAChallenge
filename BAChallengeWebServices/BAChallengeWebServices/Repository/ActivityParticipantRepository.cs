@@ -72,23 +72,23 @@ namespace BAChallengeWebServices.Repository
         private ActivityParticipantModel GetActivityById(int id)
         {
             var activity = _dbContext.Activities.Find(id);
-
-            var participants = _dbContext.Participants.Where(x =>
-            _dbContext.ActivityParticipations.Any(y => y.ParticipantId == x.ParticipantId && y.ActivityId == activity.ActivityId)).ToList();
+            var activityParticipation =
+                _dbContext.ActivityParticipations.Where(y => y.ActivityId == activity.ActivityId).ToList();
 
             var participantModel = new List<ParticipantModel>();
 
-            participants.ForEach((x) =>
+            activityParticipation.ForEach((x) =>
             {
-                var result = x.Results.FirstOrDefault(y => y.ActivityId == id);
+                var participant = _dbContext.Participants.Find(x.ParticipantId);
+                var result = participant.Results.FirstOrDefault(y => y.ActivityId == id);
 
                 participantModel.Add(
                     new ParticipantModel
                     {
-                        FirstName = x.FirstName,
-                        LastName = x.LastName,
+                        FirstName = participant.FirstName,
+                        LastName = participant.LastName,
                         ParticipantId = x.ParticipantId,
-
+                        Information = x.Information,
                         Result = (result == null) ?
                         null :
                         new ResultParticipantModel
