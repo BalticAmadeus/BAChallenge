@@ -590,7 +590,7 @@ namespace BAChallengeWebServices.DataAccess
                 LastName = "Danilevičius",
                 Results = new List<Result>
                 {
-                    new Result { ResultId = 53, ActivityId = 24, ParticipantId = 24,   Points = 6, Description = "Už gražias akis"},
+                    new Result { ResultId = 53, ActivityId = 2, ParticipantId = 24,   Points = 6, Description = "Už gražias akis"},
                     new Result { ResultId = 54, ActivityId = 7, ParticipantId = 24,   Points = 6, Description = "Už gražias akis"},
                     new Result { ResultId = 55, ActivityId = 8, ParticipantId = 24,   Points = 6, Description = "Už gražias akis"},
                     new Result { ResultId = 56, ActivityId = 15, ParticipantId = 24,   Points = 2, Description = "Už gražias akis"}
@@ -1212,6 +1212,7 @@ namespace BAChallengeWebServices.DataAccess
                     },
                 }
             });
+
             context.Participants.Add(new Participant
             {
                 ParticipantId = 68,
@@ -1271,7 +1272,7 @@ namespace BAChallengeWebServices.DataAccess
                      new Result
                     {
                         ActivityId = 15,
-                        ParticipantId = 70,
+                        ParticipantId = 71,
                          
                         Points = 2,
                         Description = "neblogai"
@@ -1279,7 +1280,7 @@ namespace BAChallengeWebServices.DataAccess
                       new Result
                     {
                         ActivityId = 18,
-                        ParticipantId = 70,
+                        ParticipantId = 71,
                          
                         Points = 2,
                         Description = "neblogai"
@@ -1922,8 +1923,10 @@ namespace BAChallengeWebServices.DataAccess
                 }
             });
 
+            context.SaveChanges();
+
             AddActivityParticipations(context);
-            
+
             base.Seed(context);
         }
 
@@ -2080,7 +2083,7 @@ namespace BAChallengeWebServices.DataAccess
                 new Tuple<int, int, string>(17, 103, null),
                 new Tuple<int, int, string>(17, 104, null),
                 new Tuple<int, int, string>(17, 105, null),
-                new Tuple<int, int, string>(17, 109, null),
+                new Tuple<int, int, string>(17, 107, null),
                 new Tuple<int, int, string>(18, 1, null),
                 new Tuple<int, int, string>(18, 2, null),
                 new Tuple<int, int, string>(18, 6, null),
