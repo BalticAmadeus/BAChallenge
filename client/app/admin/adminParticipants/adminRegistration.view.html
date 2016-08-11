@@ -7,7 +7,7 @@
             </span>
             <input type="text" class="form-control" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search">
         </div>
-        <div class="col-xs-12 admin-points-wrapper" ng-repeat="activity in vm.activitiesParticipants | filter : search">
+        <div class="col-xs-12 admin-points-wrapper" ng-if="activity.Participants.length" ng-repeat="activity in vm.activitiesParticipants | filter : search">
             <div class="activity-container">
                 <div class="activity-heading"> {{ activity.Activity.Name }}</div>
                 <div class="activity-participants-container">
@@ -18,10 +18,10 @@
                         {{ participant.LastName }}:
                         </span>
                         <br>
-                        <span>Deskriptionas</span>
+                        <span>Aprašymas</span>
                         </div>
                         <span class="glyphicon glyphicon-remove admin-points-remove-icon" aria-hidden="true" ng-click="vm.openDeleteRegisteredModal(participant.ParticipantId, activity.Activity.ActivityId)">
-                        <span class="glyphicon glyphicon-edit admin-points-remove-icon">
+                        <!-- <span class="glyphicon glyphicon-edit admin-points-remove-icon"> -->
                     </div>
                 </div>
             </div>

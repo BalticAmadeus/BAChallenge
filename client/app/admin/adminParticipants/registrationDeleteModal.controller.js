@@ -9,14 +9,14 @@
     function RegistrationDeleteModal($scope, $state, $uibModalInstance, ActivityManager) {
         var vm = this;
         vm.cancel = cancel;
-        vm.onSubmit = onSubmit;
+        vm.deleteRegisteredPeople = deleteRegisteredPeople;
 
         vm.modalInfo = $scope.$resolve.modalInfo;
 
         console.log(vm.modalInfo);
 
-        function onSubmit(activityID) {
-            ActivityManager.deleteProject(activityID).then(function(response) {
+        function deleteRegisteredPeople() {
+            ActivityManager.deleteRegisteredPerson(vm.modalInfo.participantId, vm.modalInfo.activityId).then(function(response) {
                 $uibModalInstance.dismiss();
                 $state.reload();
             })

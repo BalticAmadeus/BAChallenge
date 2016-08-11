@@ -209,6 +209,7 @@ th:not(:first-child) {
     width: 30%;
     margin: 0 auto;
     margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .activity-container {

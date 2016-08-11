@@ -36,7 +36,7 @@
                     $uibModalInstance.dismiss();
 
                 }, function(response){
-                    if(response.status == 405){
+                    if(response.status == 405 || response.status == 400){
                         vm.showError = true;
                     }
                 });

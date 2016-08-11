@@ -16,7 +16,8 @@
             deletePoints : deletePoints,
             addParticipant : addParticipant,
             deleteParticipant : deleteParticipant,
-            registerParticipant : registerParticipant
+            registerParticipant : registerParticipant,
+            deleteRegisteredPerson : deleteRegisteredPerson
         };
 
         function createProject(name, branch, date, description,
@@ -102,6 +103,10 @@
                 Information : description    
             };
             return $http.post(UrlBase.getUrl() + '/activityparticipant/', data);
+        }
+
+        function deleteRegisteredPerson(participantId, activityId){
+            return $http.delete(UrlBase.getUrl() + '/activityparticipant/'+activityId +'/'+ participantId);
         }
     };
 })();

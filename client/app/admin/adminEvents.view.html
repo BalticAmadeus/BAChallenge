@@ -7,9 +7,11 @@
                 <div class="list-group-item list-group-item-info">
                     {{activity.Name}}
                     <span class=" pull-right glyphicon glyphicon-remove activity-delete" ng-click="vm.openDeleteModal(activity)" aria-hidden="true"></span>
-                    <span class=" pull-right glyphicon glyphicon-floppy-disk activity-delete" aria-hidden="true">
-                        <a href="http://mokymaijava.northeurope.cloudapp.azure.com/api/exportexcel/{{activity.ActivityId}}"></a>
-                    </span>
+                    
+                        <a href="http://mokymaijava.northeurope.cloudapp.azure.com/api/exportexcel/{{activity.ActivityId}}">
+                            <span class=" pull-right glyphicon glyphicon-floppy-disk activity-delete" aria-hidden="true"></span>
+                        </a>
+                    
 
                     <span class=" pull-right activity-edit" ng-click="vm.openUpdateModal(activity)">Peržiūrėti/Redaguoti</span>
                 </div>
