@@ -23,7 +23,11 @@ namespace BAChallengeWebServices.Controllers
         {
             _repository = repository;
         }
-
+        /// <summary>
+        /// Function retrieves one Excel file  via ../ExcelExport/1 (GET)
+        /// </summary>
+        /// <param name="id">int, gotten from http integer request</param>
+        /// <returns>Excel file</returns>
         [ResponseType(typeof(ResultlessActivityParticipantModel))]
         [HttpGet]
         [Route("api/ExcelExport/{id}")]

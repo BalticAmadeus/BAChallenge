@@ -85,7 +85,7 @@ namespace BAChallengeWebServices.Controllers
         [Authorize]
         public IHttpActionResult Put(int id, [FromBody] Participant participant)
         {
-            return _participantRepository.Modify(id, participant) ? (IHttpActionResult) Ok() : NotFound();
+            return _participantRepository.Modify(id, participant) ? (IHttpActionResult) Ok() : BadRequest();
         }
 
         protected override void Dispose(bool disposing)

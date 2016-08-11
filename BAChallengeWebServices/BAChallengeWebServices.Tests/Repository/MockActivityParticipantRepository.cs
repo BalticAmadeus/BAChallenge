@@ -95,5 +95,10 @@ namespace BAChallengeWebServices.Tests.Repository
         {
             throw new NotImplementedException();
         }
+
+        public bool Modify(int activityId, int participantId, string information)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

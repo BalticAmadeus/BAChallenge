@@ -6,6 +6,9 @@ using BAChallengeWebServices.Models;
 
 namespace BAChallengeWebServices.DataTransferModels
 {
+    /// <summary>
+    /// Model used, to generate excel file 
+    /// </summary>
     public class ResultlessActivityParticipantModel
     {
         public virtual Activity Activity { get; set; }

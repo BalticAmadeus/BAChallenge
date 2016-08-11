@@ -18,6 +18,10 @@ namespace BAChallengeWebServices.Controllers
         {
             _exceptionRepository = exceptionRepository;
         }
+        /// <summary>
+        /// Fuction retrieves all Exceptions via ../ExceptionModel (GET)
+        /// </summary>
+        /// <returns>IHttpActionResult</returns>
         public IHttpActionResult Get()
         {
             var exception = _exceptionRepository.GetAll();

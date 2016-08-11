@@ -2,6 +2,9 @@
 
 namespace BAChallengeWebServices.DataTransferModels
 {
+    /// <summary>
+    /// Model used, for Participant GET, POST, PUT, DELETE requests
+    /// </summary>
     public class ParticipantModel
     {
         public int ParticipantId { get; set; }

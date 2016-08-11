@@ -1,5 +1,8 @@
 ﻿namespace BAChallengeWebServices.DataTransferModels
 {
+    /// <summary>
+    /// Model used, to create resultParticipant results 
+    /// </summary>
     public class ResultParticipantModel
     {
         public int ResultId { get; set; }
