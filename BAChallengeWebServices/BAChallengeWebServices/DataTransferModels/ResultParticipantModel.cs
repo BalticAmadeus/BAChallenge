@@ -1,7 +1,7 @@
 ﻿namespace BAChallengeWebServices.DataTransferModels
 {
     /// <summary>
-    /// Model used, to create resultParticipant results 
+    /// Model used, to create resultParticipant object and add created object to ParticipantModel
     /// </summary>
     public class ResultParticipantModel
     {

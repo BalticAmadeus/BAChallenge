@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BAChallengeWebServices.Models
 {
+    /// <summary>
+    /// Model used to log exceptions and store them to database
+    /// </summary>
     public class ExceptionModel
     {
         [Key]
