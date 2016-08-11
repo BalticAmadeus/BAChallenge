@@ -13,16 +13,27 @@ using OfficeOpenXml.Style;
 
 namespace BAChallengeWebServices.Utility
 {
+    /// <summary>
+    /// Excel file exporter for ActivityParticipant model.
+    /// </summary>
     public class ActivityParticipantExcelExporter
     {
         private readonly ResultlessActivityParticipantModel _activityParticipant;
         private const int HeaderRow = 5;
 
+        /// <summary>
+        /// Takes in activityParticipant object, which the exporter will parse.
+        /// </summary>
+        /// <param name="activityParticipant"></param>
         public ActivityParticipantExcelExporter(ResultlessActivityParticipantModel activityParticipant)
         {
             _activityParticipant = activityParticipant;
         }
 
+        /// <summary>
+        /// Formats to excel the activityParticipant object.
+        /// </summary>
+        /// <returns>Byte array, full of information to put into excel file</returns>
         public byte[] FormatExcelFile()
         {
             using (var excelPackage = new ExcelPackage(new MemoryStream()))
@@ -69,6 +80,12 @@ namespace BAChallengeWebServices.Utility
 
         }
 
+        /// <summary>
+        /// Creates subheader for excel worksheet at specified coordinate: formats the cell and inserts a given value.
+        /// </summary>
+        /// <param name="worksheet">ExcelWorksheet</param>
+        /// <param name="cellCoordinate">Coordinate</param>
+        /// <param name="value">Value to insert.</param>
         private static void CreateSubHeader(ExcelWorksheet worksheet, string cellCoordinate, string value)
         {
             var header = worksheet.Cells[cellCoordinate];
@@ -77,6 +94,11 @@ namespace BAChallengeWebServices.Utility
             header.Value = value;
         }
 
+        /// <summary>
+        /// Adds set borderstyle to given cell range.
+        /// </summary>
+        /// <param name="range">Cell range, to which add borders.</param>
+        /// <param name="borderStyle">Style to which set the borders.</param>
         private static void AddBorders(ExcelRange range, ExcelBorderStyle borderStyle)
         {
             range.Style.Border.Bottom.Style = borderStyle;
@@ -85,12 +107,22 @@ namespace BAChallengeWebServices.Utility
             range.Style.Border.Right.Style = borderStyle;
         }
 
+
+        /// <summary>
+        /// Centers the cells in a given cell range.
+        /// </summary>
+        /// <param name="range">Cells, which to center.</param>
         private static void CenterCells(ExcelRange range)
         {
             range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
             range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
         }
 
+        /// <summary>
+        /// Colors the given cell range according to branch (using BAChallenge various branch colors).
+        /// </summary>
+        /// <param name="range">Cells, which to color.</param>
+        /// <param name="branch">Branch, which is used to change the color accordingly/</param>
         private static void FillByBranch(ExcelRange range, ActivityBranch branch)
         {
 
