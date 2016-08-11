@@ -35,6 +35,11 @@ namespace BAChallengeWebServices.Controllers
         {
             var activityParticipant = _repository.GetById(id);
 
+            if (activityParticipant == null)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No Activity Participants found");
+            }
+
             var excelExporter = new ActivityParticipantExcelExporter(activityParticipant);
 
 

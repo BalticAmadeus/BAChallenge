@@ -1,6 +1,4 @@
-﻿using BAChallengeWebServices.DataAccess;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 using System.Web.Http;
 using System.Web.Http.Description;
 using BAChallengeWebServices.DataTransferModels;

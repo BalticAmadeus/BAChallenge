@@ -26,7 +26,13 @@ namespace BAChallengeWebServices.Repository
         public bool Insert(Participant item)
         {
             item.Results = new List<Result>();
+            if (_dbContext.Participants.Any(x => x.FirstName == item.FirstName && x.LastName == item.LastName))
+            {
+                return false;
+            }
+
             _dbContext.Participants.Add(item);
+
             return _dbContext.SaveChanges() > 0;
         }
         public bool Delete(int id)
