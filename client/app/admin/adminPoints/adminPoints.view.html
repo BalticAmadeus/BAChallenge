@@ -7,7 +7,7 @@
             </span>
             <input type="text" class="form-control" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search">
         </div>
-        <div class="col-xs-12 admin-points-wrapper" ng-if="activity.Participants.length" ng-repeat="activity in vm.activitiesParticipants | filter : search">
+        <div class="col-xs-12 admin-points-wrapper" ng-if="activity.Participants.length" ng-repeat="activity in vm.activitiesParticipants | filter : search" ng-pattern="/^[a-zA-Z]*$/">
             <div class="activity-container">
                 <div class="activity-heading"> {{ activity.Activity.Name }}</div>
                 <div class="activity-participants-container">

@@ -13,7 +13,6 @@
 
         vm.activityParticipants = [];
         vm.registeredPeople = [];
-        // vm.noParticipants = true;
 
         vm.activity = $scope.$resolve.activity;
 

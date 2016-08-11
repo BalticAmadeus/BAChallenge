@@ -5,7 +5,7 @@
             <span class="input-group-addon" id="sizing-addon2">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </span>
-            <input type="text" class="form-control" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search">
+            <input type="text" class="form-control" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search" ng-pattern="/^[a-zA-Z]*$/">
         </div>
         <div class="col-xs-12 admin-points-wrapper" ng-if="activity.Participants.length" ng-repeat="activity in vm.activitiesParticipants | filter : search">
             <div class="activity-container">

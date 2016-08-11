@@ -28,7 +28,6 @@
             return $http({
                     method: "POST",
                     url: UrlBase.getUrl() + '/token',
-                    // url: 'http://mokymaijava.northeurope.cloudapp.azure.com/api/token',
                     data: formData,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
@@ -48,13 +47,11 @@
 
         function logout() {
             AuthTokenFactory.setToken();
-            // vm.user = null;
         }
 
         function getUser() {
             if (AuthTokenFactory.getToken()) {
                 return $http.get(UrlBase.getUrl() + '/token');
-                // return $http.get('http://mokymaijava.northeurope.cloudapp.azure.com/api/token');
             } else {
                 return $q.reject({ data: 'client has no auth token' });
             }

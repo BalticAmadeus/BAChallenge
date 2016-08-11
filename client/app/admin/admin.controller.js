@@ -29,8 +29,6 @@
 
         vm.newParticipantFirstName = '';
         vm.newParticipantLastName = '';
-        // vm.points = '';
-        // vm.participant.id = '';
 
         dataFactory.getActivities()
             .then(function(activities) {
@@ -93,8 +91,6 @@
         }
 
         function addNewParticipant() {
-            // console.log(vm.newParticipantFirstName, vm.newParticipantLastName);
-
             ActivityManager.addParticipant(vm.newParticipantFirstName, vm.newParticipantLastName)
                 .then(function(response) {
                     $state.reload();
@@ -155,14 +151,8 @@
                 }
             });
 
-            // return modalInstance.result;
             modalInstance.result.then(function() {
-                // console.log('ok callback');
                 getData();
-            },function(){
-                 console.log('cancel calback');
-                getData();
-                 
             });
         };
     };

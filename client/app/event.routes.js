@@ -47,32 +47,22 @@
             .state('root.points.all', {
                 url: '/all',
                 templateUrl: 'app/points/views/pointsAll.view.html',
-                // controller: 'PointsController',
-                // controllerAs: 'vm'
             })
             .state('root.points.sports', {
                 url: '/sports',
                 templateUrl: 'app/points/views/pointsSports.view.html',
-                // controller: 'PointsController',
-                // controllerAs: 'vm'
             })                      
             .state('root.points.games', {
                 url: '/games',
                 templateUrl: 'app/points/views/pointsGames.view.html',
-                // controller: 'PointsController',
-                // controllerAs: 'vm'
             })            
             .state('root.points.brain', {
                 url: '/brain',
                 templateUrl: 'app/points/views/pointsBrain.view.html',
-                // controller: 'PointsController',
-                // controllerAs: 'vm'
             })            
             .state('root.points.team', {
                 url: '/team',
                 templateUrl: 'app/points/views/pointsTeam.view.html',
-                // controller: 'PointsController',
-                // controllerAs: 'vm'
             })
 
 

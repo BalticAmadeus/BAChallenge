@@ -261,10 +261,10 @@ th:not(:first-child) {
 }
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 @media (max-width: 1191px) and (min-width: 845px) {
-    .event-list-columns: first-child) {
+/*    .event-list-columns: first-child) {
         border-right: 1px solid rgba(0, 0, 0, 0.3);
         color:red;
-    }
+    }*/
 }
 
 .admin-points-wrapper {
@@ -454,4 +454,18 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.date-passed span:nth-child(1){
+    color: gray;
+}
+
+.event-list-columns{
+   padding-top: 40px;
+}
+
+@media (max-width: 991px){
+    .event-list-columns{
+        border: none !important;
+    }
 }

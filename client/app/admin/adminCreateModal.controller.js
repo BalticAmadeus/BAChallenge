@@ -32,8 +32,6 @@
         };
 
         vm.onSubmit = function() {
-            // var user = UserService.getUser();
-            //console.log('onSubmit');
             if ($scope.userForm.$valid) {
                 if (!!vm.newActivitytDate) {
                     var eventDate = $filter('date')(new Date(vm.newActivitytDate), 'yyyy-MM-dd');
@@ -55,9 +53,6 @@
                     .then(function(response) {
                         $uibModalInstance.dismiss();
                         $state.reload();
-                        //EventDispatcher.triggerEvent('user:accessedEditorView');
-                        ///////console.log(response.data);
-                        //$state.go('main.container.editor.layout', {id: response.data.id});
                     });
             }
         };
@@ -77,14 +72,5 @@
         $scope.open1 = function() {
             $scope.popup1.opened = true;
         };
-
-
-        $scope.submitForm = function(isValid) {
-
-            // check to make sure the form is completely valid
-            if (isValid) {
-                alert('our form is amazing');
-            }
-        }
     };
 })();

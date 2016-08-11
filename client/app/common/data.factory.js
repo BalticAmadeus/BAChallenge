@@ -17,14 +17,9 @@
 
         function getActivities() {
             return $http.get(UrlBase.getUrl() + '/activity');
-            // return $http.get('http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge/activity');
-            // return $http.get('http://mokymaijava.northeurope.cloudapp.azure.com/api/activity');
-
         };
 
         function getParticipants() {
-            // return $http.get('http://projectx.16mb.com/participant');
-
             return $http.get(UrlBase.getUrl() + '/participant');
         };
 
@@ -43,4 +38,3 @@
 
 
 
-///////http://projectx.16mb.com/participant

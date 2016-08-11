@@ -1,5 +1,5 @@
-<div class="activity-participant">
-    <span>{{ participant.FirstName }} {{ participant.LastName}}</span>
-    <span ng-if="!!participant.Result.Points">{{participant.Result.Points}} tašk.</span>
+<div class="activity-participant row">
+    <span class="col-xs-4 col-xs-offset-2">{{ participant.FirstName }} {{ participant.LastName}}</span>
+    <span class="col-xs-4" ng-if="!!participant.Result.Points">{{participant.Result.Points}} tašk.</span>
     <!-- <span>description : {{ participant.Results[0].Description}}</span> -->
 </div>

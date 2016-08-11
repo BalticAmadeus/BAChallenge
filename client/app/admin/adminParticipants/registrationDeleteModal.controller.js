@@ -13,11 +13,9 @@
 
         vm.modalInfo = $scope.$resolve.modalInfo;
 
-        console.log(vm.modalInfo);
-
         function deleteRegisteredPeople() {
             ActivityManager.deleteRegisteredPerson(vm.modalInfo.participantId, vm.modalInfo.activityId).then(function(response) {
-                $uibModalInstance.dismiss();
+                $uibModalInstance.close();
                 $state.reload();
             })
         };
@@ -28,4 +26,3 @@
     };
 })();
 
-//

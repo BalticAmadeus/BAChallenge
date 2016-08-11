@@ -12,16 +12,10 @@
         vm.editInformation = editInformation;
 
         vm.editInfo = $scope.$resolve.editInfo;
-
-        console.log(vm.editInfo);
-
         function editInformation() {
-            console.log(vm.editInfo.information);
 
             ActivityManager.editParticipantInformation(vm.editInfo.participantId, vm.editInfo.activityId, vm.editInfo.information).then(function(response) {
-                $uibModalInstance.dismiss();
-                // $state.reload();
-                // getData();
+                $uibModalInstance.close();
             })
         };
 
@@ -31,5 +25,3 @@
 
     };
 })();
-
-//
