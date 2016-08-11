@@ -7,7 +7,7 @@ using BAChallengeWebServices.Models;
 namespace BAChallengeWebServices.DataTransferModels
 {
     /// <summary>
-    /// Model used, to generate excel file 
+    /// Model used, to generate information about activities inside excel file 
     /// </summary>
     public class ResultlessActivityParticipantModel
     {

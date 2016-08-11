@@ -6,6 +6,9 @@ using System.Web;
 
 namespace BAChallengeWebServices.Models
 {
+    /// <summary>
+    /// Model used, to create ActivityParticipation object, used for ActivityParticipantController POST request
+    /// </summary>
     public class ActivityParticipation
     {
         
