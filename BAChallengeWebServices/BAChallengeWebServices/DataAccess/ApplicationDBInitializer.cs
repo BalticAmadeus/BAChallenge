@@ -1499,7 +1499,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 17,
                         ParticipantId = 81,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 17),
+                         
                         Points = 2,
                         Description = "neblogai"
                     },
@@ -1516,7 +1516,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 1,
                         ParticipantId = 82,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 1),
+                         
                         Points = 6,
                         Description = "neblogai"
                     },
@@ -1524,7 +1524,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 2,
                         ParticipantId = 82,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 2),
+                         
                         Points = 6,
                         Description = "neblogai"
                     },
@@ -1533,7 +1533,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 3,
                         ParticipantId = 82,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 3),
+                         
                         Points = 6,
                         Description = "neblogai"
                     },
@@ -1541,7 +1541,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 15,
                         ParticipantId = 82,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 15),
+                         
                         Points = 2,
                         Description = "neblogai"
                     },
@@ -1549,7 +1549,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 17,
                         ParticipantId = 82,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 17),
+                         
                         Points = 2,
                         Description = "neblogai"
                     },
@@ -1557,7 +1557,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 18,
                         ParticipantId = 82,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 18),
+                         
                         Points = 4,
                         Description = "neblogai"
                     },
@@ -1565,7 +1565,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 20,
                         ParticipantId = 82,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 20),
+                         
                         Points = 2,
                         Description = "neblogai"
                     },
@@ -1597,7 +1597,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 1,
                         ParticipantId = 85,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 1),
+                         
                         Points = 8,
                         Description = "neblogai"
                     },
@@ -1622,7 +1622,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 1,
                         ParticipantId = 87,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 1),
+                         
                         Points = 6,
                         Description = "neblogai"
                     },
@@ -1630,7 +1630,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 2,
                         ParticipantId = 87,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 2),
+                         
                         Points = 6,
                         Description = "neblogai"
                     },
@@ -1638,7 +1638,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 3,
                         ParticipantId = 87,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 3),
+                         
                         Points = 6,
                         Description = "neblogai"
                     },
@@ -1646,7 +1646,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 15,
                         ParticipantId = 87,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 15),
+                         
                         Points = 4,
                         Description = "neblogai"
                     },
@@ -1654,7 +1654,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 20,
                         ParticipantId = 87,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 20),
+                         
                         Points = 4,
                         Description = "neblogai"
                     },
@@ -1686,7 +1686,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 1,
                         ParticipantId = 90,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 1),
+                         
                         Points = 10,
                         Description = "neblogai"
                     },
@@ -1694,7 +1694,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 2,
                         ParticipantId = 90,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 2),
+                         
                         Points = 10,
                         Description = "neblogai"
                     },
@@ -1702,7 +1702,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 8,
                         ParticipantId = 90,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 8),
+                         
                         Points = 6,
                         Description = "neblogai"
                     },
@@ -1710,7 +1710,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 12,
                         ParticipantId = 90,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 12),
+                         
                         Points = 6,
                         Description = "neblogai"
                     },
@@ -1718,7 +1718,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 15,
                         ParticipantId = 90,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 15),
+                         
                         Points = 2,
                         Description = "neblogai"
                     },
@@ -1726,7 +1726,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 17,
                         ParticipantId = 90,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 17),
+                         
                         Points = 2,
                         Description = "neblogai"
                     },
@@ -1744,7 +1744,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 18,
                         ParticipantId = 91,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 18),
+                         
                         Points = 4,
                         Description = "neblogai"
                     },
@@ -1776,7 +1776,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 8,
                         ParticipantId = 94,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 8),
+                         
                         Points = 6,
                         Description = "neblogai"
                     },
@@ -1784,7 +1784,7 @@ namespace BAChallengeWebServices.DataAccess
                     {
                         ActivityId = 18,
                         ParticipantId = 94,
-                        Activity = context.Activities.FirstOrDefault(x => x.ActivityId == 18),
+                         
                         Points = 4,
                         Description = "neblogai"
                     },
