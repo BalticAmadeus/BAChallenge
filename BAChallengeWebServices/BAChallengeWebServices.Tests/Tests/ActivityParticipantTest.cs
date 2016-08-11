@@ -3,9 +3,6 @@ using BAChallengeWebServices.Models;
 using BAChallengeWebServices.Tests.DataAccess;
 using BAChallengeWebServices.Tests.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Web.Http.Results;
 
 namespace BAChallengeWebServices.Tests.Tests
@@ -17,7 +14,7 @@ namespace BAChallengeWebServices.Tests.Tests
         public void PostTest_MustReturnOk()
         {
             var controller = GetTestActivityParticipantController();
-            ActivityParticipation postActivityParticipation = new ActivityParticipation()
+            var postActivityParticipation = new ActivityParticipation()
             {
                 ActivityParticipationId = 3,
                 ActivityId = 2,

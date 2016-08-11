@@ -1,5 +1,4 @@
-﻿using BAChallengeWebServices.DataAccess;
-using BAChallengeWebServices.DataTransferModels;
+﻿using BAChallengeWebServices.DataTransferModels;
 using BAChallengeWebServices.Models;
 using BAChallengeWebServices.Repository;
 using BAChallengeWebServices.Tests.DataAccess;
@@ -59,7 +58,8 @@ namespace BAChallengeWebServices.Tests.Repository
             var activity = _dbContext.Activities.Find(id);
 
             var participants = _dbContext.Participants.Where(x =>
-            _dbContext.ActivityParticipations.Any(y => y.ParticipantId == x.ParticipantId && y.ActivityId == activity.ActivityId)).ToList();
+            _dbContext.ActivityParticipations.Any(y => y.ParticipantId == x.ParticipantId &&
+            y.ActivityId == activity.ActivityId)).ToList();
 
             var participantModel = new List<ParticipantModel>();
 
