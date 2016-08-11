@@ -1921,6 +1921,8 @@ namespace BAChallengeWebServices.DataAccess
 
                 }
             });
+
+            AddActivityParticipations(context);
             
             base.Seed(context);
         }
