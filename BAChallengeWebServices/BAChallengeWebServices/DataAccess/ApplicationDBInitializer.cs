@@ -2176,8 +2176,6 @@ namespace BAChallengeWebServices.DataAccess
                     Information = row.Item3
                 });
             }
-
-            context.SaveChanges();
         }
 
     }
