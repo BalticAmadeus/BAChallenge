@@ -38,3 +38,9 @@
   * .../api/Result/{id} (X)
   * .../api/Admin/{id} (X)
 
+***
+### Used technologies/Frameworks
+1. .NET (ASP.NET - Web Api)
+2. Entity Framework
+3. Identity
+4. Owin
