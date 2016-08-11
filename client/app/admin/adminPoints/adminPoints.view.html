@@ -12,12 +12,12 @@
                 <div class="activity-heading"> {{ activity.Activity.Name }}</div>
                 <div class="activity-participants-container">
                     <div ng-if="participant.Result" class="activity-participant" ng-repeat="participant in activity.Participants">
-                        <span>                        
+                        <p>                        
                         {{ participant.FirstName }}
                         {{ participant.LastName }}:
-                        </span>
-                        <span>{{participant.Result.Points}} tašk.</span>
-                        <span>{{participant.Result.Description}}</span>
+                        </p>
+                        <p>{{participant.Result.Points}} tašk.</p>
+                        <p>{{participant.Result.Description}}</p>
                         <!-- <span>description : {{ participant.Results[0].Description}}</span> -->
                         <span class="glyphicon glyphicon-remove admin-points-remove-icon" aria-hidden="true" ng-click="vm.deletePoints(participant.Result.ResultId)">
                     </div>

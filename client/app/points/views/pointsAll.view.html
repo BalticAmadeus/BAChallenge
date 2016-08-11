@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid points-view-container">
     <div class="input-group search-box">
         <span class="input-group-addon" id="sizing-addon2">
         <span class="glyphicon glyphicon-search" aria-hidden="true">
@@ -14,8 +14,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="participant in vm.participants | filter: search | orderBy: vm.total : true">
-                <td> {{$index + 1}}. {{participant.FirstName}} {{participant.LastName}}</td>
+            <tr ng-repeat="participant in vm.participants | filter: search | orderBy: vm.total : true" ng-init="idx = $index+1">
+                <td> {{idx}}. {{participant.FirstName}} {{participant.LastName}}</td>
                 <td>{{ vm.total(participant) }}</td>
             </tr>
         </tbody>

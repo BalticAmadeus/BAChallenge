@@ -30,15 +30,19 @@
 
 .events-image > img {
     width: 100%;
-    height: auto;
+    height: 20vw;
 }
 
 .events-list-container {
     margin-top: 20px;
     padding-bottom: 50px;
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
+    padding: 0 10% 5% 10%;
     text-align: center;
+    background-image: url("http://www.baltic-amadeus.lt/images/bg-mountains.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .events-list-container span {
@@ -166,7 +170,6 @@
     border-bottom-left-radius: 0;
 }
 
-
 .points-list {
     font-size: 1.5em;
     margin: 0 auto;
@@ -256,6 +259,13 @@ th:not(:first-child) {
         width: 60%;
     }
 }
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media (max-width: 1191px) and (min-width: 845px) {
+    .event-list-columns: first-child) {
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+        color:red;
+    }
+}
 
 .admin-points-wrapper {
     width: 51%;
@@ -269,6 +279,17 @@ th:not(:first-child) {
 
 .admin-points-container {
     padding-top: 50px;
+}
+
+.points-container {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.points-view-container {
+    background-image: url("http://www.baltic-amadeus.lt/images/bg-mountains.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .add-participant-button {
@@ -338,11 +359,99 @@ th:not(:first-child) {
 }
 
 .participant-list-container-animate {
-    max-height: 200px;
+    max-height: 1000px;
 }
 
 @media (max-width: 780px) {
     .list-group-horizontal .list-group-item {
         display: block;
     }
+}
+
+
+/* .event-list-columns{
+    border-left:1px solid black;
+ }*/
+
+.event-list-columns:not(:last-child) {
+    border-right: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.row.match-my-cols [class*="col-"] {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+.row.match-my-cols {
+    overflow: hidden;
+}
+
+footer {
+    text-align: center;
+    height: 80px;
+    font-size: 1em;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding-top: 15px;
+}
+
+
+/*.header-text h1 {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 4vw;
+    letter-spacing: 4px;
+    border: 4px solid white;
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto;
+    font-weight: bold;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header-text {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+/*.parent {
+
+}
+
+.child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+*/
+
+.header-container {
+    position: relative;
+}
+
+.header-text h1 {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 4vw;
+    letter-spacing: 4px;
+    border: 4px solid white;
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.header-text {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

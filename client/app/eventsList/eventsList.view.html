@@ -1,18 +1,14 @@
 <!-- <h2>eventsList</h2> -->
 <div class="content-container">
-    <div class="events-image">
-        <img src="images/image1.jpg">
-    </div>
-    <div class="container events-list-container">
-        <div class="row">
+    <div class="header-container events-image">
+        <div class="header-text">
             <h1>Artimiausi renginiai</h1>
-            <div class="backend-buttons">
-                <button class="btn btn-primary" ng-click="vm.switchToPhp()">php</button>
-                <button class="btn btn-primary" ng-click="vm.switchToNet()">.net</button>
-                <button class="btn btn-primary" ng-click="vm.switchToJava()">java</button>
-            </div>
-            <hr>
-            <div class="col-lg-3 col-md-3 col-sm-6">
+        </div>
+        <img src="images/image2.jpg">
+    </div>
+    <div class="container events-list-container" background="http://www.baltic-amadeus.lt/images/bg-mountains.png">
+        <div class="row match-my-cols">
+            <div class="col-lg-3 col-md-3 col-sm-6 event-list-columns">
                 <h2>Sport</h2>
                 <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter : {'Branch':  'Sports'} : true ">
                     <br>
@@ -26,7 +22,7 @@
                     <br>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
+            <div class="col-lg-3 col-md-3 col-sm-6 event-list-columns">
                 <h2>Games</h2>
                 <span>{{activity.Name}}</span>
                 <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Games'}:true">
@@ -42,7 +38,7 @@
                 </div>
             </div>
             <div class="clearfix visible-sm"></div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
+            <div class="col-lg-3 col-md-3 col-sm-6 event-list-columns">
                 <h2>Brain</h2>
                 <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Brain'}:true">
                     <br>
@@ -56,7 +52,7 @@
                     <br>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
+            <div class="col-lg-3 col-md-3 col-sm-6 event-list-columns">
                 <h2>Team</h2>
                 <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Team'}:true">
                     <br>
@@ -71,4 +67,12 @@
             </div>
         </div>
     </div>
+    <footer>
+        &copy; 2016 BALTIC AMADEUS
+        <div class="backend-buttons">
+            <button class="btn btn-primary active" ng-click="vm.switchToPhp()">php</button>
+            <button class="btn btn-default" ng-click="vm.switchToNet()">.net</button>
+            <button class="btn btn-default" ng-click="vm.switchToJava()">java</button>
+        </div>
+    </footer>
 </div>

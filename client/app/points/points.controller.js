@@ -11,7 +11,7 @@
     function PointsController($scope, $filter, dataFactory) {
 
         var vm = this;
-        vm.total = total;
+        // vm.total = total;
 
         vm.activities = [];
         vm.participants = [];
@@ -30,6 +30,7 @@
                     vm.participants = participants.data;
                     // cal();
                     // vm.newObject = cal();
+                    getIndexedParticipants();
                     return vm.participants;
                 }, function(error) {
                     vm.status = 'Unable to load customer data: ' + error.message;
@@ -51,13 +52,41 @@
                 vm.status = 'Unable to load customer data: ' + error.message;
             });
 
-        function total(participant) {
-            var total = 0;
-            for (var i = 0; i < participant.Results.length; i++) {
-                total += parseInt(participant.Results[i].Points);
+
+        function getIndexedParticipants() {
+            var indexedParticipants = 0;
+            indexedParticipants = vm.participants;
+            for (var i = 0; i < indexedParticipants.length; i++) {
+                var total = 0;
+                if (indexedParticipants[i].Results.length) {
+                    for (var j = 0; j < indexedParticipants[i].Results.length; j++) {
+                        total += parseInt(indexedParticipants[i].Results[j].Points);
+                    }
+                }
+                Object.defineProperty(indexedParticipants[i], "total", {
+                    value: total,
+                    writable: true,
+                    enumerable: true,
+                    configurable: true
+                });
             }
-            return total;
+            // console.log(indexedParticipants);
+
+
+            indexedParticipants = $filter('orderBy')(indexedParticipants, total);
+            console.log(indexedParticipants);
+            // sort(function(itm1, itm2){ return itm2.teamPoints - itm1.teamPoints }) //Sort teams
+
+   // .map(function(itm, idx){ itm.index = (idx+1); return itm;  }); //assign rankings
         }
+
+        // function total(participant) {
+        //     var total = 0;
+        //     for (var i = 0; i < participant.Results.length; i++) {
+        //         total += parseInt(participant.Results[i].Points);
+        //     }
+        //     return total;
+        // }
 
         var participantsRow = [];
 

@@ -6,9 +6,9 @@
         .module('EventsApp')
         .controller('AdminController', AdminController);
 
-    AdminController.$inject = ['$scope', '$state', '$uibModal', 'dataFactory', 'ModalWindow', 'UserFactory', 'ActivityManager'];
+    AdminController.$inject = ['$scope', '$state', '$uibModal', 'dataFactory', 'ModalWindow', 'UserFactory', 'ActivityManager', 'UrlBase'];
 
-    function AdminController($scope, $state, $uibModal, dataFactory, ModalWindow, UserFactory, ActivityManager) {
+    function AdminController($scope, $state, $uibModal, dataFactory, ModalWindow, UserFactory, ActivityManager, UrlBase) {
 
         var vm = this;
         vm.openCreateModal = openCreateModal;
@@ -20,6 +20,8 @@
         vm.addNewParticipant = addNewParticipant;
         vm.deleteParticipant = deleteParticipant;
         vm.openDeleteRegisteredModal = openDeleteRegisteredModal;
+        vm.exportExcel = exportExcel;
+        vm.openEditInformationModal = openEditInformationModal;
 
         vm.activities = [];
         vm.participants = [];
@@ -127,6 +129,41 @@
             });
 
             return modalInstance.result;
+        };
+
+        function exportExcel(){
+            return UrlBase.getUrl();
+        };
+
+        function openEditInformationModal(participantId, activityId, information){
+            var modalInstance;
+            var editInfo = {
+                'participantId': participantId,
+                'activityId': activityId,
+                'information' : information
+            }
+
+            modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/admin/adminParticipants/editInformationModal.view.html',
+                controller: 'EditInformationModal',
+                controllerAs: 'vm',
+                resolve: {
+                    editInfo: function() {
+                        return editInfo;
+                    }
+                }
+            });
+
+            // return modalInstance.result;
+            modalInstance.result.then(function() {
+                // console.log('ok callback');
+                getData();
+            },function(){
+                 console.log('cancel calback');
+                getData();
+                 
+            });
         };
     };
 })();

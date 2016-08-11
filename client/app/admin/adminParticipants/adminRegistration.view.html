@@ -13,15 +13,17 @@
                 <div class="activity-participants-container">
                     <div class="activity-participant" ng-repeat="participant in activity.Participants">
                         <div>
-                            <span>                        
+                        <span>  
+                        <b>                   
                         {{ participant.FirstName }}
                         {{ participant.LastName }}:
+                        </b>   
                         </span>
-                        <br>
-                        <span>Aprašymas</span>
+                            <br>
+                            <span>{{participant.Information}}</span>
                         </div>
-                        <span class="glyphicon glyphicon-remove admin-points-remove-icon" aria-hidden="true" ng-click="vm.openDeleteRegisteredModal(participant.ParticipantId, activity.Activity.ActivityId)">
-                        <!-- <span class="glyphicon glyphicon-edit admin-points-remove-icon"> -->
+                        <span class="glyphicon glyphicon-remove admin-points-remove-icon" aria-hidden="true" ng-click="vm.openDeleteRegisteredModal(participant.ParticipantId, activity.Activity.ActivityId)"></span>
+                        <span class="glyphicon glyphicon-edit admin-points-remove-icon " aria-hidden="true" ng-click="vm.openEditInformationModal(participant.ParticipantId, activity.Activity.ActivityId, participant.Information)"></span>
                     </div>
                 </div>
             </div>

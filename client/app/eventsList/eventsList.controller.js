@@ -58,7 +58,7 @@
 
         function switchToJava() {
             // var url = 'http://mokymaijava.northeurope.cloudapp.azure.com/api';
-            var url = 'http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge/';
+            var url = 'http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge';
             UserFactory.logout();
             UrlBase.setUrl(url);
             getActivitiesData();
