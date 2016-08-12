@@ -28,6 +28,10 @@ namespace BAChallengeWebServices.Repository
 
         public bool Insert(Activity item)
         {
+            if (item.Date < item.RegistrationDate)
+            {
+                return false;
+            }
             _dbContext.Activities.Add(item);
             return _dbContext.SaveChanges() > 0;
         }

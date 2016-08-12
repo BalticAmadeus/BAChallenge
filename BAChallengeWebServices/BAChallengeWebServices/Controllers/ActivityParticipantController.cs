@@ -61,7 +61,7 @@ namespace BAChallengeWebServices.Controllers
         /// <param name="participantId"></param>
         /// <returns></returns>
         [ResponseType(typeof(IHttpActionResult))]
-        [HttpPost]
+        [HttpDelete]
         [Route("api/ActivityParticipant/{activityId}/{participantId}")]
         [Authorize]
         public IHttpActionResult Delete(int activityId, int participantId)
@@ -81,9 +81,9 @@ namespace BAChallengeWebServices.Controllers
         [HttpPut]
         [Route("api/ActivityParticipant/{activityId}/{participantId}")]
         [Authorize]
-        public IHttpActionResult Put(int activityId, int participantId, [FromBody] string information)
+        public IHttpActionResult Put(int activityId, int participantId, [FromBody] dynamic data)
         {
-            return _activityParticipantRepository.Modify(activityId, participantId, information)
+            return _activityParticipantRepository.Modify(activityId, participantId, data.Information.ToString())
                 ? (IHttpActionResult) Ok()
                 : NotFound();
         }
