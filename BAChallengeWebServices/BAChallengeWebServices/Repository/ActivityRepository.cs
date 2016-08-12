@@ -35,10 +35,15 @@ namespace BAChallengeWebServices.Repository
         public bool Delete(int id)
         {
             var foundActivity = _dbContext.Activities.Find(id);
-            if (foundActivity != null)
+            if (foundActivity == null)
             {
-                _dbContext.Activities.Remove(foundActivity);
+                return false;
             }
+            _dbContext.Activities.Remove(foundActivity);
+            _dbContext.Results.RemoveRange(_dbContext.Results.Where(x => x.ActivityId == foundActivity.ActivityId));
+            _dbContext.ActivityParticipations.RemoveRange(
+                _dbContext.ActivityParticipations.Where(x => x.ActivityId == foundActivity.ActivityId));
+
             return _dbContext.SaveChanges() > 0;
         }
 
