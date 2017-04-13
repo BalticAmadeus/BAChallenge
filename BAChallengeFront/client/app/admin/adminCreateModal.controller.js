@@ -17,6 +17,7 @@
         vm.eventHours = '';
         vm.eventMinutes = '';
         vm.newActivityDescription = '';
+        vm.newActivityGoal = '';
         vm.newActivityRegistrationDate = '';
         vm.eventRegistrationHours = '';
         vm.eventRegistrationMinutes = '';
@@ -48,7 +49,7 @@
                 }
 
                 ActivityManager.createProject(vm.newActivityName,
-                        vm.newActivityBranch, filteredEventDate, vm.newActivityDescription,
+                        vm.newActivityBranch, filteredEventDate, vm.newActivityDescription, vm.newActivityGoal,
                         filteredEventRegistrationDate, vm.newActivityLocation, vm.newActivityRegistrationUrl)
                     .then(function(response) {
                         $uibModalInstance.dismiss();

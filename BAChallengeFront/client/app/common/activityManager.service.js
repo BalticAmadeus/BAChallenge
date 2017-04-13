@@ -21,13 +21,14 @@
             editParticipantInformation : editParticipantInformation
         };
 
-        function createProject(name, branch, date, description,
+        function createProject(name, branch, date, description, goal,
             registrationDate, location, registrationUrl) {
             var requestData = {
                 Name: name,
                 Branch: branch,
                 Date: date,
                 Description: description,
+                Goal: goal,
                 Location: location,
                 RegistrationDate: registrationDate,
                 RegistrationUrl: registrationUrl
@@ -41,7 +42,7 @@
             return $http.delete(UrlBase.getUrl() + '/activity/' + activityID);
         };
 
-        function updateProject(activityID, name, branch, date, description,
+        function updateProject(activityID, name, branch, date, description, goal,
             registrationDate, location, registrationUrl) {
 
             var data = {
@@ -49,6 +50,7 @@
                 Branch: branch,
                 Date: date,
                 Description: description,
+                Goal: goal,
                 Location: location,
                 RegistrationDate: registrationDate,
                 RegistrationUrl: registrationUrl

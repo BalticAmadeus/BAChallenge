@@ -15,10 +15,13 @@
         <div class="form-group">
             <label for="branch" class="control-label col-xs-2">Kategorija</label>
             <div class="col-xs-10">
-                <input  type="text" 
-                        name="branch" 
-                        class="form-control" 
-                        ng-model="vm.activityBranch">
+                <select class="form-control" name="branch" ng-model="vm.activityBranch" required>
+                          <option value="" selected hidden />
+                          <option value="Seno">Seno</option>
+                          <option value="Savo">Savo</option>
+                          <option value="Naujo">Naujo</option>
+                          <option value="Melyno">Mėlyno</option>
+                </select>
             </div>
         </div>
         <div class="form-group">
@@ -37,6 +40,15 @@
                         type="text" 
                         class="form-control"
                         ng-model="vm.activityDescription">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="goal" class="control-label col-xs-2">Tikslas</label>
+            <div class="col-xs-10">
+                <input  name="goal" 
+                        type="text" 
+                        class="form-control"
+                        ng-model="vm.activityGoal">
             </div>
         </div>
         <div class="form-group">

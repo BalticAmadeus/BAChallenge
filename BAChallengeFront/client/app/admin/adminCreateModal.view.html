@@ -21,10 +21,10 @@
             <div class="col-xs-10" ng-class="{ 'has-error' : userForm.branch.$invalid && !userForm.branch.$pristine }">
                 <select class="form-control" name="branch" ng-model="vm.newActivityBranch" required>
                           <option value="" selected hidden />
-                          <option value="Team">Sports</option>
-                          <option value="Games">Games</option>
-                          <option value="Brain">Brain</option>
-                          <option value="Team">Team</option>
+                          <option value="Seno">Seno</option>
+                          <option value="Savo">Savo</option>
+                          <option value="Naujo">Naujo</option>
+                          <option value="Melyno">Mėlyno</option>
                 </select>
                 <p ng-show="userForm.branch.$invalid && !userForm.branch.$pristine" class="help-block">Būtina laukas</p>
             </div>
@@ -54,6 +54,12 @@
             <label for="description" class="control-label col-xs-2">Aprašymas</label>
             <div class="col-xs-10">
                 <input name="description" type="text" class="form-control" id="inputPassword" value="{{vm.activity.Description}}" ng-model="vm.newActivityDescription">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="goal" class="control-label col-xs-2">Tikslas</label>
+            <div class="col-xs-10">
+                <input name="goal" type="text" class="form-control" id="inputPassword" value="{{vm.activity.Goal}}" ng-model="vm.newActivityGoal">
             </div>
         </div>
         <div class="form-group">
