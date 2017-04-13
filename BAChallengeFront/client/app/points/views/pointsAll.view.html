@@ -1,0 +1,28 @@
+<div class="container-fluid points-view-container">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4 col-md-8 col-md-offset-2">
+            <div class="input-group search-box">
+                <span class="input-group-addon" id="sizing-addon2">
+        <span class="glyphicon glyphicon-search" aria-hidden="true">
+        </span>
+                </span>
+                <input type="text" class="form-control" placeholder="Vardas Pavardė" aria-describedby="sizing-addon2" ng-model="search" ng-pattern="/^[a-zA-Z]*$/">
+            </div>
+            <table class="table table-hover results-table-all">
+                <thead>
+                    <tr>
+                        <th>Darbuotojas</th>
+                        <th>Taškai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="participant in vm.newObject | filter : search">
+                        <!-- getIndexedParticipants() -->
+                        <td> {{participant.id}}. {{participant.FirstName}} {{participant.LastName}}</td>
+                        <td>{{participant.total}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

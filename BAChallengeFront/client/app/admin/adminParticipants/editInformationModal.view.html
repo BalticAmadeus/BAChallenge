@@ -1,0 +1,15 @@
+<div>
+	<div class="modal-header">
+		<h3 class="modal-title">
+		Pakeisti dalyvio inormaciją
+		</h3>
+		<!-- {{vm.modalInfo.participantId}} -->
+		<!-- {{vm.information}} -->
+		<input type="text" class="form-control" ng-model="vm.editInfo.information">
+	</div>
+
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="submit" ng-click="vm.editInformation()">Tikrai taip</button>
+		<button class="btn btn-danger" type="button" ng-click="vm.cancel()">Atšaukti</button>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<h3>taskai</h3>
+<br>
+<div class="container-fluid">
+    <div class="logout-button">
+        <button class="btn btn-primary pull-right" ng-click="vm.logout()">Logout</button>
+    </div>
+    <h3>Administratorius</h3>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 text-center">
+            <div class="list-group list-group-horizontal points-list">
+                <a ui-sref-active="active" ui-sref=".events" class="list-group-item">Renginiai</a>
+                <a ui-sref-active="active" ui-sref=".points" class="list-group-item">Taškai</a>
+                <a ui-sref-active="active" ui-sref=".participants" class="list-group-item">Dalyviai</a>
+                <a ui-sref-active="active" ui-sref=".registration" class="list-group-item">Registracija</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

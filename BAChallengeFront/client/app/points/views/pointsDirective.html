@@ -1,0 +1,7 @@
+<div class="container-fluid">
+    <div class="row">
+        <div ng-if="!!activity.Participants.length" class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3 activity-wrapper" ng-repeat="activity in activityArray | filter:{Activity:{Branch: activityType }}:true">
+            <participant-list-dir participants="activity.Participants" activity-name="activity.Activity.Name "></participant-list-dir>
+        </div>
+    </div>
+</div>

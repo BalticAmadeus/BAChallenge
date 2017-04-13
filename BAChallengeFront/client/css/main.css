@@ -1,0 +1,478 @@
+/**{
+    transition: all 0.3s ease;
+}*/
+
+.header-brand {
+    margin-top: -6px
+}
+
+.header-brand > img {
+    height: 35px;
+    width: 70px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.content-container {
+    padding-top: 50px;
+}
+
+.content-container > .logout-button {
+    margin-top: 20px;
+    width: 100%;
+    height: 20px;
+}
+
+
+/*events*/
+
+.events-image > img {
+    width: 100%;
+    height: 20vw;
+}
+
+.events-list-container {
+    margin-top: 20px;
+    padding-bottom: 50px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 10% 5% 10%;
+    text-align: center;
+    background-image: url("http://www.baltic-amadeus.lt/images/bg-mountains.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.events-list-container span {
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.events-list-container span:nth-child(1) {
+    text-decoration: none;
+    font-size: 1.7em;
+    color: rgb(51, 122, 183);
+}
+
+
+/* modal*/
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+/**/
+
+.navbar {
+    border-radius: 0px;
+}
+
+
+/*admin*/
+
+.admin-list-container .admin-add-button {
+    font-size: 2em;
+    text-align: center;
+}
+
+.admin-list-container {
+    /*width: 45%;*/
+    /*margin: 0 auto;*/
+    text-align: left;
+}
+
+.admin-list-container div {
+    font-size: 19px;
+    ;
+    border: 1px solid #fff;
+    margin-bottom: 10px;
+}
+
+.admin-add-button {
+    margin-bottom: 10px;
+}
+
+.admin-list-container div span {
+    font-size: 0.8em;
+}
+
+
+/*.admin-list-container button:hover > span{
+  display: block;
+}
+*/
+
+.activity-delete {
+    padding-left: 10px;
+    position: relative;
+    top: 6px;
+}
+
+.activity-edit {
+    position: relative;
+    top: 2px;
+}
+
+.activity-delete:hover {
+    cursor: pointer;
+}
+
+.activity-edit:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.login-container {
+    margin-top: 80px;
+    width: 100%;
+}
+
+
+/**/
+
+
+/*points*/
+
+.list-group-horizontal .list-group-item {
+    display: inline-block;
+}
+
+.list-group-horizontal .list-group-item {
+    margin-left: -7px;
+    padding: 15px 30px 15px 30px;
+}
+
+.list-group-horizontal .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+}
+
+.list-group-horizontal .list-group-item:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+}
+
+.points-list {
+    font-size: 1.5em;
+    margin: 0 auto;
+}
+
+/*.results-table {
+    margin-top: 50px;
+    font-size: 1.3em;
+}*/
+
+/*.results-table-all {
+    max-width: 30%;
+    margin: 0 auto;
+}*/
+
+
+/*tbody tr{
+  text-align: center;
+}*/
+
+td:not(:first-child) {
+    text-align: center;
+}
+
+th:not(:first-child) {
+    text-align: center;
+}
+
+
+/**/
+
+
+/***/
+
+.table-hover>tbody>tr:hover {
+    background-color: rgba(51, 122, 183, 0.2);
+}
+
+.search-box {
+    /*width: 30%;*/
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.activity-container {
+    border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.activity-heading {
+    padding: 15px 0;
+    background-color: rgba(51, 122, 183, 0.8);
+    color: white;
+    font-size: 1.3em;
+}
+
+.activity-heading:hover {
+    cursor: pointer;
+}
+
+.activity-participant {
+    padding: 10px 0;
+    font-size: 1.2em;
+}
+
+.activity-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 1200px) {
+    .activity-wrapper:nth-child(5n) {
+        clear: left;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    .activity-wrapper:nth-child(4n) {
+        clear: left;
+    }
+/*    .results-table-all {
+        max-width: 60%;
+    }*/
+/*    .search-box {
+        width: 60%;
+    }*/
+}
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media (max-width: 1191px) and (min-width: 845px) {
+    /*    .event-list-columns: first-child) {
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+        color:red;
+    }*/
+}
+
+.admin-points-wrapper {
+    /*width: 51%;*/
+    margin-bottom: 50px;
+    /*left: 25%;*/
+}
+
+.points-form {
+    margin: 15px 0 20px 0;
+}
+
+.admin-points-container {
+    padding-top: 50px;
+}
+
+.points-container {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.points-view-container {
+    background-image: url("http://www.baltic-amadeus.lt/images/bg-mountains.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.add-participant-button {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.add-participant-input-group {
+    width: 100%;
+}
+
+.add-participant-input-group .add-participant-input {
+    width: 100%;
+}
+
+.admin-points-remove-icon:hover {
+    cursor: pointer;
+}
+
+.backend-buttons {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.input-group[class*=col-] {
+    float: left;
+    margin-left: 15px;
+}
+
+.time-input-container {
+    display: inline-block;
+    width: 48%;
+    padding: 0 5px;
+}
+
+.time-input {
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    .time-input-container {
+        display: inline-block;
+        width: 48%;
+    }
+/*    .results-table-all {
+        max-width: 100%;
+    }*/
+    .search-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1100px) and (min-width: 500px) {
+/*    .results-table-all {
+        max-width: 60%;
+    }*/
+    .search-box {
+        width: 95%;
+    }
+}
+
+.participant-list-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease;
+}
+
+.participant-list-container-animate {
+    max-height: 1000px;
+}
+
+@media (max-width: 780px) {
+    .list-group-horizontal .list-group-item {
+        display: block;
+    }
+}
+
+
+/* .event-list-columns{
+    border-left:1px solid black;
+ }*/
+
+.event-list-columns:not(:last-child) {
+    border-right: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.row.match-my-cols [class*="col-"] {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+.row.match-my-cols {
+    overflow: hidden;
+}
+
+footer {
+    text-align: center;
+    height: 80px;
+    font-size: 1em;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding-top: 15px;
+}
+
+
+/*.header-text h1 {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 4vw;
+    letter-spacing: 4px;
+    border: 4px solid white;
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto;
+    font-weight: bold;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header-text {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+/*.parent {
+
+}
+
+.child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+*/
+
+.header-container {
+    position: relative;
+}
+
+.header-text h1 {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 4vw;
+    letter-spacing: 4px;
+    border: 4px solid white;
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.header-text {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.date-passed span:nth-child(1) {
+    color: gray;
+}
+
+.event-list-columns {
+    padding-top: 40px;
+}
+
+@media (max-width: 991px) {
+    .event-list-columns {
+        border: none !important;
+    }
+    .admin-list-container div{
+        font-size:15px;
+    }
+}

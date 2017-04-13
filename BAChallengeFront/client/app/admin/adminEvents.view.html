@@ -1,0 +1,22 @@
+<div class="container-fluid text-center content-container">
+    <h1>Renginiai</h1>
+    <div class="admin-list-container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+                <div class="list-group">
+                    <button ng-click="vm.openCreateModal(activity)" type="button" class="list-group-item list-group-item-info admin-add-button">&plus;</button>
+                    <div ng-repeat="activity in vm.activities | orderBy : 'Name'">
+                        <div class="list-group-item list-group-item-info">
+                            {{activity.Name}}
+                            <span class=" pull-right glyphicon glyphicon-remove activity-delete" ng-click="vm.openDeleteModal(activity)" aria-hidden="true"></span>
+                            <a href="{{vm.exportExcel()}}/excelexport/{{activity.ActivityId}}">
+                                <span class=" pull-right glyphicon glyphicon-floppy-disk activity-delete" aria-hidden="true"></span>
+                            </a>
+                            <span class=" pull-right activity-edit" ng-click="vm.openUpdateModal(activity)">Peržiūrėti/Redaguoti</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

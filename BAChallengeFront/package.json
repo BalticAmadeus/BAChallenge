@@ -1,0 +1,21 @@
+{
+  "name": "ba",
+  "version": "1.0.0",
+  "description": "desc",
+  "main": "webServer.js",
+  "scripts": {
+    "test": "none"
+  },
+  "dependencies": {
+    "bower": "^1.7.7",
+    "express": "^4.13.4"
+  },
+  "author": "Agne",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-webserver": "^0.9.1"
+  }
+}

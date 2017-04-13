@@ -1,0 +1,24 @@
+<!-- <h3>team</h3>
+<div class="bs-example">
+    <table class="table table-hover results-table">
+        <thead>
+            <tr>
+                <th>Darbuotojas</th>
+                <th ng-repeat="activity in vm.newObject.activities">
+                    {{activity.name}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="participant in vm.newObject.participants">
+                <td>{{participant.participantName}}</td>
+                <th ng-repeat="result in participant.result">
+                    {{result.points}}
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<div ui-view class="tab-content"></div> -->
+<points-dir activity-array="vm.activitiesParticipants" activity-type="Team"></points-dir>

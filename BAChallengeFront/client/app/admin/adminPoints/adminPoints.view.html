@@ -1,0 +1,51 @@
+<div class="container-fluid admin-points-container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+            <!-- <input type="text" class="form-control admin-points-search" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search"> -->
+            <div class="input-group search-box">
+                <span class="input-group-addon" id="sizing-addon2">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </span>
+                <input type="text" class="form-control" placeholder="Renginys" aria-describedby="sizing-addon2" ng-model="search">
+            </div>
+            <div class="col-xs-12 admin-points-wrapper" ng-if="activity.Participants.length" ng-repeat="activity in vm.activitiesParticipants | filter : search" ng-pattern="/^[a-zA-Z]*$/">
+                <div class="activity-container">
+                    <div class="activity-heading"> {{ activity.Activity.Name }}</div>
+                    <div class="activity-participants-container">
+                        <div ng-if="participant.Result" class="activity-participant" ng-repeat="participant in activity.Participants">
+                            <p>
+                                {{ participant.FirstName }} {{ participant.LastName }}:
+                            </p>
+                            <p>{{participant.Result.Points}} tašk.</p>
+                            <p>{{participant.Result.Description}}</p>
+                            <!-- <span>description : {{ participant.Results[0].Description}}</span> -->
+                            <span class="glyphicon glyphicon-remove admin-points-remove-icon" aria-hidden="true" ng-click="vm.deletePoints(participant.Result.ResultId)"></span>
+                    </div>
+                    <form class="points-form">
+                        <div class="row">
+                            <div class="form-group col-xs-4 col-xs-offset-2">
+                                <label>Dalyvis</label>
+                                <select ng-model="participantId" class="form-control">
+                                    <option value="" selected hidden />
+                                    <option ng-if="!participant.Result" ng-repeat="participant in activity.Participants | orderBy : 'FirstName'" value="{{participant.ParticipantId}}">{{participant.FirstName}} {{participant.LastName}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <label>Taškai</label>
+                                <input type="text" class="form-control" placeholder="Taškai" ng-model="points">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-8 col-lg-offset-2">
+                                <label>Aprašymas</label>
+                                <input class="form-control" type="text" ng-model="description">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" ng-click="vm.addPoints(activity.Activity.ActivityId, participantId, points, description)">ok</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
