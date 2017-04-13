@@ -17,6 +17,7 @@ namespace BAChallengeWebServices.Models
         public DateTime? Date { get; set; }
         public DateTime? RegistrationDate { get; set; }
         public string Description { get; set; }
+        public string Goal { get; set; }
         [Required]
         public ActivityBranch Branch { get; set; }
         public string Location { get; set; }

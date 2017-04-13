@@ -77,7 +77,7 @@ namespace BAChallengeWebServices.Controllers
             return activities.Any() ? (IHttpActionResult) Ok(activities) : NotFound();
         }
         /// <summary>
-        /// Function retrieves all activities selected by branch via .../activity/?branch=Sports (GET)
+        /// Function retrieves all activities selected by branch via .../activity/?branch=Seno (GET)
         /// </summary>
         /// <param name="branch">ActivityBrach object, gotten from http request</param>
         /// <returns>IHttpActionResult</returns>

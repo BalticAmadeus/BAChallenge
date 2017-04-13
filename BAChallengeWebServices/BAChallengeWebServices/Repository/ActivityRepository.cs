@@ -58,6 +58,7 @@ namespace BAChallengeWebServices.Repository
             foundActivity.Branch = item.Branch;
             foundActivity.Date = item.Date;
             foundActivity.Description = item.Description;
+            foundActivity.Goal = item.Goal;
             foundActivity.Location = item.Location;
             foundActivity.Name = item.Name;
             foundActivity.RegistrationDate = item.RegistrationDate;

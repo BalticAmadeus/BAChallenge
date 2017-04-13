@@ -53,7 +53,7 @@ namespace BAChallengeWebServices.Tests
         public void GetByBranchTest_MustReturnAllActivitiesWithSameBranch()
         {
             var controller = GetTestActivityController();
-            var result = controller.Get(ActivityBranch.Sports);
+            var result = controller.Get(ActivityBranch.Melyno);
             Assert.IsInstanceOfType(result, typeof(OkNegotiatedContentResult<IList<Activity>>));
         }
         [TestMethod]
@@ -67,7 +67,7 @@ namespace BAChallengeWebServices.Tests
                 Date = DateTime.ParseExact("2016-03-12 16:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
                 RegistrationDate =
                     DateTime.ParseExact("2016-03-09 16:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
-                Branch = ActivityBranch.Sports,
+                Branch = ActivityBranch.Melyno,
                 Description = "Blank",
                 Location = "Vilnius",
                 RegistrationUrl =
@@ -87,7 +87,7 @@ namespace BAChallengeWebServices.Tests
                 Date = DateTime.ParseExact("2016-03-12 16:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
                 RegistrationDate =
                     DateTime.ParseExact("2016-03-09 16:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
-                Branch = ActivityBranch.Sports,
+                Branch = ActivityBranch.Melyno,
                 Description = "Blank",
                 Location = "Vilnius",
                 RegistrationUrl =
@@ -115,7 +115,7 @@ namespace BAChallengeWebServices.Tests
                 Date = DateTime.ParseExact("2016-03-12 16:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
                 RegistrationDate =
                     DateTime.ParseExact("2016-03-09 16:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
-                Branch = ActivityBranch.Sports,
+                Branch = ActivityBranch.Melyno,
                 Description = "Blank",
                 Location = "Vilnius",
                 RegistrationUrl =
@@ -129,7 +129,7 @@ namespace BAChallengeWebServices.Tests
                 Date = DateTime.ParseExact("2016-03-14 15:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
                 RegistrationDate =
                     DateTime.ParseExact("2016-03-11 15:30", "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
-                Branch = ActivityBranch.Sports,
+                Branch = ActivityBranch.Melyno,
                 Description = "Blank",
                 Location = "Vilnius",
                 RegistrationUrl =

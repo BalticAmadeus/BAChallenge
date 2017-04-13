@@ -2,10 +2,9 @@
 {
     public enum ActivityBranch
     {
-        Brain,
-        Sports,
-        Games,
-        Team
-
+        Seno,
+        Savo,
+        Naujo,
+        Melyno
     }
 }

@@ -129,16 +129,16 @@ namespace BAChallengeWebServices.Utility
             range.Style.Fill.PatternType = ExcelFillStyle.Solid;
             switch (branch)
             {
-                case ActivityBranch.Brain:
-                    range.Style.Fill.BackgroundColor.SetColor(Color.Khaki);
+                case ActivityBranch.Melyno:
+                    range.Style.Fill.BackgroundColor.SetColor(Color.Blue);
                     break;
-                case ActivityBranch.Games:
+                case ActivityBranch.Naujo:
                     range.Style.Fill.BackgroundColor.SetColor(Color.SeaGreen);
                     break;
-                case ActivityBranch.Sports:
+                case ActivityBranch.Savo:
                     range.Style.Fill.BackgroundColor.SetColor(Color.IndianRed);
                     break;
-                case ActivityBranch.Team:
+                case ActivityBranch.Seno:
                     range.Style.Fill.BackgroundColor.SetColor(Color.DeepSkyBlue);
                     break;
                 default:
