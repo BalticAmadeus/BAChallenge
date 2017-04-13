@@ -1,15 +1,12 @@
 <div class="content-container">
     <div class="header-container events-image">
-        <div class="header-text">
-            <h1>Artimiausi renginiai</h1>
-        </div>
-        <img src="images/image2.jpg">
+        <img src="images/challenge-img.jpg">
     </div>
     <div class="container events-list-container" background="http://www.baltic-amadeus.lt/images/bg-mountains.png">
         <div class="row match-my-cols">
             <div class="col-lg-3 col-md-3 col-sm-6 event-list-columns">
-                <h2>Sport</h2>
-                <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter : {'Branch':  'Sports'} : true " ng-class="{'date-passed' : vm.isEventPast(activity.Date)}">
+                <h2>KAŽKAS SENO</h2>
+                <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter : {'Branch':  'Seno'} : true " ng-class="{'date-passed' : vm.isEventPast(activity.Date)}">
                     <br>
                     <a ng-click="vm.openInfoModal(activity)">
                         <span>{{activity.Name}}</span>
@@ -22,9 +19,9 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 event-list-columns">
-                <h2>Games</h2>
+                <h2>KAŽKAS SAVO</h2>
                 <span>{{activity.Name}}</span>
-                <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Games'}:true" ng-class="{'date-passed' : vm.isEventPast(activity.Date)}">
+                <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Savo'}:true" ng-class="{'date-passed' : vm.isEventPast(activity.Date)}">
                     <br>
                     <a ng-click="vm.openInfoModal(activity)">
                         <span>{{activity.Name}}</span>
@@ -38,8 +35,8 @@
             </div>
             <div class="clearfix visible-sm"></div>
             <div class="col-lg-3 col-md-3 col-sm-6 event-list-columns">
-                <h2>Brain</h2>
-                <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Brain'}:true" ng-class="{'date-passed' : vm.isEventPast(activity.Date)}">
+                <h2>KAŽKAS NAUJO</h2>
+                <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Naujo'}:true" ng-class="{'date-passed' : vm.isEventPast(activity.Date)}">
                     <br>
                     <a ng-click="vm.openInfoModal(activity)">
                         <span>{{activity.Name}}</span>
@@ -52,8 +49,8 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 event-list-columns">
-                <h2>Team</h2>
-                <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Team'}:true" ng-class="{'date-passed' : vm.isEventPast(activity.Date)}">
+                <h2>KAŽKAS MĖLYNO</h2>
+                <div ng-repeat="activity in vm.activities | orderBy : 'Date' | filter:{'Branch':  'Melyno'}:true" ng-class="{'date-passed' : vm.isEventPast(activity.Date)}">
                     <br>
                     <a ng-click="vm.openInfoModal(activity)">
                         <span>{{activity.Name}}</span>
@@ -68,10 +65,10 @@
     </div>
     <footer>
         &copy; 2016 BALTIC AMADEUS
-        <div class="backend-buttons">
+        <!--<div class="backend-buttons">
             <button class="btn btn-default" ng-click="vm.switchToPhp()" ng-class="{'btn-primary active' : vm.checkApi('http://mokymaijava.northeurope.cloudapp.azure.com/api') }">php</button>
             <button class="btn btn-default" ng-click="vm.switchToNet()" ng-class="{'btn-primary active' : vm.checkApi('http://mokymainet.azurewebsites.net/api') }">.net</button>
             <button class="btn btn-default" ng-click="vm.switchToJava()" ng-class="{'btn-primary active' : vm.checkApi('http://mokymaijava.northeurope.cloudapp.azure.com/BAChallenge') }">java</button>
-        </div>
+        </div>-->
     </footer>
 </div>

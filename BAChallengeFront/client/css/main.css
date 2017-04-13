@@ -163,6 +163,10 @@
 .list-group-horizontal .list-group-item:first-child {
     border-top-right-radius: 0;
     border-bottom-left-radius: 4px;
+    height: 92px;
+    vertical-align: top;
+    line-height: 59px;
+
 }
 
 .list-group-horizontal .list-group-item:last-child {
@@ -359,7 +363,7 @@ th:not(:first-child) {
 .participant-list-container {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 1s ease;
+    /*transition: max-height 0.3s ease;*/
 }
 
 .participant-list-container-animate {

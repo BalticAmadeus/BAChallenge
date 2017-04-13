@@ -48,21 +48,21 @@
                 url: '/all',
                 templateUrl: 'app/points/views/pointsAll.view.html',
             })
-            .state('root.points.sports', {
-                url: '/sports',
-                templateUrl: 'app/points/views/pointsSports.view.html',
+            .state('root.points.seno', {
+                url: '/seno',
+                templateUrl: 'app/points/views/pointsSeno.view.html',
             })                      
-            .state('root.points.games', {
-                url: '/games',
-                templateUrl: 'app/points/views/pointsGames.view.html',
+            .state('root.points.savo', {
+                url: '/savo',
+                templateUrl: 'app/points/views/pointsSavo.view.html',
             })            
-            .state('root.points.brain', {
-                url: '/brain',
-                templateUrl: 'app/points/views/pointsBrain.view.html',
+            .state('root.points.naujo', {
+                url: '/naujo',
+                templateUrl: 'app/points/views/pointsNaujo.view.html',
             })            
-            .state('root.points.team', {
-                url: '/team',
-                templateUrl: 'app/points/views/pointsTeam.view.html',
+            .state('root.points.melyno', {
+                url: '/melynp',
+                templateUrl: 'app/points/views/pointsMelyno.view.html',
             })
 
 

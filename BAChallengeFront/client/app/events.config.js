@@ -8,10 +8,10 @@
         .config(configBlock)
         .run(run)
         .constant('apiUrl', {
-            'urlBase': 'http://mokymaijava.northeurope.cloudapp.azure.com/api' //php
+            'urlBase': 'https://testapp.baltic-amadeus.lt/BAChallengeAPI/api' //php
         }),
 
-        configBlock.$inject = ['$httpProvider'];
+    configBlock.$inject = ['$httpProvider'];
     run.$inject = ['$rootScope', '$state', 'AuthTokenFactory'];
 
 

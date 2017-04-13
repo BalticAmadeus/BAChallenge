@@ -39,9 +39,10 @@
                         return str.join("&");
                     },
                 })
-                .success(function(response) {
-                    AuthTokenFactory.setToken(response.access_token);
+                .then(function(response) {
+                    AuthTokenFactory.setToken(response.data.access_token);
                     return response;
+                }, function (response) { 
                 });
         }
 
@@ -50,6 +51,7 @@
         }
 
         function getUser() {
+                // debugger
             if (AuthTokenFactory.getToken()) {
                 return $http.get(UrlBase.getUrl() + '/token');
             } else {
