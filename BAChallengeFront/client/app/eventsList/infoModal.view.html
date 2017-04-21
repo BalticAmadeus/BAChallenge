@@ -17,7 +17,9 @@
         <i ng-if="!vm.registeredPeople.length">-</i>
         <div>
             <ul>
-                <li ng-repeat="person in vm.registeredPeople"> {{person.FirstName}} {{person.LastName}}</li>
+                <li ng-repeat="person in vm.registeredPeople"> {{person.FirstName}} {{person.LastName}}
+                    <span class="detailed-information" ng-if="person.Information"><span>&nbsp;&ndash;&nbsp;</span><small>{{person.Information}}</small></span>
+                </li>
             </ul>
         </div>
     </div>

@@ -160,7 +160,7 @@
     padding: 15px 30px 15px 30px;
 }
 
-.list-group-horizontal .list-group-item:first-child {
+.list-group-horizontal.user-points-list .list-group-item:first-child {
     border-top-right-radius: 0;
     border-bottom-left-radius: 4px;
     height: 92px;
@@ -205,6 +205,9 @@ th:not(:first-child) {
 
 /**/
 
+.detailed-information { 
+    color: #979696;
+}
 
 /***/
 
