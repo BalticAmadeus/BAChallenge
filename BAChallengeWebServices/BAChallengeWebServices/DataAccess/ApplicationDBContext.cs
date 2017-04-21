@@ -11,7 +11,7 @@ namespace BAChallengeWebServices.DataAccess
     {
         public ApplicationDbContext() : base("ApplicationContext")
         {
-            Database.SetInitializer(new ApplicationDbInitializer());
+            Database.SetInitializer<ApplicationDbContext>(null);
         }
 
         public DbSet<Activity> Activities { get; set; }

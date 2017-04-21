@@ -8,7 +8,7 @@
         .config(configBlock)
         .run(run)
         .constant('apiUrl', {
-            'urlBase': 'https://testapp.baltic-amadeus.lt/BAChallengeAPI/api' //php
+            'urlBase': '/BAChallengeAPI/api' //php
         }),
 
     configBlock.$inject = ['$httpProvider'];
