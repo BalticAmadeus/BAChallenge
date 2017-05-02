@@ -1,12 +1,11 @@
-﻿using BAChallengeWebServices.DataAccess;
-using BAChallengeWebServices.Models;
+﻿using BAChallengeWebServices.Models;
+using BAChallengeWebServices.Repository;
 using BAChallengeWebServices.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web.Http;
 using System.Web.Http.Description;
-using BAChallengeWebServices.Repository;
 
 namespace BAChallengeWebServices.Controllers
 {
@@ -20,6 +19,7 @@ namespace BAChallengeWebServices.Controllers
         {
             _activityRepository = activityRepository;
         }
+
         /// <summary>
         /// Function retrieves all Activities and all information about them via .../activity (GET)
         /// </summary>
@@ -31,8 +31,9 @@ namespace BAChallengeWebServices.Controllers
         {
             var activities = _activityRepository.GetAll();
 
-            return activities.Any() ? (IHttpActionResult) Ok(activities) :  NotFound();
+            return activities.Any() ? (IHttpActionResult)Ok(activities) : NotFound();
         }
+
         /// <summary>
         /// Function retrieves One Activity selected by id and all information about the activity. via .../activity/1 (GET)
         /// </summary>
@@ -45,8 +46,9 @@ namespace BAChallengeWebServices.Controllers
         {
             var activity = _activityRepository.GetById(id);
 
-            return activity != null ? (IHttpActionResult) Ok(activity) : NotFound();
+            return activity != null ? (IHttpActionResult)Ok(activity) : NotFound();
         }
+
         /// <summary>
         /// Function retrieves all activities selected by datetime via .../activity/?date=2016-04-22 11:30 (GET)
         /// </summary>
@@ -59,7 +61,7 @@ namespace BAChallengeWebServices.Controllers
         {
             var activities = _activityRepository.GetByDate(date);
 
-            return activities.Any() ? (IHttpActionResult) Ok(activities) : NotFound();
+            return activities.Any() ? (IHttpActionResult)Ok(activities) : NotFound();
         }
 
         /// <summary>
@@ -74,8 +76,9 @@ namespace BAChallengeWebServices.Controllers
         {
             var activities = _activityRepository.GetByLocation(location);
 
-            return activities.Any() ? (IHttpActionResult) Ok(activities) : NotFound();
+            return activities.Any() ? (IHttpActionResult)Ok(activities) : NotFound();
         }
+
         /// <summary>
         /// Function retrieves all activities selected by branch via .../activity/?branch=Seno (GET)
         /// </summary>
@@ -88,8 +91,9 @@ namespace BAChallengeWebServices.Controllers
         {
             var activities = _activityRepository.GetByBranch(branch);
 
-            return activities.Any() ? (IHttpActionResult) Ok(activities) : NotFound();
+            return activities.Any() ? (IHttpActionResult)Ok(activities) : NotFound();
         }
+
         /// <summary>
         /// Function creates one activity via .../activity (POST)
         /// </summary>
@@ -98,10 +102,10 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpPost]
         [Route("api/Activity")]
-        [Authorize]
+        [ClaimsAuthorize]
         public IHttpActionResult Post([FromBody] Activity activity)
         {
-            return _activityRepository.Insert(activity) ? (IHttpActionResult) Ok() : BadRequest();
+            return _activityRepository.Insert(activity) ? (IHttpActionResult)Ok() : BadRequest();
         }
 
         /// <summary>
@@ -112,10 +116,10 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpDelete]
         [Route("api/Activity/{id}")]
-        [Authorize]
+        [ClaimsAuthorize]
         public IHttpActionResult Delete(int id)
         {
-            return _activityRepository.Delete(id) ? (IHttpActionResult) Ok() : NotFound();
+            return _activityRepository.Delete(id) ? (IHttpActionResult)Ok() : NotFound();
         }
 
         /// <summary>
@@ -127,10 +131,10 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpPut]
         [Route("api/Activity/{id}")]
-        [Authorize]
+        [ClaimsAuthorize]
         public IHttpActionResult Put(int id, [FromBody] Activity activity)
         {
-            return _activityRepository.Modify(id, activity) ? (IHttpActionResult) Ok() : BadRequest();
+            return _activityRepository.Modify(id, activity) ? (IHttpActionResult)Ok() : BadRequest();
         }
 
         protected override void Dispose(bool disposing)
@@ -141,4 +145,3 @@ namespace BAChallengeWebServices.Controllers
         }
     }
 }
-

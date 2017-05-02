@@ -29,7 +29,7 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpPost]
         [Route("api/Admin")]
-        [Authorize]
+        [ClaimsAuthorize]
         public async Task<IHttpActionResult> Post([FromBody] AdminRegistrationModel admin)
         {
             var result = await _authRepo.RegisterUser(admin);
@@ -46,7 +46,7 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpPut]
         [Route("api/Admin")]
-        [Authorize]
+        [ClaimsAuthorize]
         public async Task<IHttpActionResult> Put([FromBody] AdminPasswordChangeModel adminPasswordChangeModel)
         {
             if (await _authRepo.ChangeUserPassword(adminPasswordChangeModel.Username,
@@ -66,7 +66,7 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpDelete]
         [Route("api/Admin")]
-        [Authorize]
+        [ClaimsAuthorize]
         public async Task<IHttpActionResult> Delete([FromBody] string username)
         {
             var errorResult = ResolveErrorMessage(await _authRepo.DeleteUser(username));

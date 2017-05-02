@@ -41,6 +41,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>true</IncludeIisSettings>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -271,6 +273,7 @@
     <Compile Include="Repository\ResultRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\AllowCrossSiteJson.cs" />
+    <Compile Include="Utility\ClaimsAuthorizeAttribute.cs" />
     <Compile Include="Utility\CustomTimeConverter.cs" />
     <Compile Include="Utility\ActivityParticipantExcelExporter.cs" />
     <Compile Include="Utility\ExceptionHandling.cs" />

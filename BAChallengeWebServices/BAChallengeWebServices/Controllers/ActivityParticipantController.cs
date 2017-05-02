@@ -63,7 +63,7 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpDelete]
         [Route("api/ActivityParticipant/{activityId}/{participantId}")]
-        [Authorize]
+        [ClaimsAuthorize]
         public IHttpActionResult Delete(int activityId, int participantId)
         {
             return _activityParticipantRepository.Delete(activityId, participantId)
@@ -80,7 +80,7 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpPut]
         [Route("api/ActivityParticipant/{activityId}/{participantId}")]
-        [Authorize]
+        [ClaimsAuthorize]
         public IHttpActionResult Put(int activityId, int participantId, [FromBody] dynamic data)
         {
             return _activityParticipantRepository.Modify(activityId, participantId, data.Information.ToString())

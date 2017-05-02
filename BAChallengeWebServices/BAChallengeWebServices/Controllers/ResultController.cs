@@ -57,7 +57,7 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpPost]
         [Route("api/Result")]
-        [Authorize]
+        [ClaimsAuthorize]
         public IHttpActionResult Post([FromBody] Result result)
         {
             return _resultRepository.Insert(result) ? (IHttpActionResult) Ok() : BadRequest();
@@ -71,7 +71,7 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpDelete]
         [Route("api/Result/{id}")]
-        [Authorize]
+        [ClaimsAuthorize]
         public IHttpActionResult Delete(int id)
         {
             return _resultRepository.Delete(id) ? (IHttpActionResult) Ok() : NotFound();
@@ -86,7 +86,7 @@ namespace BAChallengeWebServices.Controllers
         [ResponseType(typeof(IHttpActionResult))]
         [HttpPut]
         [Route("api/Result/{id}")]
-        [Authorize]
+        [ClaimsAuthorize]
         public IHttpActionResult Put(int id, [FromBody] Result result)
         {
             return _resultRepository.Modify(id, result) ? (IHttpActionResult) Ok() : NotFound();
