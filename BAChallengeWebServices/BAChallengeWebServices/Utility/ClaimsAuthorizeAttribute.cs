@@ -16,7 +16,7 @@ namespace BAChallengeWebServices.Utility
         {
             var principal = actionContext.RequestContext.Principal as ClaimsPrincipal;
 
-            if (!principal.Identity.IsAuthenticated)
+            if (principal == null || !principal.Identity.IsAuthenticated)
             {
                 actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
                 return Task.FromResult<object>(null);

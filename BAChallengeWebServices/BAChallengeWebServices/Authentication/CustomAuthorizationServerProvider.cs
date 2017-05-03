@@ -12,7 +12,6 @@ namespace BAChallengeWebServices.Authentication
     {
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
-
             await Task.Run((()=>context.Validated()));
         }
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
