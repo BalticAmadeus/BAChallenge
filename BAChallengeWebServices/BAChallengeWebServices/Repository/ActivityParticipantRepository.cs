@@ -3,6 +3,7 @@ using BAChallengeWebServices.DataTransferModels;
 using System.Collections.Generic;
 using System.Linq;
 using BAChallengeWebServices.Models;
+using System;
 
 namespace BAChallengeWebServices.Repository
 {
@@ -17,14 +18,43 @@ namespace BAChallengeWebServices.Repository
 
         public IList<ActivityParticipantModel> GetAll()
         {
-            var activityParticipants = _dbContext.Activities.ToList().Select(item =>
-            GetActivityById(item.ActivityId)).ToList();
-            return activityParticipants;
+            return GetParticipationView(-1);
         }
 
         public ActivityParticipantModel GetById(int id)
         {
-            return GetActivityById(id);
+            return GetParticipationView(id).FirstOrDefault();
+        }
+
+        private List<ActivityParticipantModel> GetParticipationView(int activityId)
+        {
+            // This is still bad, but at least it doesn't do n+1 queries (almost; TODO bring sanity to DB model)
+            var activities = _dbContext.Activities.ToList();
+            var participations = _dbContext.ActivityParticipations.ToList();
+            var participants = _dbContext.Participants.ToList();
+
+            return activities.Where(a => activityId < 0 || a.ActivityId == activityId)
+                .Select(a => new ActivityParticipantModel
+                {
+                    Activity = a,
+                    Participants = participations.Where(pt => pt.ActivityId == a.ActivityId)
+                    .Select(pt => Tuple.Create(pt, participants.Where(pc => pc.ParticipantId == pt.ParticipantId).FirstOrDefault()))
+                    .Where(t => t.Item2 != null)
+                    .Select(t => new ParticipantModel
+                    {
+                        ParticipantId = t.Item2.ParticipantId,
+                        FirstName = t.Item2.FirstName,
+                        LastName = t.Item2.LastName,
+                        Information = t.Item1.Information,
+                        Result = (t.Item2.Results == null) ? null : t.Item2.Results.Where(r => r.ActivityId == a.ActivityId)
+                            .Select(r => new ResultParticipantModel
+                            {
+                                ResultId = r.ResultId,
+                                Points = r.Points,
+                                Description = r.Description
+                            }).FirstOrDefault()
+                    }).ToList()
+                }).ToList();
         }
 
         public bool Insert(ActivityParticipation item)
@@ -65,43 +95,6 @@ namespace BAChallengeWebServices.Repository
             activityParticipation.Information = information;
 
             return _dbContext.SaveChanges() > 0;
-        }
-
-        private ActivityParticipantModel GetActivityById(int id)
-        {
-            var activity = _dbContext.Activities.Find(id);
-            var activityParticipation =
-                _dbContext.ActivityParticipations.Where(y => y.ActivityId == activity.ActivityId).ToList();
-
-            var participantModel = new List<ParticipantModel>();
-
-            activityParticipation.ForEach((x) =>
-            {
-                var participant = _dbContext.Participants.Find(x.ParticipantId);
-                var result = participant.Results.FirstOrDefault(y => y.ActivityId == id);
-
-                participantModel.Add(
-                    new ParticipantModel
-                    {
-                        FirstName = participant.FirstName,
-                        LastName = participant.LastName,
-                        ParticipantId = x.ParticipantId,
-                        Information = x.Information,
-                        Result = (result == null) ?
-                        null :
-                        new ResultParticipantModel
-                        {
-                            ResultId = result.ResultId,
-                            Description = result.Description,
-                            Points = result.Points
-                        }
-                    });
-            });
-            return new ActivityParticipantModel
-            {
-                Activity = activity,
-                Participants = participantModel
-            };
         }
 
         public void Dispose()
